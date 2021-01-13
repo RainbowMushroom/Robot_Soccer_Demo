@@ -6,6 +6,7 @@
  */ 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <string.h>
 
 #include "USART.h"
 
@@ -19,11 +20,10 @@ void USART0_init(unsigned int ubrr, uint8_t parity){
 	//Set the baud rate according to the baud rate register value calculated
 	UBRR0H = (unsigned char)(ubrr >> 8);
 	UBRR0L = (unsigned char)ubrr;
-	//DDRE &= ~(1<<PE0) //Configures PE0 / RXD0 as an input
 	
 	//Enable receiver/transmitter, receiver complete interrupts - overrides output to PE0/RXD0
-	UCSR0B |= (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
-	UCSR0C |= (1<<UMSEL0); //Enable synchronous operation
+	UCSR0B |= (1<<RXEN0)|(1<<TXEN0);//|(1<<RXCIE0);
+	//UCSR0C |= (1<<UMSEL0); //Enable synchronous operation
 	
 	//Parity setting
 	if(parity == 0){
@@ -39,10 +39,10 @@ void USART0_init(unsigned int ubrr, uint8_t parity){
 	UCSR0B &= ~(1<<UCSZ02);
 	UCSR0C |= (1<<UCSZ01) | (1<<UCSZ00);
 	
-	//Clock rising edge 
-	UCSR0C &= ~(1<<UCPOL0);
+	//Clock rising edge (only used in synchronous mode)
+	//UCSR0C &= ~(1<<UCPOL0);
 	
-	//1-stop bit
+	//1-stop bit for transmitter
 	UCSR0C &= ~(1<<USBS0);
 	
 	//Re-enable global interrupts
@@ -59,8 +59,18 @@ unsigned char USART0_receive(void){
 }
 
 //This is, again a very simple blocking implementation which may be replaced with an interrupt
-//driven solution
+//driven solution for the data register empty flag to send an interrupt
 void USART0_transmit(unsigned char data){
 	//Wait for the USART data register empty flag (goes high when UDR0 is ready)
 	while(!(UCSR0A & (1<<UDRE0)));
+	
+	//Place data in buffer which then sends it
+	UDR0 = data;
+}
+
+//This is to transmit a string through USART0
+void USART0_TxStr(char *str){
+	for(int i = 0; i < strlen(str); i++){
+		USART0_transmit(str[i]);
+	}
 }

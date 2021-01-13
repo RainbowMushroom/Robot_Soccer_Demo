@@ -10,8 +10,10 @@
 #include <avr/io.h>
 #include <stdbool.h>
 
-void USART_init(unsigned int ubrr, uint8_t parity);
+//Parity - 0 - none, 1 - odd, 2+ - even
+void USART0_init(unsigned int ubrr, uint8_t parity);
 unsigned char USART0_receive(void);
-void USART0_transmit(unsigned char);
+void USART0_transmit(unsigned char data);
+void USART0_TxStr(char *str);
 
 #endif /*USART_H_*/

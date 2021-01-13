@@ -10,10 +10,12 @@
 /*Setup PWM config settings for timer0 - Non-inverting mode */
 void PC_PWM_init_TC0(void){
 	DDRB |= (1<<DDB4); //Configure PINB4 / OC0 as output
-	//TCCR0 &= ~(1<<FOC0); //Disable force output compare
+	
 	TCCR0 |= (1<<WGM00);
 	TCCR0 &= ~(1<<WGM01); //Phase correct PWM
-	TCCR0 |= (1<<COM01) | (1<<COM00); //Non-inverting mode (SET on upcount, clear on downcount)
+	
+	TCCR0 |= (1<<COM01) | (1<<COM00); //Set OC0 when counting up, clear OC0 when counting down (non-inverting)
+	
 	TCCR0 |= (1<<CS00);
 	TCCR0 &= ~((1<<CS01) | (1<<CS02)); //No prescaled clock input
 }
@@ -25,8 +27,10 @@ void GenPC_PWM_TC0(uint8_t DutyCycle){
 	//Timer/Counter0 is an 8 bit counter (counts from 0 - 255)
 	//Assuming the counter frequency is 1MHz (1us period) overflow period is 255us
 	//DutyCycle is assumed to be a PERCENTAGE (i.e. 0-100)
+	//If Dutycycle (on %) is DutyCycle, the OFF % is 100 - DutCycle
 	if(DutyCycle >= 0 && DutyCycle <= 100){
-		uint8_t compareValue = (uint8_t)((double) DutyCycle / 100 * 255);		OCR0 = compareValue;
+		uint8_t compareValue = (uint8_t)((double)(100 - DutyCycle) / 100 * 255);
+		OCR0 = compareValue;
 	} else {
 		OCR0 = 127; //Default 50% duty cycle
 	}
@@ -35,10 +39,13 @@ void GenPC_PWM_TC0(uint8_t DutyCycle){
 /*Setup PWM config settings for timer2 - this is for INVERTING mode*/
 void PC_PWM_init_TC2(void){
 	DDRB |= (1<<DDB7); //PINB7 / OC2 configured as output
+	
 	TCCR2 |= (1<<WGM20);
 	TCCR2 &= ~(1<<WGM21); //PWM phase correct operation
+	
 	TCCR2 |= (1<<COM21);
-	TCCR2 &=  ~(1<<COM20); //Inverting PWM mode to OC2 (Clear on upcount, set on downcount)
+	TCCR2 &= ~(1<<COM20); //Clear OC2 when up-counting, Set OC2 when down-counting (inverting)
+	
 	TCCR2 &= ~((1<<CS22)|(1<<CS21));
 	TCCR2 |= (1<<CS20); //No prescaling to the clock	
 }
@@ -48,8 +55,9 @@ void GenPC_PWM_TC2(uint8_t DutyCycle){
 	//Timer/Counter2 is an 8-bit counter (0 - 255)
 	//Assuming the counter frequency is 1MHz (1us period) overflow period is 255us
 	//Dutycycle is assumed to be a PERCENTAGE
+	//If Dutycycle (on %) is DutyCycle, the OFF % is 100 - DutyCycle
 	if(DutyCycle >= 0 && DutyCycle <= 100){
-		uint8_t compareValue = (uint8_t)((double) DutyCycle / 100 * 255);
+		uint8_t compareValue = (uint8_t)((double)(100 - DutyCycle) / 100 * 255);
 		OCR2 = compareValue;
 	} else {
 		OCR2 = 127; //Default 50% duty cycle

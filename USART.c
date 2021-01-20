@@ -7,6 +7,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "USART.h"
 
@@ -53,7 +54,7 @@ void USART0_init(unsigned int ubrr, uint8_t parity){
 //Interrupt driven receive is still under construction
 unsigned char USART0_receive(void){
 	//Wait for the USART Receive complete flag
-	while(UCSR0A & (1<<RXC0));
+	while(!(UCSR0A & (1<<RXC0)));
 	//Transfer the contents of the buffer register to the output
 	return UDR0;
 }
@@ -73,4 +74,23 @@ void USART0_TxStr(char *str){
 	for(int i = 0; i < strlen(str); i++){
 		USART0_transmit(str[i]);
 	}
+}
+//Transmitting an unsigned 16-bit integer through USART0
+void USART0_TxUint(uint16_t *number){
+	//Full the character buffer
+	sprintf(buffer, "%u", *number);
+	char *p = buffer;
+	USART0_TxStr(p);
+}
+
+//Transmitting a fixed point double through USART0 (prints to 2dp)
+void USART0_TxDouble(double *number){
+	uint16_t integer_part = *number;
+	//Save the first two digits of the decimal part
+	uint16_t fractional_part = (*number - integer_part) * 100;
+	
+	//Fill the character buffer
+	sprintf(buffer, "%u.%u", integer_part, fractional_part);
+	char *p = buffer;
+	USART0_TxStr(p);
 }

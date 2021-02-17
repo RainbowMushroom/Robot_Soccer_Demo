@@ -1,0 +1,2826 @@
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ENCODER_R_OVF_ISR_vect,"ax",%progbits
+  20              		.align	2
+  21              		.global	ENCODER_R_OVF_ISR_vect
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	ENCODER_R_OVF_ISR_vect, %function
+  25              	ENCODER_R_OVF_ISR_vect:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * SOCCER ROBOT EMBEDDED CODE
+   4:main.c        ****  * VERSION 1.0
+   5:main.c        ****  * COMPILED FOR THE PsOC 5LP PROTOTYPING KIT
+   6:main.c        ****  * CY8CKIT-059 WHICH IS A CY8C5888LTI-LP097 DEVICE
+   7:main.c        ****  *
+   8:main.c        ****  * AUTHORED BY CHAY322 ET. AL. IN THE SUMMER OF 2021
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** /* TO FIND MORE ON DOUBLE BUFFERING UART SEE https://www.allaboutcircuits.com/technical-articles/ua
+  13:main.c        ****    This source is potentially useful as well https://community.cypress.com/t5/PSoC-5-3-1-MCU/UART-I
+  14:main.c        **** #include "project.h"
+  15:main.c        **** #include "encoder.h"
+  16:main.c        **** #include "robotmove.h"
+  17:main.c        **** #include "robot_ID.h"
+  18:main.c        **** #include <stdio.h>
+  19:main.c        **** #include <stdbool.h>
+  20:main.c        **** #include <string.h>
+  21:main.c        **** /* *********************************************** */
+  22:main.c        **** /* ************USER DEFINED MACROS**************** */
+  23:main.c        **** /* *********************************************** */
+  24:main.c        **** #define ENCODER_TIMER_ARRAY_SIZE 5
+  25:main.c        **** #define STR_LEN_MAX 60 //Provides an extra 12 bytes in case Zigbee writes to the input buffer faste
+  26:main.c        **** #define TRANSMISSION_STR_LENGTH 48 //Length of each completed transmitted string from the PC
+  27:main.c        **** #define ANG_V_SCALING_FACTOR 64  //Transmitted bytes for the angular velocity are scaled up by this
+  28:main.c        **** #define LIN_V_SCALING_FACTOR 2048 //Transmitted bytes for the linear velocity are scaled up by this
+  29:main.c        **** 
+  30:main.c        **** //Hardware parameters
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 2
+
+
+  31:main.c        **** #define ENCODER_COUNTS 200 //Encoder pulses generated in a full 360 rotation
+  32:main.c        **** #define WHEEL_DIAMETER 10 //Measured in centimeters
+  33:main.c        **** #define GEAR_RATIO 8 //Large gear teeth / small gear teeth.  Number of turns of the motor shaft whi
+  34:main.c        **** #define MOTOR_MAX_RPM 11600 //Motor rated operating speed.  This is the maximum angv the motor will
+  35:main.c        **** 
+  36:main.c        **** 
+  37:main.c        **** /* *********************************************** */
+  38:main.c        **** /* ***************GLOBAL VARIABLES**************** */
+  39:main.c        **** /* *********************************************** */
+  40:main.c        **** //Receive double buffering
+  41:main.c        **** //Initially buffer_1 will be pointed to by the receive pointer, and buffer 2
+  42:main.c        **** //will be pointed to by the processing buffer pointer
+  43:main.c        **** volatile char buffer_1[STR_LEN_MAX] = {};
+  44:main.c        **** volatile char buffer_2[STR_LEN_MAX]={};
+  45:main.c        **** volatile char *receiving_buffer_ptr;
+  46:main.c        **** volatile char *processing_buffer_ptr;
+  47:main.c        **** volatile uint8_t rx_buffer_size = 0;
+  48:main.c        **** 
+  49:main.c        **** //For indicating whether to start the timer or start a capture
+  50:main.c        **** volatile bool timerL_on = false;
+  51:main.c        **** volatile bool timerR_on = false;
+  52:main.c        **** 
+  53:main.c        **** //For storing multiple historic encoder timer values for accurate speed calculations
+  54:main.c        **** volatile uint16_t timerL_count[ENCODER_TIMER_ARRAY_SIZE] = {};
+  55:main.c        **** volatile uint16_t timerR_count[ENCODER_TIMER_ARRAY_SIZE] = {};
+  56:main.c        **** //Indicates which times to disregard if the timer has overflowed 
+  57:main.c        **** volatile bool timerL_overflows[ENCODER_TIMER_ARRAY_SIZE] = {};
+  58:main.c        **** volatile bool timerR_overflows[ENCODER_TIMER_ARRAY_SIZE] = {};
+  59:main.c        **** //For accessing the global arrays above
+  60:main.c        **** volatile uint8_t timerL_index = 0;
+  61:main.c        **** volatile uint8_t timerR_index = 0;
+  62:main.c        **** 
+  63:main.c        **** 
+  64:main.c        **** //For PID control
+  65:main.c        **** PID_DATA pid_linv;
+  66:main.c        **** PID_DATA pid_angv;
+  67:main.c        **** /* *********************************************** */
+  68:main.c        **** /* ***********INTERRUPT SERVICE ROUTINES********** */
+  69:main.c        **** /* *********************************************** */
+  70:main.c        **** //Encoder timer ISRS
+  71:main.c        **** 
+  72:main.c        **** /* ISR: ENCODER_R_OVF_ISR_vect
+  73:main.c        ****  * Purpose: Set the bit corresponding to the R encoder timer measurement that the timer has
+  74:main.c        ****  *          overflowed, allowing the get_velocity function to determine a speed of 0 rad/s
+  75:main.c        ****  * Modifies: bool timerR_overflows[] -  indicates which readings in timerR_count[] that didn't 
+  76:main.c        ****  *                                      measure an overflow of the counter
+  77:main.c        ****  *           uint8_t timerR_index - the index is updated
+  78:main.c        ****  *                      
+  79:main.c        ****  */
+  80:main.c        **** CY_ISR(ENCODER_R_OVF_ISR_vect){
+  28              		.loc 1 80 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  81:main.c        ****     timerR_overflows[timerR_index] = true;
+  33              		.loc 1 81 0
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 3
+
+
+  34 0000 094B     		ldr	r3, .L4
+  35 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  36 0004 1A44     		add	r2, r2, r3
+  37 0006 0121     		movs	r1, #1
+  38 0008 1171     		strb	r1, [r2, #4]
+  82:main.c        ****     if(timerR_index < ENCODER_TIMER_ARRAY_SIZE){
+  39              		.loc 1 82 0
+  40 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  41 000c DBB2     		uxtb	r3, r3
+  42 000e 042B     		cmp	r3, #4
+  43 0010 05D8     		bhi	.L2
+  83:main.c        ****         timerR_index++;
+  44              		.loc 1 83 0
+  45 0012 054A     		ldr	r2, .L4
+  46 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  47 0016 0B44     		add	r3, r3, r1
+  48 0018 DBB2     		uxtb	r3, r3
+  49 001a 1370     		strb	r3, [r2]
+  50 001c 7047     		bx	lr
+  51              	.L2:
+  84:main.c        ****     } else {
+  85:main.c        ****         timerR_index = 0;   
+  52              		.loc 1 85 0
+  53 001e 0022     		movs	r2, #0
+  54 0020 014B     		ldr	r3, .L4
+  55 0022 1A70     		strb	r2, [r3]
+  56 0024 7047     		bx	lr
+  57              	.L5:
+  58 0026 00BF     		.align	2
+  59              	.L4:
+  60 0028 00000000 		.word	.LANCHOR0
+  61              		.cfi_endproc
+  62              	.LFE64:
+  63              		.size	ENCODER_R_OVF_ISR_vect, .-ENCODER_R_OVF_ISR_vect
+  64              		.section	.text.ENCODER_L_OVF_ISR_vect,"ax",%progbits
+  65              		.align	2
+  66              		.global	ENCODER_L_OVF_ISR_vect
+  67              		.thumb
+  68              		.thumb_func
+  69              		.type	ENCODER_L_OVF_ISR_vect, %function
+  70              	ENCODER_L_OVF_ISR_vect:
+  71              	.LFB65:
+  86:main.c        ****     }
+  87:main.c        **** }
+  88:main.c        **** /* ISR: ENCODER_L_OVF_ISR_vect
+  89:main.c        ****  * Purpose: Set the bit corresponding to the R encoder timer measurement that the timer has
+  90:main.c        ****  *          overflowed, allowing the get_velocity function to determine a speed of 0 rad/s
+  91:main.c        ****  * Modifies: bool timerL_overflows[] -  indicates which readings in timerR_count[] that didn't 
+  92:main.c        ****  *                                      measure an overflow of the counter
+  93:main.c        ****  *           uint8_t timerL_index - the index is updated
+  94:main.c        ****  *                      
+  95:main.c        ****  */
+  96:main.c        **** CY_ISR(ENCODER_L_OVF_ISR_vect){
+  72              		.loc 1 96 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 4
+
+
+  76              		@ link register save eliminated.
+  97:main.c        ****     timerL_overflows[timerL_index] = true;
+  77              		.loc 1 97 0
+  78 0000 094B     		ldr	r3, .L9
+  79 0002 5A7A     		ldrb	r2, [r3, #9]	@ zero_extendqisi2
+  80 0004 1A44     		add	r2, r2, r3
+  81 0006 0121     		movs	r1, #1
+  82 0008 1173     		strb	r1, [r2, #12]
+  98:main.c        ****     if(timerL_index < ENCODER_TIMER_ARRAY_SIZE){
+  83              		.loc 1 98 0
+  84 000a 5B7A     		ldrb	r3, [r3, #9]	@ zero_extendqisi2
+  85 000c DBB2     		uxtb	r3, r3
+  86 000e 042B     		cmp	r3, #4
+  87 0010 05D8     		bhi	.L7
+  99:main.c        ****         timerL_index++;
+  88              		.loc 1 99 0
+  89 0012 054A     		ldr	r2, .L9
+  90 0014 537A     		ldrb	r3, [r2, #9]	@ zero_extendqisi2
+  91 0016 0B44     		add	r3, r3, r1
+  92 0018 DBB2     		uxtb	r3, r3
+  93 001a 5372     		strb	r3, [r2, #9]
+  94 001c 7047     		bx	lr
+  95              	.L7:
+ 100:main.c        ****     } else {
+ 101:main.c        ****         timerL_index = 0;   
+  96              		.loc 1 101 0
+  97 001e 0022     		movs	r2, #0
+  98 0020 014B     		ldr	r3, .L9
+  99 0022 5A72     		strb	r2, [r3, #9]
+ 100 0024 7047     		bx	lr
+ 101              	.L10:
+ 102 0026 00BF     		.align	2
+ 103              	.L9:
+ 104 0028 00000000 		.word	.LANCHOR0
+ 105              		.cfi_endproc
+ 106              	.LFE65:
+ 107              		.size	ENCODER_L_OVF_ISR_vect, .-ENCODER_L_OVF_ISR_vect
+ 108              		.section	.text.TX_ISR_vect,"ax",%progbits
+ 109              		.align	2
+ 110              		.global	TX_ISR_vect
+ 111              		.thumb
+ 112              		.thumb_func
+ 113              		.type	TX_ISR_vect, %function
+ 114              	TX_ISR_vect:
+ 115              	.LFB68:
+ 102:main.c        ****     }
+ 103:main.c        **** }
+ 104:main.c        **** //Encoder pin ISRS
+ 105:main.c        **** /* ISR: ENC_R_ISR_vect
+ 106:main.c        ****  * Purpose: Start the encoder timer or set the encoder capture registers to 
+ 107:main.c        ****  *          generate a timer capture, depending on which has occured first
+ 108:main.c        ****  * Modifies: bool timerL_overflows[] -  indicates which readings in timerR_count[] that didn't 
+ 109:main.c        ****  *                                      measure an overflow of the counter
+ 110:main.c        ****  *           uint8_t timerL_index - the index is updated
+ 111:main.c        ****  *                      
+ 112:main.c        ****  */
+ 113:main.c        **** CY_ISR(ENC_R_ISR_vect){
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 5
+
+
+ 114:main.c        ****     if(timerR_on){
+ 115:main.c        ****         //This marks the end of a time measurement between encoder pulses
+ 116:main.c        ****         //Force a capture on the encoder R timer and store it in the global array
+ 117:main.c        ****         timerR_count[timerR_index] = Encoder_R_Timer_ReadCounter();
+ 118:main.c        ****         //Clear the capture FIFO for the next reading
+ 119:main.c        ****         Encoder_R_Timer_ClearFIFO();
+ 120:main.c        ****         //Stop the timer until next pulse is detected
+ 121:main.c        ****         Encoder_R_Timer_Stop();
+ 122:main.c        ****         timerR_on = false;
+ 123:main.c        ****         
+ 124:main.c        ****         //Increment the timer index
+ 125:main.c        ****         if(timerR_index < ENCODER_TIMER_ARRAY_SIZE){
+ 126:main.c        ****             timerR_index++;
+ 127:main.c        ****         } else {
+ 128:main.c        ****             timerR_index = 0;   
+ 129:main.c        ****         }
+ 130:main.c        ****     } else {
+ 131:main.c        ****         //Start the timer to begin a time sample
+ 132:main.c        ****         Encoder_R_Timer_Start();
+ 133:main.c        ****         timerR_on = true;
+ 134:main.c        ****     }
+ 135:main.c        **** }
+ 136:main.c        **** 
+ 137:main.c        **** /* ISR: ENC_L_ISR_vect
+ 138:main.c        ****  * Purpose: Start the encoder timer or set the encoder capture registers to 
+ 139:main.c        ****  *          generate a timer capture, depending on which has occured first
+ 140:main.c        ****  * Modifies: bool timerL_overflows[] -  indicates which readings in timerL_count[] that didn't 
+ 141:main.c        ****  *                                      measure an overflow of the counter
+ 142:main.c        ****  *           uint8_t timerL_index - the index is updated
+ 143:main.c        ****  *                      
+ 144:main.c        ****  */
+ 145:main.c        **** CY_ISR(ENC_L_ISR_vect){
+ 146:main.c        ****     if(timerL_on){
+ 147:main.c        ****         //This marks the end of a time measurement between encoder pulses
+ 148:main.c        ****         //Force a capture on the encoder L timer and store it in the global array
+ 149:main.c        ****         timerL_count[timerL_index] = Encoder_L_Timer_ReadCounter();
+ 150:main.c        ****         //Clear the capture FIFO for the next reading
+ 151:main.c        ****         Encoder_L_Timer_ClearFIFO();
+ 152:main.c        ****         //Stop the timer until next pulse is detected
+ 153:main.c        ****         Encoder_L_Timer_Stop();
+ 154:main.c        ****         timerL_on = false;
+ 155:main.c        ****         
+ 156:main.c        ****         //Increment the timer index
+ 157:main.c        ****         if(timerL_index < ENCODER_TIMER_ARRAY_SIZE){
+ 158:main.c        ****             timerL_index++;
+ 159:main.c        ****         }  else {
+ 160:main.c        ****             timerL_index = 0;   
+ 161:main.c        ****         }
+ 162:main.c        ****     } else {
+ 163:main.c        ****         //Start the timer to begin a time sample
+ 164:main.c        ****         Encoder_L_Timer_Start();
+ 165:main.c        ****         timerL_on = true;
+ 166:main.c        ****     }
+ 167:main.c        **** }
+ 168:main.c        **** //USART ISRS
+ 169:main.c        **** /* ISR: TX_ISR_vect
+ 170:main.c        ****  * Purpose: Clear the buffer once the transmit has completed for the next transmission
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 6
+
+
+ 171:main.c        ****  * Modifies: bool timerL_overflows[] -  indicates which readings in timerL_count[] that didn't 
+ 172:main.c        ****  *                                      measure an overflow of the counter
+ 173:main.c        ****  *           uint8_t timerL_index - the index is updated
+ 174:main.c        ****  *                      
+ 175:main.c        ****  */
+ 176:main.c        **** CY_ISR(TX_ISR_vect){
+ 116              		.loc 1 176 0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		@ link register save eliminated.
+ 121 0000 7047     		bx	lr
+ 122              		.cfi_endproc
+ 123              	.LFE68:
+ 124              		.size	TX_ISR_vect, .-TX_ISR_vect
+ 125 0002 00BF     		.section	.text.ENC_R_ISR_vect,"ax",%progbits
+ 126              		.align	2
+ 127              		.global	ENC_R_ISR_vect
+ 128              		.thumb
+ 129              		.thumb_func
+ 130              		.type	ENC_R_ISR_vect, %function
+ 131              	ENC_R_ISR_vect:
+ 132              	.LFB66:
+ 113:main.c        ****     if(timerR_on){
+ 133              		.loc 1 113 0
+ 134              		.cfi_startproc
+ 135              		@ args = 0, pretend = 0, frame = 0
+ 136              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113:main.c        ****     if(timerR_on){
+ 137              		.loc 1 113 0
+ 138 0000 38B5     		push	{r3, r4, r5, lr}
+ 139              		.cfi_def_cfa_offset 16
+ 140              		.cfi_offset 3, -16
+ 141              		.cfi_offset 4, -12
+ 142              		.cfi_offset 5, -8
+ 143              		.cfi_offset 14, -4
+ 114:main.c        ****         //This marks the end of a time measurement between encoder pulses
+ 144              		.loc 1 114 0
+ 145 0002 134B     		ldr	r3, .L17
+ 146 0004 5B7C     		ldrb	r3, [r3, #17]	@ zero_extendqisi2
+ 147 0006 13F0FF0F 		tst	r3, #255
+ 148 000a 1AD0     		beq	.L13
+ 117:main.c        ****         //Clear the capture FIFO for the next reading
+ 149              		.loc 1 117 0
+ 150 000c 104D     		ldr	r5, .L17
+ 151 000e 2C78     		ldrb	r4, [r5]	@ zero_extendqisi2
+ 152 0010 E4B2     		uxtb	r4, r4
+ 153 0012 FFF7FEFF 		bl	Encoder_R_Timer_ReadCounter
+ 154              	.LVL0:
+ 155 0016 05EB4404 		add	r4, r5, r4, lsl #1
+ 156 001a A082     		strh	r0, [r4, #20]	@ movhi
+ 119:main.c        ****         //Stop the timer until next pulse is detected
+ 157              		.loc 1 119 0
+ 158 001c FFF7FEFF 		bl	Encoder_R_Timer_ClearFIFO
+ 159              	.LVL1:
+ 121:main.c        ****         timerR_on = false;
+ 160              		.loc 1 121 0
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 7
+
+
+ 161 0020 FFF7FEFF 		bl	Encoder_R_Timer_Stop
+ 162              	.LVL2:
+ 122:main.c        ****         
+ 163              		.loc 1 122 0
+ 164 0024 0023     		movs	r3, #0
+ 165 0026 6B74     		strb	r3, [r5, #17]
+ 125:main.c        ****             timerR_index++;
+ 166              		.loc 1 125 0
+ 167 0028 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 168 002a DBB2     		uxtb	r3, r3
+ 169 002c 042B     		cmp	r3, #4
+ 170 002e 04D8     		bhi	.L14
+ 126:main.c        ****         } else {
+ 171              		.loc 1 126 0
+ 172 0030 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 173 0032 0133     		adds	r3, r3, #1
+ 174 0034 DBB2     		uxtb	r3, r3
+ 175 0036 2B70     		strb	r3, [r5]
+ 176 0038 38BD     		pop	{r3, r4, r5, pc}
+ 177              	.L14:
+ 128:main.c        ****         }
+ 178              		.loc 1 128 0
+ 179 003a 0022     		movs	r2, #0
+ 180 003c 044B     		ldr	r3, .L17
+ 181 003e 1A70     		strb	r2, [r3]
+ 182 0040 38BD     		pop	{r3, r4, r5, pc}
+ 183              	.L13:
+ 132:main.c        ****         timerR_on = true;
+ 184              		.loc 1 132 0
+ 185 0042 FFF7FEFF 		bl	Encoder_R_Timer_Start
+ 186              	.LVL3:
+ 133:main.c        ****     }
+ 187              		.loc 1 133 0
+ 188 0046 0122     		movs	r2, #1
+ 189 0048 014B     		ldr	r3, .L17
+ 190 004a 5A74     		strb	r2, [r3, #17]
+ 191 004c 38BD     		pop	{r3, r4, r5, pc}
+ 192              	.L18:
+ 193 004e 00BF     		.align	2
+ 194              	.L17:
+ 195 0050 00000000 		.word	.LANCHOR0
+ 196              		.cfi_endproc
+ 197              	.LFE66:
+ 198              		.size	ENC_R_ISR_vect, .-ENC_R_ISR_vect
+ 199              		.section	.text.ENC_L_ISR_vect,"ax",%progbits
+ 200              		.align	2
+ 201              		.global	ENC_L_ISR_vect
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.type	ENC_L_ISR_vect, %function
+ 205              	ENC_L_ISR_vect:
+ 206              	.LFB67:
+ 145:main.c        ****     if(timerL_on){
+ 207              		.loc 1 145 0
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 8
+
+
+ 211 0000 38B5     		push	{r3, r4, r5, lr}
+ 212              		.cfi_def_cfa_offset 16
+ 213              		.cfi_offset 3, -16
+ 214              		.cfi_offset 4, -12
+ 215              		.cfi_offset 5, -8
+ 216              		.cfi_offset 14, -4
+ 146:main.c        ****         //This marks the end of a time measurement between encoder pulses
+ 217              		.loc 1 146 0
+ 218 0002 134B     		ldr	r3, .L24
+ 219 0004 9B7F     		ldrb	r3, [r3, #30]	@ zero_extendqisi2
+ 220 0006 13F0FF0F 		tst	r3, #255
+ 221 000a 1AD0     		beq	.L20
+ 149:main.c        ****         //Clear the capture FIFO for the next reading
+ 222              		.loc 1 149 0
+ 223 000c 104D     		ldr	r5, .L24
+ 224 000e 6C7A     		ldrb	r4, [r5, #9]	@ zero_extendqisi2
+ 225 0010 E4B2     		uxtb	r4, r4
+ 226 0012 FFF7FEFF 		bl	Encoder_L_Timer_ReadCounter
+ 227              	.LVL4:
+ 228 0016 05EB4404 		add	r4, r5, r4, lsl #1
+ 229 001a 2084     		strh	r0, [r4, #32]	@ movhi
+ 151:main.c        ****         //Stop the timer until next pulse is detected
+ 230              		.loc 1 151 0
+ 231 001c FFF7FEFF 		bl	Encoder_L_Timer_ClearFIFO
+ 232              	.LVL5:
+ 153:main.c        ****         timerL_on = false;
+ 233              		.loc 1 153 0
+ 234 0020 FFF7FEFF 		bl	Encoder_L_Timer_Stop
+ 235              	.LVL6:
+ 154:main.c        ****         
+ 236              		.loc 1 154 0
+ 237 0024 0023     		movs	r3, #0
+ 238 0026 AB77     		strb	r3, [r5, #30]
+ 157:main.c        ****             timerL_index++;
+ 239              		.loc 1 157 0
+ 240 0028 6B7A     		ldrb	r3, [r5, #9]	@ zero_extendqisi2
+ 241 002a DBB2     		uxtb	r3, r3
+ 242 002c 042B     		cmp	r3, #4
+ 243 002e 04D8     		bhi	.L21
+ 158:main.c        ****         }  else {
+ 244              		.loc 1 158 0
+ 245 0030 6B7A     		ldrb	r3, [r5, #9]	@ zero_extendqisi2
+ 246 0032 0133     		adds	r3, r3, #1
+ 247 0034 DBB2     		uxtb	r3, r3
+ 248 0036 6B72     		strb	r3, [r5, #9]
+ 249 0038 38BD     		pop	{r3, r4, r5, pc}
+ 250              	.L21:
+ 160:main.c        ****         }
+ 251              		.loc 1 160 0
+ 252 003a 0022     		movs	r2, #0
+ 253 003c 044B     		ldr	r3, .L24
+ 254 003e 5A72     		strb	r2, [r3, #9]
+ 255 0040 38BD     		pop	{r3, r4, r5, pc}
+ 256              	.L20:
+ 164:main.c        ****         timerL_on = true;
+ 257              		.loc 1 164 0
+ 258 0042 FFF7FEFF 		bl	Encoder_L_Timer_Start
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 9
+
+
+ 259              	.LVL7:
+ 165:main.c        ****     }
+ 260              		.loc 1 165 0
+ 261 0046 0122     		movs	r2, #1
+ 262 0048 014B     		ldr	r3, .L24
+ 263 004a 9A77     		strb	r2, [r3, #30]
+ 264 004c 38BD     		pop	{r3, r4, r5, pc}
+ 265              	.L25:
+ 266 004e 00BF     		.align	2
+ 267              	.L24:
+ 268 0050 00000000 		.word	.LANCHOR0
+ 269              		.cfi_endproc
+ 270              	.LFE67:
+ 271              		.size	ENC_L_ISR_vect, .-ENC_L_ISR_vect
+ 272              		.section	.text.RX_ISR_vect,"ax",%progbits
+ 273              		.align	2
+ 274              		.global	RX_ISR_vect
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.type	RX_ISR_vect, %function
+ 278              	RX_ISR_vect:
+ 279              	.LFB69:
+ 177:main.c        **** 
+ 178:main.c        ****     
+ 179:main.c        **** }
+ 180:main.c        **** /* ISR: RX_ISR_vect
+ 181:main.c        ****  * Purpose: Store characters received from UART into the receive buffer
+ 182:main.c        ****  * Modifies: char *receive_buffer_ptr[] - the input character buffer
+ 183:main.c        ****  *                                         which is either buffer_1 or buffer_2
+ 184:main.c        ****  *           uint8_t rx_buffer_size - the index of the rx buffer is updated
+ 185:main.c        ****  *                      
+ 186:main.c        ****  */
+ 187:main.c        **** CY_ISR(RX_ISR_vect){
+ 280              		.loc 1 187 0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284 0000 08B5     		push	{r3, lr}
+ 285              		.cfi_def_cfa_offset 8
+ 286              		.cfi_offset 3, -8
+ 287              		.cfi_offset 14, -4
+ 188:main.c        ****     char byte_received;
+ 189:main.c        ****     //Check for the FIFO_NOEMPTY flag which indicates the FIFO has data available to read
+ 190:main.c        ****     if(UART_ReadRxStatus() & UART_RX_STS_FIFO_NOTEMPTY){
+ 288              		.loc 1 190 0
+ 289 0002 FFF7FEFF 		bl	UART_ReadRxStatus
+ 290              	.LVL8:
+ 291 0006 10F0200F 		tst	r0, #32
+ 292 000a 0ED0     		beq	.L26
+ 191:main.c        ****         byte_received = UART_GetChar();
+ 293              		.loc 1 191 0
+ 294 000c FFF7FEFF 		bl	UART_GetChar
+ 295              	.LVL9:
+ 192:main.c        ****         receiving_buffer_ptr[rx_buffer_size] = byte_received;
+ 296              		.loc 1 192 0
+ 297 0010 064A     		ldr	r2, .L29
+ 298 0012 92F82A30 		ldrb	r3, [r2, #42]	@ zero_extendqisi2
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 10
+
+
+ 299 0016 DBB2     		uxtb	r3, r3
+ 300 0018 0549     		ldr	r1, .L29+4
+ 301 001a 0968     		ldr	r1, [r1]
+ 302 001c C854     		strb	r0, [r1, r3]
+ 193:main.c        ****         rx_buffer_size++;
+ 303              		.loc 1 193 0
+ 304 001e 92F82A30 		ldrb	r3, [r2, #42]	@ zero_extendqisi2
+ 305 0022 0133     		adds	r3, r3, #1
+ 306 0024 DBB2     		uxtb	r3, r3
+ 307 0026 82F82A30 		strb	r3, [r2, #42]
+ 308              	.LVL10:
+ 309              	.L26:
+ 310 002a 08BD     		pop	{r3, pc}
+ 311              	.L30:
+ 312              		.align	2
+ 313              	.L29:
+ 314 002c 00000000 		.word	.LANCHOR0
+ 315 0030 00000000 		.word	receiving_buffer_ptr
+ 316              		.cfi_endproc
+ 317              	.LFE69:
+ 318              		.size	RX_ISR_vect, .-RX_ISR_vect
+ 319              		.global	__aeabi_ui2d
+ 320              		.global	__aeabi_dmul
+ 321              		.section	.text.main,"ax",%progbits
+ 322              		.align	2
+ 323              		.global	main
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.type	main, %function
+ 327              	main:
+ 328              	.LFB70:
+ 194:main.c        ****     }
+ 195:main.c        **** }
+ 196:main.c        **** /* *********************************************** */
+ 197:main.c        **** /* ************USER DEFINED FUNCTIONS************* */
+ 198:main.c        **** /* *********************************************** */
+ 199:main.c        **** /* UART PROCESSING - ROBOT COMMAND PROCESSING */
+ 200:main.c        **** typedef struct{
+ 201:main.c        ****     double linv, angv;
+ 202:main.c        **** } ROBOT_COMMAND;
+ 203:main.c        **** /* *********************************************** */
+ 204:main.c        **** /* **********************MAIN********************* */
+ 205:main.c        **** /* *********************************************** */
+ 206:main.c        **** int main(void)
+ 207:main.c        **** {
+ 329              		.loc 1 207 0
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 0
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 333 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 334              		.cfi_def_cfa_offset 24
+ 335              		.cfi_offset 4, -24
+ 336              		.cfi_offset 5, -20
+ 337              		.cfi_offset 6, -16
+ 338              		.cfi_offset 7, -12
+ 339              		.cfi_offset 8, -8
+ 340              		.cfi_offset 14, -4
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 11
+
+
+ 208:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 341              		.loc 1 208 0
+ 342              		.syntax unified
+ 343              	@ 208 "main.c" 1
+ 344 0004 62B6     		CPSIE   i
+ 345              	@ 0 "" 2
+ 209:main.c        **** 
+ 210:main.c        ****     //Ensure reset lines are low initially
+ 211:main.c        ****     PWM_RESET_Write(0b00);
+ 346              		.loc 1 211 0
+ 347              		.thumb
+ 348              		.syntax unified
+ 349 0006 0020     		movs	r0, #0
+ 350 0008 FFF7FEFF 		bl	PWM_RESET_Write
+ 351              	.LVL11:
+ 212:main.c        ****     ENCODER_TMR_RESET_Write(0b00);
+ 352              		.loc 1 212 0
+ 353 000c 0020     		movs	r0, #0
+ 354 000e FFF7FEFF 		bl	ENCODER_TMR_RESET_Write
+ 355              	.LVL12:
+ 213:main.c        ****     
+ 214:main.c        ****     //Enable the USART
+ 215:main.c        ****     UART_Start();
+ 356              		.loc 1 215 0
+ 357 0012 FFF7FEFF 		bl	UART_Start
+ 358              	.LVL13:
+ 216:main.c        ****     UART_EnableRxInt();
+ 359              		.loc 1 216 0
+ 360 0016 0822     		movs	r2, #8
+ 361 0018 3C4B     		ldr	r3, .L38
+ 362 001a 1A60     		str	r2, [r3]
+ 217:main.c        ****     
+ 218:main.c        ****     //Configure the initial pointers for the USART RX isr and the main function
+ 219:main.c        ****     receiving_buffer_ptr = buffer_1;
+ 363              		.loc 1 219 0
+ 364 001c 3C4B     		ldr	r3, .L38+4
+ 365 001e 03F12C01 		add	r1, r3, #44
+ 366 0022 3C4A     		ldr	r2, .L38+8
+ 367 0024 1160     		str	r1, [r2]
+ 220:main.c        ****     processing_buffer_ptr = buffer_2;
+ 368              		.loc 1 220 0
+ 369 0026 6833     		adds	r3, r3, #104
+ 370 0028 3B4A     		ldr	r2, .L38+12
+ 371 002a 1360     		str	r3, [r2]
+ 372              	.LVL14:
+ 221:main.c        ****     uint8_t read_buffer_size = 0; //The size of the buffer the main function will read from
+ 222:main.c        ****     
+ 223:main.c        ****     //Enable and configure all interrupts
+ 224:main.c        ****     tx_isr_StartEx(TX_ISR_vect);
+ 373              		.loc 1 224 0
+ 374 002c 3B48     		ldr	r0, .L38+16
+ 375 002e FFF7FEFF 		bl	tx_isr_StartEx
+ 376              	.LVL15:
+ 225:main.c        ****     rx_isr_StartEx(RX_ISR_vect);
+ 377              		.loc 1 225 0
+ 378 0032 3B48     		ldr	r0, .L38+20
+ 379 0034 FFF7FEFF 		bl	rx_isr_StartEx
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 12
+
+
+ 380              	.LVL16:
+ 226:main.c        ****     ENCODER_R_OVF_ISR_StartEx(ENCODER_R_OVF_ISR_vect);
+ 381              		.loc 1 226 0
+ 382 0038 3A48     		ldr	r0, .L38+24
+ 383 003a FFF7FEFF 		bl	ENCODER_R_OVF_ISR_StartEx
+ 384              	.LVL17:
+ 227:main.c        ****     ENCODER_L_OVF_ISR_StartEx(ENCODER_L_OVF_ISR_vect);
+ 385              		.loc 1 227 0
+ 386 003e 3A48     		ldr	r0, .L38+28
+ 387 0040 FFF7FEFF 		bl	ENCODER_L_OVF_ISR_StartEx
+ 388              	.LVL18:
+ 228:main.c        ****     ENC_R_ISR_StartEx(ENC_R_ISR_vect);
+ 389              		.loc 1 228 0
+ 390 0044 3948     		ldr	r0, .L38+32
+ 391 0046 FFF7FEFF 		bl	ENC_R_ISR_StartEx
+ 392              	.LVL19:
+ 229:main.c        ****     ENC_L_ISR_StartEx(ENC_L_ISR_vect);
+ 393              		.loc 1 229 0
+ 394 004a 3948     		ldr	r0, .L38+36
+ 395 004c FFF7FEFF 		bl	ENC_L_ISR_StartEx
+ 396              	.LVL20:
+ 230:main.c        ****     
+ 231:main.c        ****     //Get the robot id
+ 232:main.c        ****     uint8_t robot_id = get_robot_ID();
+ 397              		.loc 1 232 0
+ 398 0050 FFF7FEFF 		bl	get_robot_ID
+ 399              	.LVL21:
+ 400 0054 0546     		mov	r5, r0
+ 401              	.LVL22:
+ 233:main.c        ****     
+ 234:main.c        ****     //Commands from USART.  Initialise to 0[m/s], 0[rad/s]
+ 235:main.c        ****     ROBOT_COMMAND *current_command;
+ 236:main.c        ****     current_command->angv = 0;
+ 402              		.loc 1 236 0
+ 403 0056 0022     		movs	r2, #0
+ 404 0058 0023     		movs	r3, #0
+ 405 005a 4FF00008 		mov	r8, #0
+ 406 005e C8E90223 		strd	r2, [r8, #8]
+ 237:main.c        ****     current_command->linv = 0;
+ 407              		.loc 1 237 0
+ 408 0062 C8E90023 		strd	r2, [r8]
+ 409              	.LVL23:
+ 238:main.c        ****     
+ 239:main.c        ****     //Indicates whether a full transmission command has been processed before reading a new command
+ 240:main.c        ****     //from the second input buffer
+ 241:main.c        ****     bool main_rdy_to_read = false;
+ 242:main.c        ****     
+ 243:main.c        ****     //Target velocities which the command from the USART requires the robot to move at
+ 244:main.c        ****     PWM_L_Start();
+ 410              		.loc 1 244 0
+ 411 0066 FFF7FEFF 		bl	PWM_L_Start
+ 412              	.LVL24:
+ 245:main.c        ****     PWM_R_Start();
+ 413              		.loc 1 245 0
+ 414 006a FFF7FEFF 		bl	PWM_R_Start
+ 415              	.LVL25:
+ 416              	.L32:
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 13
+
+
+ 246:main.c        **** 
+ 247:main.c        ****     for(;;){
+ 248:main.c        ****         /* Get transmission command from USART */
+ 249:main.c        ****         if(rx_buffer_size > TRANSMISSION_STR_LENGTH){ //Full transmission string has been received 
+ 417              		.loc 1 249 0
+ 418 006e 284B     		ldr	r3, .L38+4
+ 419 0070 93F82A30 		ldrb	r3, [r3, #42]	@ zero_extendqisi2
+ 420 0074 DBB2     		uxtb	r3, r3
+ 421 0076 302B     		cmp	r3, #48
+ 422 0078 F9D9     		bls	.L32
+ 423              	.LBB2:
+ 250:main.c        ****             
+ 251:main.c        ****             //****CRITICAL_SECTION
+ 252:main.c        ****             //Swap buffers the pointers point to to read what the ISR has been writing to
+ 253:main.c        ****             UART_DisableRxInt();    
+ 424              		.loc 1 253 0
+ 425 007a 0823     		movs	r3, #8
+ 426 007c 2D4A     		ldr	r2, .L38+40
+ 427 007e 1360     		str	r3, [r2]
+ 254:main.c        ****                 volatile char *temp = receiving_buffer_ptr;
+ 428              		.loc 1 254 0
+ 429 0080 2449     		ldr	r1, .L38+8
+ 430 0082 0868     		ldr	r0, [r1]
+ 431              	.LVL26:
+ 255:main.c        ****                 receiving_buffer_ptr = processing_buffer_ptr;
+ 432              		.loc 1 255 0
+ 433 0084 244A     		ldr	r2, .L38+12
+ 434 0086 1468     		ldr	r4, [r2]
+ 435 0088 0C60     		str	r4, [r1]
+ 256:main.c        ****                 processing_buffer_ptr = temp;
+ 436              		.loc 1 256 0
+ 437 008a 1060     		str	r0, [r2]
+ 257:main.c        ****             
+ 258:main.c        ****                 //Save the size of the buffer written to by the UXART RX isr
+ 259:main.c        ****                 read_buffer_size = rx_buffer_size;
+ 438              		.loc 1 259 0
+ 439 008c 204A     		ldr	r2, .L38+4
+ 440 008e 92F82A60 		ldrb	r6, [r2, #42]	@ zero_extendqisi2
+ 441 0092 F6B2     		uxtb	r6, r6
+ 442              	.LVL27:
+ 260:main.c        ****                 //Reset the rx_buffer_size for when the RX isr writes to the new buffer
+ 261:main.c        ****                 rx_buffer_size = 0;
+ 443              		.loc 1 261 0
+ 444 0094 0024     		movs	r4, #0
+ 445 0096 82F82A40 		strb	r4, [r2, #42]
+ 262:main.c        ****             UART_EnableRxInt();
+ 446              		.loc 1 262 0
+ 447 009a 1C4A     		ldr	r2, .L38
+ 448 009c 1360     		str	r3, [r2]
+ 449              	.LVL28:
+ 450              	.LBB3:
+ 263:main.c        ****             //****END OF CRITICAL SECTION
+ 264:main.c        ****             
+ 265:main.c        ****             //Read the receiving buffer (from receiving_buffer_ptr), parse it and update the robot 
+ 266:main.c        ****             for(int i = 0; i < read_buffer_size; ++i){
+ 451              		.loc 1 266 0
+ 452 009e 32E0     		b	.L33
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 14
+
+
+ 453              	.LVL29:
+ 454              	.L35:
+ 455              	.LBB4:
+ 267:main.c        ****                 char check_sum = 0;
+ 268:main.c        ****                 //The start of each command string is 0xFF, 0xFF, 0x01
+ 269:main.c        ****                 if(receiving_buffer_ptr[0] == 0xFF && receiving_buffer_ptr[1] == 0xFF && receiving_
+ 456              		.loc 1 269 0
+ 457 00a0 1C4B     		ldr	r3, .L38+8
+ 458 00a2 1A68     		ldr	r2, [r3]
+ 459 00a4 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 460 00a6 DBB2     		uxtb	r3, r3
+ 461 00a8 FF2B     		cmp	r3, #255
+ 462 00aa 2BD1     		bne	.L34
+ 463              		.loc 1 269 0 is_stmt 0 discriminator 1
+ 464 00ac 5378     		ldrb	r3, [r2, #1]	@ zero_extendqisi2
+ 465 00ae DBB2     		uxtb	r3, r3
+ 466 00b0 FF2B     		cmp	r3, #255
+ 467 00b2 27D1     		bne	.L34
+ 468              		.loc 1 269 0 discriminator 2
+ 469 00b4 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+ 470 00b6 DBB2     		uxtb	r3, r3
+ 471 00b8 012B     		cmp	r3, #1
+ 472 00ba 23D1     		bne	.L34
+ 473              	.LBB5:
+ 270:main.c        ****                     check_sum += receiving_buffer_ptr[i]; //Adding the bytes of the received data, 
+ 474              		.loc 1 270 0 is_stmt 1
+ 475 00bc 135D     		ldrb	r3, [r2, r4]	@ zero_extendqisi2
+ 476              	.LVL30:
+ 271:main.c        ****                     //Each byte for each robot begins at the nth multiple of 4 + 3 since the first 
+ 272:main.c        ****                     int starting_index = 4 * (robot_id - 1) + 3;
+ 477              		.loc 1 272 0
+ 478 00be 6B1E     		subs	r3, r5, #1
+ 479 00c0 9B00     		lsls	r3, r3, #2
+ 480 00c2 D91C     		adds	r1, r3, #3
+ 481              	.LVL31:
+ 273:main.c        ****                     
+ 274:main.c        ****                     //The transission has the least significant bits followed by the most significa
+ 275:main.c        ****                     //Concatenate these two bytes together to form the scaled version of the linear
+ 276:main.c        ****                     //Two bytes for the linear velocity followed by two bytes for the angular veloc
+ 277:main.c        ****                     uint16_t scaled_linv = (uint16_t)(receiving_buffer_ptr[starting_index] | (recei
+ 482              		.loc 1 277 0
+ 483 00c4 505C     		ldrb	r0, [r2, r1]	@ zero_extendqisi2
+ 484 00c6 191D     		adds	r1, r3, #4
+ 485              	.LVL32:
+ 486 00c8 12F801E0 		ldrb	lr, [r2, r1]	@ zero_extendqisi2
+ 487              	.LVL33:
+ 278:main.c        ****                     uint16_t scaled_argv = (uint16_t)(receiving_buffer_ptr[starting_index + 2] | (r
+ 488              		.loc 1 278 0
+ 489 00cc 591D     		adds	r1, r3, #5
+ 490 00ce 515C     		ldrb	r1, [r2, r1]	@ zero_extendqisi2
+ 491 00d0 0633     		adds	r3, r3, #6
+ 492              	.LVL34:
+ 493 00d2 D75C     		ldrb	r7, [r2, r3]	@ zero_extendqisi2
+ 494 00d4 41EA0727 		orr	r7, r1, r7, lsl #8
+ 495              	.LVL35:
+ 279:main.c        ****                     
+ 280:main.c        ****                     current_command->linv = (double)scaled_linv / LIN_V_SCALING_FACTOR;
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 15
+
+
+ 496              		.loc 1 280 0
+ 497 00d8 40EA0E20 		orr	r0, r0, lr, lsl #8
+ 498              	.LVL36:
+ 499 00dc FFF7FEFF 		bl	__aeabi_ui2d
+ 500              	.LVL37:
+ 501 00e0 0022     		movs	r2, #0
+ 502 00e2 4FF07D53 		mov	r3, #1061158912
+ 503 00e6 FFF7FEFF 		bl	__aeabi_dmul
+ 504              	.LVL38:
+ 505 00ea 4FF00008 		mov	r8, #0
+ 506 00ee C8E90001 		strd	r0, [r8]
+ 281:main.c        ****                     current_command->angv = (double)scaled_argv / ANG_V_SCALING_FACTOR;
+ 507              		.loc 1 281 0
+ 508 00f2 3846     		mov	r0, r7
+ 509 00f4 FFF7FEFF 		bl	__aeabi_ui2d
+ 510              	.LVL39:
+ 511 00f8 0022     		movs	r2, #0
+ 512 00fa 0F4B     		ldr	r3, .L38+44
+ 513 00fc FFF7FEFF 		bl	__aeabi_dmul
+ 514              	.LVL40:
+ 515 0100 C8E90201 		strd	r0, [r8, #8]
+ 516              	.LVL41:
+ 517              	.L34:
+ 518              	.LBE5:
+ 519              	.LBE4:
+ 266:main.c        ****                 char check_sum = 0;
+ 520              		.loc 1 266 0 discriminator 2
+ 521 0104 0134     		adds	r4, r4, #1
+ 522              	.LVL42:
+ 523              	.L33:
+ 266:main.c        ****                 char check_sum = 0;
+ 524              		.loc 1 266 0 is_stmt 0 discriminator 1
+ 525 0106 B442     		cmp	r4, r6
+ 526 0108 CADB     		blt	.L35
+ 527 010a B0E7     		b	.L32
+ 528              	.L39:
+ 529              		.align	2
+ 530              	.L38:
+ 531 010c 00E100E0 		.word	-536813312
+ 532 0110 00000000 		.word	.LANCHOR0
+ 533 0114 00000000 		.word	receiving_buffer_ptr
+ 534 0118 00000000 		.word	processing_buffer_ptr
+ 535 011c 00000000 		.word	TX_ISR_vect
+ 536 0120 00000000 		.word	RX_ISR_vect
+ 537 0124 00000000 		.word	ENCODER_R_OVF_ISR_vect
+ 538 0128 00000000 		.word	ENCODER_L_OVF_ISR_vect
+ 539 012c 00000000 		.word	ENC_R_ISR_vect
+ 540 0130 00000000 		.word	ENC_L_ISR_vect
+ 541 0134 80E100E0 		.word	-536813184
+ 542 0138 0000903F 		.word	1066401792
+ 543              	.LBE3:
+ 544              	.LBE2:
+ 545              		.cfi_endproc
+ 546              	.LFE70:
+ 547              		.size	main, .-main
+ 548              		.comm	pid_angv,40,8
+ 549              		.comm	pid_linv,40,8
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 16
+
+
+ 550              		.global	timerR_index
+ 551              		.global	timerL_index
+ 552              		.global	timerR_overflows
+ 553              		.global	timerL_overflows
+ 554              		.global	timerR_count
+ 555              		.global	timerL_count
+ 556              		.global	timerR_on
+ 557              		.global	timerL_on
+ 558              		.global	rx_buffer_size
+ 559              		.comm	processing_buffer_ptr,4,4
+ 560              		.comm	receiving_buffer_ptr,4,4
+ 561              		.global	buffer_2
+ 562              		.global	buffer_1
+ 563              		.bss
+ 564              		.align	2
+ 565              		.set	.LANCHOR0,. + 0
+ 566              		.type	timerR_index, %object
+ 567              		.size	timerR_index, 1
+ 568              	timerR_index:
+ 569 0000 00       		.space	1
+ 570 0001 000000   		.space	3
+ 571              		.type	timerR_overflows, %object
+ 572              		.size	timerR_overflows, 5
+ 573              	timerR_overflows:
+ 574 0004 00000000 		.space	5
+ 574      00
+ 575              		.type	timerL_index, %object
+ 576              		.size	timerL_index, 1
+ 577              	timerL_index:
+ 578 0009 00       		.space	1
+ 579 000a 0000     		.space	2
+ 580              		.type	timerL_overflows, %object
+ 581              		.size	timerL_overflows, 5
+ 582              	timerL_overflows:
+ 583 000c 00000000 		.space	5
+ 583      00
+ 584              		.type	timerR_on, %object
+ 585              		.size	timerR_on, 1
+ 586              	timerR_on:
+ 587 0011 00       		.space	1
+ 588 0012 0000     		.space	2
+ 589              		.type	timerR_count, %object
+ 590              		.size	timerR_count, 10
+ 591              	timerR_count:
+ 592 0014 00000000 		.space	10
+ 592      00000000 
+ 592      0000
+ 593              		.type	timerL_on, %object
+ 594              		.size	timerL_on, 1
+ 595              	timerL_on:
+ 596 001e 00       		.space	1
+ 597 001f 00       		.space	1
+ 598              		.type	timerL_count, %object
+ 599              		.size	timerL_count, 10
+ 600              	timerL_count:
+ 601 0020 00000000 		.space	10
+ 601      00000000 
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 17
+
+
+ 601      0000
+ 602              		.type	rx_buffer_size, %object
+ 603              		.size	rx_buffer_size, 1
+ 604              	rx_buffer_size:
+ 605 002a 00       		.space	1
+ 606 002b 00       		.space	1
+ 607              		.type	buffer_1, %object
+ 608              		.size	buffer_1, 60
+ 609              	buffer_1:
+ 610 002c 00000000 		.space	60
+ 610      00000000 
+ 610      00000000 
+ 610      00000000 
+ 610      00000000 
+ 611              		.type	buffer_2, %object
+ 612              		.size	buffer_2, 60
+ 613              	buffer_2:
+ 614 0068 00000000 		.space	60
+ 614      00000000 
+ 614      00000000 
+ 614      00000000 
+ 614      00000000 
+ 615              		.text
+ 616              	.Letext0:
+ 617              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 618              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 619              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 620              		.file 5 "robotmove.h"
+ 621              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 622              		.file 7 "Generated_Source\\PSoC5/Encoder_R_Timer.h"
+ 623              		.file 8 "Generated_Source\\PSoC5/Encoder_L_Timer.h"
+ 624              		.file 9 "Generated_Source\\PSoC5/UART.h"
+ 625              		.file 10 "Generated_Source\\PSoC5/PWM_RESET.h"
+ 626              		.file 11 "Generated_Source\\PSoC5/ENCODER_TMR_RESET.h"
+ 627              		.file 12 "Generated_Source\\PSoC5/tx_isr.h"
+ 628              		.file 13 "Generated_Source\\PSoC5/rx_isr.h"
+ 629              		.file 14 "Generated_Source\\PSoC5/ENCODER_R_OVF_ISR.h"
+ 630              		.file 15 "Generated_Source\\PSoC5/ENCODER_L_OVF_ISR.h"
+ 631              		.file 16 "Generated_Source\\PSoC5/ENC_R_ISR.h"
+ 632              		.file 17 "Generated_Source\\PSoC5/ENC_L_ISR.h"
+ 633              		.file 18 "robot_ID.h"
+ 634              		.file 19 "Generated_Source\\PSoC5/PWM_L.h"
+ 635              		.file 20 "Generated_Source\\PSoC5/PWM_R.h"
+ 636              		.section	.debug_info,"",%progbits
+ 637              	.Ldebug_info0:
+ 638 0000 73060000 		.4byte	0x673
+ 639 0004 0400     		.2byte	0x4
+ 640 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 641 000a 04       		.byte	0x4
+ 642 000b 01       		.uleb128 0x1
+ 643 000c F6040000 		.4byte	.LASF87
+ 644 0010 0C       		.byte	0xc
+ 645 0011 48040000 		.4byte	.LASF88
+ 646 0015 0F010000 		.4byte	.LASF89
+ 647 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 648 001d 00000000 		.4byte	0
+ 649 0021 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 18
+
+
+ 650 0025 02       		.uleb128 0x2
+ 651 0026 01       		.byte	0x1
+ 652 0027 06       		.byte	0x6
+ 653 0028 EF020000 		.4byte	.LASF0
+ 654 002c 03       		.uleb128 0x3
+ 655 002d 15020000 		.4byte	.LASF3
+ 656 0031 02       		.byte	0x2
+ 657 0032 1D       		.byte	0x1d
+ 658 0033 37000000 		.4byte	0x37
+ 659 0037 02       		.uleb128 0x2
+ 660 0038 01       		.byte	0x1
+ 661 0039 08       		.byte	0x8
+ 662 003a 45020000 		.4byte	.LASF1
+ 663 003e 02       		.uleb128 0x2
+ 664 003f 02       		.byte	0x2
+ 665 0040 05       		.byte	0x5
+ 666 0041 53000000 		.4byte	.LASF2
+ 667 0045 03       		.uleb128 0x3
+ 668 0046 A7000000 		.4byte	.LASF4
+ 669 004a 02       		.byte	0x2
+ 670 004b 2B       		.byte	0x2b
+ 671 004c 50000000 		.4byte	0x50
+ 672 0050 02       		.uleb128 0x2
+ 673 0051 02       		.byte	0x2
+ 674 0052 07       		.byte	0x7
+ 675 0053 74030000 		.4byte	.LASF5
+ 676 0057 03       		.uleb128 0x3
+ 677 0058 A5040000 		.4byte	.LASF6
+ 678 005c 02       		.byte	0x2
+ 679 005d 3F       		.byte	0x3f
+ 680 005e 62000000 		.4byte	0x62
+ 681 0062 02       		.uleb128 0x2
+ 682 0063 04       		.byte	0x4
+ 683 0064 05       		.byte	0x5
+ 684 0065 CA010000 		.4byte	.LASF7
+ 685 0069 02       		.uleb128 0x2
+ 686 006a 04       		.byte	0x4
+ 687 006b 07       		.byte	0x7
+ 688 006c 5B040000 		.4byte	.LASF8
+ 689 0070 02       		.uleb128 0x2
+ 690 0071 08       		.byte	0x8
+ 691 0072 05       		.byte	0x5
+ 692 0073 B7010000 		.4byte	.LASF9
+ 693 0077 02       		.uleb128 0x2
+ 694 0078 08       		.byte	0x8
+ 695 0079 07       		.byte	0x7
+ 696 007a 03030000 		.4byte	.LASF10
+ 697 007e 04       		.uleb128 0x4
+ 698 007f 04       		.byte	0x4
+ 699 0080 05       		.byte	0x5
+ 700 0081 696E7400 		.ascii	"int\000"
+ 701 0085 02       		.uleb128 0x2
+ 702 0086 04       		.byte	0x4
+ 703 0087 07       		.byte	0x7
+ 704 0088 33030000 		.4byte	.LASF11
+ 705 008c 03       		.uleb128 0x3
+ 706 008d EE000000 		.4byte	.LASF12
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 19
+
+
+ 707 0091 03       		.byte	0x3
+ 708 0092 18       		.byte	0x18
+ 709 0093 2C000000 		.4byte	0x2c
+ 710 0097 03       		.uleb128 0x3
+ 711 0098 40030000 		.4byte	.LASF13
+ 712 009c 03       		.byte	0x3
+ 713 009d 24       		.byte	0x24
+ 714 009e 45000000 		.4byte	0x45
+ 715 00a2 03       		.uleb128 0x3
+ 716 00a3 FB020000 		.4byte	.LASF14
+ 717 00a7 03       		.byte	0x3
+ 718 00a8 2C       		.byte	0x2c
+ 719 00a9 57000000 		.4byte	0x57
+ 720 00ad 05       		.uleb128 0x5
+ 721 00ae F6000000 		.4byte	.LASF15
+ 722 00b2 04       		.byte	0x4
+ 723 00b3 E401     		.2byte	0x1e4
+ 724 00b5 37000000 		.4byte	0x37
+ 725 00b9 05       		.uleb128 0x5
+ 726 00ba 6D040000 		.4byte	.LASF16
+ 727 00be 04       		.byte	0x4
+ 728 00bf E601     		.2byte	0x1e6
+ 729 00c1 69000000 		.4byte	0x69
+ 730 00c5 02       		.uleb128 0x2
+ 731 00c6 04       		.byte	0x4
+ 732 00c7 04       		.byte	0x4
+ 733 00c8 09010000 		.4byte	.LASF17
+ 734 00cc 02       		.uleb128 0x2
+ 735 00cd 08       		.byte	0x8
+ 736 00ce 04       		.byte	0x4
+ 737 00cf D9040000 		.4byte	.LASF18
+ 738 00d3 02       		.uleb128 0x2
+ 739 00d4 01       		.byte	0x1
+ 740 00d5 08       		.byte	0x8
+ 741 00d6 AD030000 		.4byte	.LASF19
+ 742 00da 05       		.uleb128 0x5
+ 743 00db B3050000 		.4byte	.LASF20
+ 744 00df 04       		.byte	0x4
+ 745 00e0 9002     		.2byte	0x290
+ 746 00e2 E6000000 		.4byte	0xe6
+ 747 00e6 06       		.uleb128 0x6
+ 748 00e7 B9000000 		.4byte	0xb9
+ 749 00eb 02       		.uleb128 0x2
+ 750 00ec 08       		.byte	0x8
+ 751 00ed 04       		.byte	0x4
+ 752 00ee 86020000 		.4byte	.LASF21
+ 753 00f2 02       		.uleb128 0x2
+ 754 00f3 04       		.byte	0x4
+ 755 00f4 07       		.byte	0x7
+ 756 00f5 77000000 		.4byte	.LASF22
+ 757 00f9 06       		.uleb128 0x6
+ 758 00fa 8C000000 		.4byte	0x8c
+ 759 00fe 06       		.uleb128 0x6
+ 760 00ff 97000000 		.4byte	0x97
+ 761 0103 07       		.uleb128 0x7
+ 762 0104 28       		.byte	0x28
+ 763 0105 05       		.byte	0x5
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 20
+
+
+ 764 0106 17       		.byte	0x17
+ 765 0107 48010000 		.4byte	0x148
+ 766 010b 08       		.uleb128 0x8
+ 767 010c 00000000 		.4byte	.LASF23
+ 768 0110 05       		.byte	0x5
+ 769 0111 18       		.byte	0x18
+ 770 0112 CC000000 		.4byte	0xcc
+ 771 0116 00       		.byte	0
+ 772 0117 08       		.uleb128 0x8
+ 773 0118 A1000000 		.4byte	.LASF24
+ 774 011c 05       		.byte	0x5
+ 775 011d 18       		.byte	0x18
+ 776 011e CC000000 		.4byte	0xcc
+ 777 0122 08       		.byte	0x8
+ 778 0123 08       		.uleb128 0x8
+ 779 0124 60030000 		.4byte	.LASF25
+ 780 0128 05       		.byte	0x5
+ 781 0129 18       		.byte	0x18
+ 782 012a CC000000 		.4byte	0xcc
+ 783 012e 10       		.byte	0x10
+ 784 012f 08       		.uleb128 0x8
+ 785 0130 E0020000 		.4byte	.LASF26
+ 786 0134 05       		.byte	0x5
+ 787 0135 19       		.byte	0x19
+ 788 0136 CC000000 		.4byte	0xcc
+ 789 013a 18       		.byte	0x18
+ 790 013b 08       		.uleb128 0x8
+ 791 013c 9B040000 		.4byte	.LASF27
+ 792 0140 05       		.byte	0x5
+ 793 0141 1A       		.byte	0x1a
+ 794 0142 CC000000 		.4byte	0xcc
+ 795 0146 20       		.byte	0x20
+ 796 0147 00       		.byte	0
+ 797 0148 03       		.uleb128 0x3
+ 798 0149 E0040000 		.4byte	.LASF28
+ 799 014d 05       		.byte	0x5
+ 800 014e 1B       		.byte	0x1b
+ 801 014f 03010000 		.4byte	0x103
+ 802 0153 07       		.uleb128 0x7
+ 803 0154 10       		.byte	0x10
+ 804 0155 01       		.byte	0x1
+ 805 0156 C8       		.byte	0xc8
+ 806 0157 74010000 		.4byte	0x174
+ 807 015b 08       		.uleb128 0x8
+ 808 015c C5010000 		.4byte	.LASF29
+ 809 0160 01       		.byte	0x1
+ 810 0161 C9       		.byte	0xc9
+ 811 0162 CC000000 		.4byte	0xcc
+ 812 0166 00       		.byte	0
+ 813 0167 08       		.uleb128 0x8
+ 814 0168 13000000 		.4byte	.LASF30
+ 815 016c 01       		.byte	0x1
+ 816 016d C9       		.byte	0xc9
+ 817 016e CC000000 		.4byte	0xcc
+ 818 0172 08       		.byte	0x8
+ 819 0173 00       		.byte	0
+ 820 0174 03       		.uleb128 0x3
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 21
+
+
+ 821 0175 66030000 		.4byte	.LASF31
+ 822 0179 01       		.byte	0x1
+ 823 017a CA       		.byte	0xca
+ 824 017b 53010000 		.4byte	0x153
+ 825 017f 09       		.uleb128 0x9
+ 826 0180 49030000 		.4byte	.LASF32
+ 827 0184 01       		.byte	0x1
+ 828 0185 50       		.byte	0x50
+ 829 0186 00000000 		.4byte	.LFB64
+ 830 018a 2C000000 		.4byte	.LFE64-.LFB64
+ 831 018e 01       		.uleb128 0x1
+ 832 018f 9C       		.byte	0x9c
+ 833 0190 09       		.uleb128 0x9
+ 834 0191 8D050000 		.4byte	.LASF33
+ 835 0195 01       		.byte	0x1
+ 836 0196 60       		.byte	0x60
+ 837 0197 00000000 		.4byte	.LFB65
+ 838 019b 2C000000 		.4byte	.LFE65-.LFB65
+ 839 019f 01       		.uleb128 0x1
+ 840 01a0 9C       		.byte	0x9c
+ 841 01a1 09       		.uleb128 0x9
+ 842 01a2 2B040000 		.4byte	.LASF34
+ 843 01a6 01       		.byte	0x1
+ 844 01a7 B0       		.byte	0xb0
+ 845 01a8 00000000 		.4byte	.LFB68
+ 846 01ac 02000000 		.4byte	.LFE68-.LFB68
+ 847 01b0 01       		.uleb128 0x1
+ 848 01b1 9C       		.byte	0x9c
+ 849 01b2 0A       		.uleb128 0xa
+ 850 01b3 A9020000 		.4byte	.LASF35
+ 851 01b7 01       		.byte	0x1
+ 852 01b8 71       		.byte	0x71
+ 853 01b9 00000000 		.4byte	.LFB66
+ 854 01bd 54000000 		.4byte	.LFE66-.LFB66
+ 855 01c1 01       		.uleb128 0x1
+ 856 01c2 9C       		.byte	0x9c
+ 857 01c3 EC010000 		.4byte	0x1ec
+ 858 01c7 0B       		.uleb128 0xb
+ 859 01c8 16000000 		.4byte	.LVL0
+ 860 01cc 84050000 		.4byte	0x584
+ 861 01d0 0B       		.uleb128 0xb
+ 862 01d1 20000000 		.4byte	.LVL1
+ 863 01d5 8F050000 		.4byte	0x58f
+ 864 01d9 0B       		.uleb128 0xb
+ 865 01da 24000000 		.4byte	.LVL2
+ 866 01de 9A050000 		.4byte	0x59a
+ 867 01e2 0B       		.uleb128 0xb
+ 868 01e3 46000000 		.4byte	.LVL3
+ 869 01e7 A5050000 		.4byte	0x5a5
+ 870 01eb 00       		.byte	0
+ 871 01ec 0A       		.uleb128 0xa
+ 872 01ed 3F000000 		.4byte	.LASF36
+ 873 01f1 01       		.byte	0x1
+ 874 01f2 91       		.byte	0x91
+ 875 01f3 00000000 		.4byte	.LFB67
+ 876 01f7 54000000 		.4byte	.LFE67-.LFB67
+ 877 01fb 01       		.uleb128 0x1
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 22
+
+
+ 878 01fc 9C       		.byte	0x9c
+ 879 01fd 26020000 		.4byte	0x226
+ 880 0201 0B       		.uleb128 0xb
+ 881 0202 16000000 		.4byte	.LVL4
+ 882 0206 B0050000 		.4byte	0x5b0
+ 883 020a 0B       		.uleb128 0xb
+ 884 020b 20000000 		.4byte	.LVL5
+ 885 020f BB050000 		.4byte	0x5bb
+ 886 0213 0B       		.uleb128 0xb
+ 887 0214 24000000 		.4byte	.LVL6
+ 888 0218 C6050000 		.4byte	0x5c6
+ 889 021c 0B       		.uleb128 0xb
+ 890 021d 46000000 		.4byte	.LVL7
+ 891 0221 D1050000 		.4byte	0x5d1
+ 892 0225 00       		.byte	0
+ 893 0226 0A       		.uleb128 0xa
+ 894 0227 1F020000 		.4byte	.LASF37
+ 895 022b 01       		.byte	0x1
+ 896 022c BB       		.byte	0xbb
+ 897 022d 00000000 		.4byte	.LFB69
+ 898 0231 34000000 		.4byte	.LFE69-.LFB69
+ 899 0235 01       		.uleb128 0x1
+ 900 0236 9C       		.byte	0x9c
+ 901 0237 5D020000 		.4byte	0x25d
+ 902 023b 0C       		.uleb128 0xc
+ 903 023c AF040000 		.4byte	.LASF38
+ 904 0240 01       		.byte	0x1
+ 905 0241 BC       		.byte	0xbc
+ 906 0242 D3000000 		.4byte	0xd3
+ 907 0246 00000000 		.4byte	.LLST0
+ 908 024a 0B       		.uleb128 0xb
+ 909 024b 06000000 		.4byte	.LVL8
+ 910 024f DC050000 		.4byte	0x5dc
+ 911 0253 0B       		.uleb128 0xb
+ 912 0254 10000000 		.4byte	.LVL9
+ 913 0258 E7050000 		.4byte	0x5e7
+ 914 025c 00       		.byte	0
+ 915 025d 0D       		.uleb128 0xd
+ 916 025e 9C000000 		.4byte	.LASF90
+ 917 0262 01       		.byte	0x1
+ 918 0263 CE       		.byte	0xce
+ 919 0264 7E000000 		.4byte	0x7e
+ 920 0268 00000000 		.4byte	.LFB70
+ 921 026c 3C010000 		.4byte	.LFE70-.LFB70
+ 922 0270 01       		.uleb128 0x1
+ 923 0271 9C       		.byte	0x9c
+ 924 0272 09040000 		.4byte	0x409
+ 925 0276 0C       		.uleb128 0xc
+ 926 0277 9C030000 		.4byte	.LASF39
+ 927 027b 01       		.byte	0x1
+ 928 027c DD       		.byte	0xdd
+ 929 027d 8C000000 		.4byte	0x8c
+ 930 0281 13000000 		.4byte	.LLST1
+ 931 0285 0E       		.uleb128 0xe
+ 932 0286 AE010000 		.4byte	.LASF40
+ 933 028a 01       		.byte	0x1
+ 934 028b E8       		.byte	0xe8
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 23
+
+
+ 935 028c 8C000000 		.4byte	0x8c
+ 936 0290 01       		.uleb128 0x1
+ 937 0291 55       		.byte	0x55
+ 938 0292 0E       		.uleb128 0xe
+ 939 0293 C9050000 		.4byte	.LASF41
+ 940 0297 01       		.byte	0x1
+ 941 0298 EB       		.byte	0xeb
+ 942 0299 09040000 		.4byte	0x409
+ 943 029d 01       		.uleb128 0x1
+ 944 029e 58       		.byte	0x58
+ 945 029f 0F       		.uleb128 0xf
+ 946 02a0 37040000 		.4byte	.LASF42
+ 947 02a4 01       		.byte	0x1
+ 948 02a5 F1       		.byte	0xf1
+ 949 02a6 0F040000 		.4byte	0x40f
+ 950 02aa 00       		.byte	0
+ 951 02ab 10       		.uleb128 0x10
+ 952 02ac 7A000000 		.4byte	.LBB2
+ 953 02b0 C2000000 		.4byte	.LBE2-.LBB2
+ 954 02b4 34030000 		.4byte	0x334
+ 955 02b8 0C       		.uleb128 0xc
+ 956 02b9 4E000000 		.4byte	.LASF43
+ 957 02bd 01       		.byte	0x1
+ 958 02be FE       		.byte	0xfe
+ 959 02bf 16040000 		.4byte	0x416
+ 960 02c3 32000000 		.4byte	.LLST2
+ 961 02c7 11       		.uleb128 0x11
+ 962 02c8 9E000000 		.4byte	.LBB3
+ 963 02cc 9E000000 		.4byte	.LBE3-.LBB3
+ 964 02d0 12       		.uleb128 0x12
+ 965 02d1 6900     		.ascii	"i\000"
+ 966 02d3 01       		.byte	0x1
+ 967 02d4 0A01     		.2byte	0x10a
+ 968 02d6 7E000000 		.4byte	0x7e
+ 969 02da 45000000 		.4byte	.LLST3
+ 970 02de 11       		.uleb128 0x11
+ 971 02df A0000000 		.4byte	.LBB4
+ 972 02e3 64000000 		.4byte	.LBE4-.LBB4
+ 973 02e7 13       		.uleb128 0x13
+ 974 02e8 1A030000 		.4byte	.LASF44
+ 975 02ec 01       		.byte	0x1
+ 976 02ed 0B01     		.2byte	0x10b
+ 977 02ef D3000000 		.4byte	0xd3
+ 978 02f3 64000000 		.4byte	.LLST4
+ 979 02f7 11       		.uleb128 0x11
+ 980 02f8 BC000000 		.4byte	.LBB5
+ 981 02fc 48000000 		.4byte	.LBE5-.LBB5
+ 982 0300 13       		.uleb128 0x13
+ 983 0301 0F040000 		.4byte	.LASF45
+ 984 0305 01       		.byte	0x1
+ 985 0306 1001     		.2byte	0x110
+ 986 0308 7E000000 		.4byte	0x7e
+ 987 030c 78000000 		.4byte	.LLST5
+ 988 0310 13       		.uleb128 0x13
+ 989 0311 D4020000 		.4byte	.LASF46
+ 990 0315 01       		.byte	0x1
+ 991 0316 1501     		.2byte	0x115
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 24
+
+
+ 992 0318 97000000 		.4byte	0x97
+ 993 031c B6000000 		.4byte	.LLST6
+ 994 0320 13       		.uleb128 0x13
+ 995 0321 4F040000 		.4byte	.LASF47
+ 996 0325 01       		.byte	0x1
+ 997 0326 1601     		.2byte	0x116
+ 998 0328 97000000 		.4byte	0x97
+ 999 032c D0000000 		.4byte	.LLST7
+ 1000 0330 00       		.byte	0
+ 1001 0331 00       		.byte	0
+ 1002 0332 00       		.byte	0
+ 1003 0333 00       		.byte	0
+ 1004 0334 14       		.uleb128 0x14
+ 1005 0335 0C000000 		.4byte	.LVL11
+ 1006 0339 F2050000 		.4byte	0x5f2
+ 1007 033d 47030000 		.4byte	0x347
+ 1008 0341 15       		.uleb128 0x15
+ 1009 0342 01       		.uleb128 0x1
+ 1010 0343 50       		.byte	0x50
+ 1011 0344 01       		.uleb128 0x1
+ 1012 0345 30       		.byte	0x30
+ 1013 0346 00       		.byte	0
+ 1014 0347 14       		.uleb128 0x14
+ 1015 0348 12000000 		.4byte	.LVL12
+ 1016 034c FD050000 		.4byte	0x5fd
+ 1017 0350 5A030000 		.4byte	0x35a
+ 1018 0354 15       		.uleb128 0x15
+ 1019 0355 01       		.uleb128 0x1
+ 1020 0356 50       		.byte	0x50
+ 1021 0357 01       		.uleb128 0x1
+ 1022 0358 30       		.byte	0x30
+ 1023 0359 00       		.byte	0
+ 1024 035a 0B       		.uleb128 0xb
+ 1025 035b 16000000 		.4byte	.LVL13
+ 1026 035f 08060000 		.4byte	0x608
+ 1027 0363 14       		.uleb128 0x14
+ 1028 0364 32000000 		.4byte	.LVL15
+ 1029 0368 13060000 		.4byte	0x613
+ 1030 036c 7A030000 		.4byte	0x37a
+ 1031 0370 15       		.uleb128 0x15
+ 1032 0371 01       		.uleb128 0x1
+ 1033 0372 50       		.byte	0x50
+ 1034 0373 05       		.uleb128 0x5
+ 1035 0374 03       		.byte	0x3
+ 1036 0375 00000000 		.4byte	TX_ISR_vect
+ 1037 0379 00       		.byte	0
+ 1038 037a 14       		.uleb128 0x14
+ 1039 037b 38000000 		.4byte	.LVL16
+ 1040 037f 1E060000 		.4byte	0x61e
+ 1041 0383 91030000 		.4byte	0x391
+ 1042 0387 15       		.uleb128 0x15
+ 1043 0388 01       		.uleb128 0x1
+ 1044 0389 50       		.byte	0x50
+ 1045 038a 05       		.uleb128 0x5
+ 1046 038b 03       		.byte	0x3
+ 1047 038c 00000000 		.4byte	RX_ISR_vect
+ 1048 0390 00       		.byte	0
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 25
+
+
+ 1049 0391 14       		.uleb128 0x14
+ 1050 0392 3E000000 		.4byte	.LVL17
+ 1051 0396 29060000 		.4byte	0x629
+ 1052 039a A8030000 		.4byte	0x3a8
+ 1053 039e 15       		.uleb128 0x15
+ 1054 039f 01       		.uleb128 0x1
+ 1055 03a0 50       		.byte	0x50
+ 1056 03a1 05       		.uleb128 0x5
+ 1057 03a2 03       		.byte	0x3
+ 1058 03a3 00000000 		.4byte	ENCODER_R_OVF_ISR_vect
+ 1059 03a7 00       		.byte	0
+ 1060 03a8 14       		.uleb128 0x14
+ 1061 03a9 44000000 		.4byte	.LVL18
+ 1062 03ad 34060000 		.4byte	0x634
+ 1063 03b1 BF030000 		.4byte	0x3bf
+ 1064 03b5 15       		.uleb128 0x15
+ 1065 03b6 01       		.uleb128 0x1
+ 1066 03b7 50       		.byte	0x50
+ 1067 03b8 05       		.uleb128 0x5
+ 1068 03b9 03       		.byte	0x3
+ 1069 03ba 00000000 		.4byte	ENCODER_L_OVF_ISR_vect
+ 1070 03be 00       		.byte	0
+ 1071 03bf 14       		.uleb128 0x14
+ 1072 03c0 4A000000 		.4byte	.LVL19
+ 1073 03c4 3F060000 		.4byte	0x63f
+ 1074 03c8 D6030000 		.4byte	0x3d6
+ 1075 03cc 15       		.uleb128 0x15
+ 1076 03cd 01       		.uleb128 0x1
+ 1077 03ce 50       		.byte	0x50
+ 1078 03cf 05       		.uleb128 0x5
+ 1079 03d0 03       		.byte	0x3
+ 1080 03d1 00000000 		.4byte	ENC_R_ISR_vect
+ 1081 03d5 00       		.byte	0
+ 1082 03d6 14       		.uleb128 0x14
+ 1083 03d7 50000000 		.4byte	.LVL20
+ 1084 03db 4A060000 		.4byte	0x64a
+ 1085 03df ED030000 		.4byte	0x3ed
+ 1086 03e3 15       		.uleb128 0x15
+ 1087 03e4 01       		.uleb128 0x1
+ 1088 03e5 50       		.byte	0x50
+ 1089 03e6 05       		.uleb128 0x5
+ 1090 03e7 03       		.byte	0x3
+ 1091 03e8 00000000 		.4byte	ENC_L_ISR_vect
+ 1092 03ec 00       		.byte	0
+ 1093 03ed 0B       		.uleb128 0xb
+ 1094 03ee 54000000 		.4byte	.LVL21
+ 1095 03f2 55060000 		.4byte	0x655
+ 1096 03f6 0B       		.uleb128 0xb
+ 1097 03f7 6A000000 		.4byte	.LVL24
+ 1098 03fb 60060000 		.4byte	0x660
+ 1099 03ff 0B       		.uleb128 0xb
+ 1100 0400 6E000000 		.4byte	.LVL25
+ 1101 0404 6B060000 		.4byte	0x66b
+ 1102 0408 00       		.byte	0
+ 1103 0409 16       		.uleb128 0x16
+ 1104 040a 04       		.byte	0x4
+ 1105 040b 74010000 		.4byte	0x174
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 26
+
+
+ 1106 040f 02       		.uleb128 0x2
+ 1107 0410 01       		.byte	0x1
+ 1108 0411 02       		.byte	0x2
+ 1109 0412 09040000 		.4byte	.LASF48
+ 1110 0416 16       		.uleb128 0x16
+ 1111 0417 04       		.byte	0x4
+ 1112 0418 1C040000 		.4byte	0x41c
+ 1113 041c 06       		.uleb128 0x6
+ 1114 041d D3000000 		.4byte	0xd3
+ 1115 0421 17       		.uleb128 0x17
+ 1116 0422 E9040000 		.4byte	.LASF49
+ 1117 0426 06       		.byte	0x6
+ 1118 0427 1207     		.2byte	0x712
+ 1119 0429 2D040000 		.4byte	0x42d
+ 1120 042d 06       		.uleb128 0x6
+ 1121 042e A2000000 		.4byte	0xa2
+ 1122 0432 18       		.uleb128 0x18
+ 1123 0433 1C040000 		.4byte	0x41c
+ 1124 0437 42040000 		.4byte	0x442
+ 1125 043b 19       		.uleb128 0x19
+ 1126 043c F2000000 		.4byte	0xf2
+ 1127 0440 3B       		.byte	0x3b
+ 1128 0441 00       		.byte	0
+ 1129 0442 1A       		.uleb128 0x1a
+ 1130 0443 69020000 		.4byte	.LASF50
+ 1131 0447 01       		.byte	0x1
+ 1132 0448 2B       		.byte	0x2b
+ 1133 0449 53040000 		.4byte	0x453
+ 1134 044d 05       		.uleb128 0x5
+ 1135 044e 03       		.byte	0x3
+ 1136 044f 00000000 		.4byte	buffer_1
+ 1137 0453 06       		.uleb128 0x6
+ 1138 0454 32040000 		.4byte	0x432
+ 1139 0458 1A       		.uleb128 0x1a
+ 1140 0459 72020000 		.4byte	.LASF51
+ 1141 045d 01       		.byte	0x1
+ 1142 045e 2C       		.byte	0x2c
+ 1143 045f 69040000 		.4byte	0x469
+ 1144 0463 05       		.uleb128 0x5
+ 1145 0464 03       		.byte	0x3
+ 1146 0465 00000000 		.4byte	buffer_2
+ 1147 0469 06       		.uleb128 0x6
+ 1148 046a 32040000 		.4byte	0x432
+ 1149 046e 1A       		.uleb128 0x1a
+ 1150 046f D0030000 		.4byte	.LASF52
+ 1151 0473 01       		.byte	0x1
+ 1152 0474 2D       		.byte	0x2d
+ 1153 0475 16040000 		.4byte	0x416
+ 1154 0479 05       		.uleb128 0x5
+ 1155 047a 03       		.byte	0x3
+ 1156 047b 00000000 		.4byte	receiving_buffer_ptr
+ 1157 047f 1A       		.uleb128 0x1a
+ 1158 0480 53020000 		.4byte	.LASF53
+ 1159 0484 01       		.byte	0x1
+ 1160 0485 2E       		.byte	0x2e
+ 1161 0486 16040000 		.4byte	0x416
+ 1162 048a 05       		.uleb128 0x5
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 27
+
+
+ 1163 048b 03       		.byte	0x3
+ 1164 048c 00000000 		.4byte	processing_buffer_ptr
+ 1165 0490 1A       		.uleb128 0x1a
+ 1166 0491 A4050000 		.4byte	.LASF54
+ 1167 0495 01       		.byte	0x1
+ 1168 0496 2F       		.byte	0x2f
+ 1169 0497 F9000000 		.4byte	0xf9
+ 1170 049b 05       		.uleb128 0x5
+ 1171 049c 03       		.byte	0x3
+ 1172 049d 00000000 		.4byte	rx_buffer_size
+ 1173 04a1 1A       		.uleb128 0x1a
+ 1174 04a2 9F020000 		.4byte	.LASF55
+ 1175 04a6 01       		.byte	0x1
+ 1176 04a7 32       		.byte	0x32
+ 1177 04a8 B2040000 		.4byte	0x4b2
+ 1178 04ac 05       		.uleb128 0x5
+ 1179 04ad 03       		.byte	0x3
+ 1180 04ae 00000000 		.4byte	timerL_on
+ 1181 04b2 06       		.uleb128 0x6
+ 1182 04b3 0F040000 		.4byte	0x40f
+ 1183 04b7 1A       		.uleb128 0x1a
+ 1184 04b8 92000000 		.4byte	.LASF56
+ 1185 04bc 01       		.byte	0x1
+ 1186 04bd 33       		.byte	0x33
+ 1187 04be B2040000 		.4byte	0x4b2
+ 1188 04c2 05       		.uleb128 0x5
+ 1189 04c3 03       		.byte	0x3
+ 1190 04c4 00000000 		.4byte	timerR_on
+ 1191 04c8 18       		.uleb128 0x18
+ 1192 04c9 FE000000 		.4byte	0xfe
+ 1193 04cd D8040000 		.4byte	0x4d8
+ 1194 04d1 19       		.uleb128 0x19
+ 1195 04d2 F2000000 		.4byte	0xf2
+ 1196 04d6 04       		.byte	0x4
+ 1197 04d7 00       		.byte	0
+ 1198 04d8 1A       		.uleb128 0x1a
+ 1199 04d9 18000000 		.4byte	.LASF57
+ 1200 04dd 01       		.byte	0x1
+ 1201 04de 36       		.byte	0x36
+ 1202 04df E9040000 		.4byte	0x4e9
+ 1203 04e3 05       		.uleb128 0x5
+ 1204 04e4 03       		.byte	0x3
+ 1205 04e5 00000000 		.4byte	timerL_count
+ 1206 04e9 06       		.uleb128 0x6
+ 1207 04ea C8040000 		.4byte	0x4c8
+ 1208 04ee 1A       		.uleb128 0x1a
+ 1209 04ef FC000000 		.4byte	.LASF58
+ 1210 04f3 01       		.byte	0x1
+ 1211 04f4 37       		.byte	0x37
+ 1212 04f5 FF040000 		.4byte	0x4ff
+ 1213 04f9 05       		.uleb128 0x5
+ 1214 04fa 03       		.byte	0x3
+ 1215 04fb 00000000 		.4byte	timerR_count
+ 1216 04ff 06       		.uleb128 0x6
+ 1217 0500 C8040000 		.4byte	0x4c8
+ 1218 0504 18       		.uleb128 0x18
+ 1219 0505 B2040000 		.4byte	0x4b2
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 28
+
+
+ 1220 0509 14050000 		.4byte	0x514
+ 1221 050d 19       		.uleb128 0x19
+ 1222 050e F2000000 		.4byte	0xf2
+ 1223 0512 04       		.byte	0x4
+ 1224 0513 00       		.byte	0
+ 1225 0514 1A       		.uleb128 0x1a
+ 1226 0515 8A040000 		.4byte	.LASF59
+ 1227 0519 01       		.byte	0x1
+ 1228 051a 39       		.byte	0x39
+ 1229 051b 25050000 		.4byte	0x525
+ 1230 051f 05       		.uleb128 0x5
+ 1231 0520 03       		.byte	0x3
+ 1232 0521 00000000 		.4byte	timerL_overflows
+ 1233 0525 06       		.uleb128 0x6
+ 1234 0526 04050000 		.4byte	0x504
+ 1235 052a 1A       		.uleb128 0x1a
+ 1236 052b DD000000 		.4byte	.LASF60
+ 1237 052f 01       		.byte	0x1
+ 1238 0530 3A       		.byte	0x3a
+ 1239 0531 3B050000 		.4byte	0x53b
+ 1240 0535 05       		.uleb128 0x5
+ 1241 0536 03       		.byte	0x3
+ 1242 0537 00000000 		.4byte	timerR_overflows
+ 1243 053b 06       		.uleb128 0x6
+ 1244 053c 04050000 		.4byte	0x504
+ 1245 0540 1A       		.uleb128 0x1a
+ 1246 0541 92020000 		.4byte	.LASF61
+ 1247 0545 01       		.byte	0x1
+ 1248 0546 3C       		.byte	0x3c
+ 1249 0547 F9000000 		.4byte	0xf9
+ 1250 054b 05       		.uleb128 0x5
+ 1251 054c 03       		.byte	0x3
+ 1252 054d 00000000 		.4byte	timerL_index
+ 1253 0551 1A       		.uleb128 0x1a
+ 1254 0552 1E040000 		.4byte	.LASF62
+ 1255 0556 01       		.byte	0x1
+ 1256 0557 3D       		.byte	0x3d
+ 1257 0558 F9000000 		.4byte	0xf9
+ 1258 055c 05       		.uleb128 0x5
+ 1259 055d 03       		.byte	0x3
+ 1260 055e 00000000 		.4byte	timerR_index
+ 1261 0562 1A       		.uleb128 0x1a
+ 1262 0563 84050000 		.4byte	.LASF63
+ 1263 0567 01       		.byte	0x1
+ 1264 0568 41       		.byte	0x41
+ 1265 0569 48010000 		.4byte	0x148
+ 1266 056d 05       		.uleb128 0x5
+ 1267 056e 03       		.byte	0x3
+ 1268 056f 00000000 		.4byte	pid_linv
+ 1269 0573 1A       		.uleb128 0x1a
+ 1270 0574 B2030000 		.4byte	.LASF64
+ 1271 0578 01       		.byte	0x1
+ 1272 0579 42       		.byte	0x42
+ 1273 057a 48010000 		.4byte	0x148
+ 1274 057e 05       		.uleb128 0x5
+ 1275 057f 03       		.byte	0x3
+ 1276 0580 00000000 		.4byte	pid_angv
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 29
+
+
+ 1277 0584 1B       		.uleb128 0x1b
+ 1278 0585 BD040000 		.4byte	.LASF65
+ 1279 0589 BD040000 		.4byte	.LASF65
+ 1280 058d 07       		.byte	0x7
+ 1281 058e 69       		.byte	0x69
+ 1282 058f 1B       		.uleb128 0x1b
+ 1283 0590 E5010000 		.4byte	.LASF66
+ 1284 0594 E5010000 		.4byte	.LASF66
+ 1285 0598 07       		.byte	0x7
+ 1286 0599 86       		.byte	0x86
+ 1287 059a 1B       		.uleb128 0x1b
+ 1288 059b BB030000 		.4byte	.LASF67
+ 1289 059f BB030000 		.4byte	.LASF67
+ 1290 05a3 07       		.byte	0x7
+ 1291 05a4 5B       		.byte	0x5b
+ 1292 05a5 1B       		.uleb128 0x1b
+ 1293 05a6 FF010000 		.4byte	.LASF68
+ 1294 05aa FF010000 		.4byte	.LASF68
+ 1295 05ae 07       		.byte	0x7
+ 1296 05af 5A       		.byte	0x5a
+ 1297 05b0 1B       		.uleb128 0x1b
+ 1298 05b1 B8020000 		.4byte	.LASF69
+ 1299 05b5 B8020000 		.4byte	.LASF69
+ 1300 05b9 08       		.byte	0x8
+ 1301 05ba 69       		.byte	0x69
+ 1302 05bb 1B       		.uleb128 0x1b
+ 1303 05bc 5D000000 		.4byte	.LASF70
+ 1304 05c0 5D000000 		.4byte	.LASF70
+ 1305 05c4 08       		.byte	0x8
+ 1306 05c5 86       		.byte	0x86
+ 1307 05c6 1B       		.uleb128 0x1b
+ 1308 05c7 87030000 		.4byte	.LASF71
+ 1309 05cb 87030000 		.4byte	.LASF71
+ 1310 05cf 08       		.byte	0x8
+ 1311 05d0 5B       		.byte	0x5b
+ 1312 05d1 1B       		.uleb128 0x1b
+ 1313 05d2 74040000 		.4byte	.LASF72
+ 1314 05d6 74040000 		.4byte	.LASF72
+ 1315 05da 08       		.byte	0x8
+ 1316 05db 5A       		.byte	0x5a
+ 1317 05dc 1B       		.uleb128 0x1b
+ 1318 05dd 80000000 		.4byte	.LASF73
+ 1319 05e1 80000000 		.4byte	.LASF73
+ 1320 05e5 09       		.byte	0x9
+ 1321 05e6 70       		.byte	0x70
+ 1322 05e7 1B       		.uleb128 0x1b
+ 1323 05e8 BE000000 		.4byte	.LASF74
+ 1324 05ec BE000000 		.4byte	.LASF74
+ 1325 05f0 09       		.byte	0x9
+ 1326 05f1 71       		.byte	0x71
+ 1327 05f2 1B       		.uleb128 0x1b
+ 1328 05f3 B9050000 		.4byte	.LASF75
+ 1329 05f7 B9050000 		.4byte	.LASF75
+ 1330 05fb 0A       		.byte	0xa
+ 1331 05fc 2F       		.byte	0x2f
+ 1332 05fd 1B       		.uleb128 0x1b
+ 1333 05fe E5030000 		.4byte	.LASF76
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 30
+
+
+ 1334 0602 E5030000 		.4byte	.LASF76
+ 1335 0606 0B       		.byte	0xb
+ 1336 0607 2F       		.byte	0x2f
+ 1337 0608 1B       		.uleb128 0x1b
+ 1338 0609 7B020000 		.4byte	.LASF77
+ 1339 060d 7B020000 		.4byte	.LASF77
+ 1340 0611 09       		.byte	0x9
+ 1341 0612 54       		.byte	0x54
+ 1342 0613 1B       		.uleb128 0x1b
+ 1343 0614 24030000 		.4byte	.LASF78
+ 1344 0618 24030000 		.4byte	.LASF78
+ 1345 061c 0C       		.byte	0xc
+ 1346 061d 18       		.byte	0x18
+ 1347 061e 1B       		.uleb128 0x1b
+ 1348 061f 9F010000 		.4byte	.LASF79
+ 1349 0623 9F010000 		.4byte	.LASF79
+ 1350 0627 0D       		.byte	0xd
+ 1351 0628 18       		.byte	0x18
+ 1352 0629 1B       		.uleb128 0x1b
+ 1353 062a 25000000 		.4byte	.LASF80
+ 1354 062e 25000000 		.4byte	.LASF80
+ 1355 0632 0E       		.byte	0xe
+ 1356 0633 18       		.byte	0x18
+ 1357 0634 1B       		.uleb128 0x1b
+ 1358 0635 2B020000 		.4byte	.LASF81
+ 1359 0639 2B020000 		.4byte	.LASF81
+ 1360 063d 0F       		.byte	0xf
+ 1361 063e 18       		.byte	0x18
+ 1362 063f 1B       		.uleb128 0x1b
+ 1363 0640 CB000000 		.4byte	.LASF82
+ 1364 0644 CB000000 		.4byte	.LASF82
+ 1365 0648 10       		.byte	0x10
+ 1366 0649 18       		.byte	0x18
+ 1367 064a 1B       		.uleb128 0x1b
+ 1368 064b D3010000 		.4byte	.LASF83
+ 1369 064f D3010000 		.4byte	.LASF83
+ 1370 0653 11       		.byte	0x11
+ 1371 0654 18       		.byte	0x18
+ 1372 0655 1B       		.uleb128 0x1b
+ 1373 0656 06000000 		.4byte	.LASF84
+ 1374 065a 06000000 		.4byte	.LASF84
+ 1375 065e 12       		.byte	0x12
+ 1376 065f 16       		.byte	0x16
+ 1377 0660 1B       		.uleb128 0x1b
+ 1378 0661 B2000000 		.4byte	.LASF85
+ 1379 0665 B2000000 		.4byte	.LASF85
+ 1380 0669 13       		.byte	0x13
+ 1381 066a 92       		.byte	0x92
+ 1382 066b 1B       		.uleb128 0x1b
+ 1383 066c FD030000 		.4byte	.LASF86
+ 1384 0670 FD030000 		.4byte	.LASF86
+ 1385 0674 14       		.byte	0x14
+ 1386 0675 92       		.byte	0x92
+ 1387 0676 00       		.byte	0
+ 1388              		.section	.debug_abbrev,"",%progbits
+ 1389              	.Ldebug_abbrev0:
+ 1390 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 31
+
+
+ 1391 0001 11       		.uleb128 0x11
+ 1392 0002 01       		.byte	0x1
+ 1393 0003 25       		.uleb128 0x25
+ 1394 0004 0E       		.uleb128 0xe
+ 1395 0005 13       		.uleb128 0x13
+ 1396 0006 0B       		.uleb128 0xb
+ 1397 0007 03       		.uleb128 0x3
+ 1398 0008 0E       		.uleb128 0xe
+ 1399 0009 1B       		.uleb128 0x1b
+ 1400 000a 0E       		.uleb128 0xe
+ 1401 000b 55       		.uleb128 0x55
+ 1402 000c 17       		.uleb128 0x17
+ 1403 000d 11       		.uleb128 0x11
+ 1404 000e 01       		.uleb128 0x1
+ 1405 000f 10       		.uleb128 0x10
+ 1406 0010 17       		.uleb128 0x17
+ 1407 0011 00       		.byte	0
+ 1408 0012 00       		.byte	0
+ 1409 0013 02       		.uleb128 0x2
+ 1410 0014 24       		.uleb128 0x24
+ 1411 0015 00       		.byte	0
+ 1412 0016 0B       		.uleb128 0xb
+ 1413 0017 0B       		.uleb128 0xb
+ 1414 0018 3E       		.uleb128 0x3e
+ 1415 0019 0B       		.uleb128 0xb
+ 1416 001a 03       		.uleb128 0x3
+ 1417 001b 0E       		.uleb128 0xe
+ 1418 001c 00       		.byte	0
+ 1419 001d 00       		.byte	0
+ 1420 001e 03       		.uleb128 0x3
+ 1421 001f 16       		.uleb128 0x16
+ 1422 0020 00       		.byte	0
+ 1423 0021 03       		.uleb128 0x3
+ 1424 0022 0E       		.uleb128 0xe
+ 1425 0023 3A       		.uleb128 0x3a
+ 1426 0024 0B       		.uleb128 0xb
+ 1427 0025 3B       		.uleb128 0x3b
+ 1428 0026 0B       		.uleb128 0xb
+ 1429 0027 49       		.uleb128 0x49
+ 1430 0028 13       		.uleb128 0x13
+ 1431 0029 00       		.byte	0
+ 1432 002a 00       		.byte	0
+ 1433 002b 04       		.uleb128 0x4
+ 1434 002c 24       		.uleb128 0x24
+ 1435 002d 00       		.byte	0
+ 1436 002e 0B       		.uleb128 0xb
+ 1437 002f 0B       		.uleb128 0xb
+ 1438 0030 3E       		.uleb128 0x3e
+ 1439 0031 0B       		.uleb128 0xb
+ 1440 0032 03       		.uleb128 0x3
+ 1441 0033 08       		.uleb128 0x8
+ 1442 0034 00       		.byte	0
+ 1443 0035 00       		.byte	0
+ 1444 0036 05       		.uleb128 0x5
+ 1445 0037 16       		.uleb128 0x16
+ 1446 0038 00       		.byte	0
+ 1447 0039 03       		.uleb128 0x3
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 32
+
+
+ 1448 003a 0E       		.uleb128 0xe
+ 1449 003b 3A       		.uleb128 0x3a
+ 1450 003c 0B       		.uleb128 0xb
+ 1451 003d 3B       		.uleb128 0x3b
+ 1452 003e 05       		.uleb128 0x5
+ 1453 003f 49       		.uleb128 0x49
+ 1454 0040 13       		.uleb128 0x13
+ 1455 0041 00       		.byte	0
+ 1456 0042 00       		.byte	0
+ 1457 0043 06       		.uleb128 0x6
+ 1458 0044 35       		.uleb128 0x35
+ 1459 0045 00       		.byte	0
+ 1460 0046 49       		.uleb128 0x49
+ 1461 0047 13       		.uleb128 0x13
+ 1462 0048 00       		.byte	0
+ 1463 0049 00       		.byte	0
+ 1464 004a 07       		.uleb128 0x7
+ 1465 004b 13       		.uleb128 0x13
+ 1466 004c 01       		.byte	0x1
+ 1467 004d 0B       		.uleb128 0xb
+ 1468 004e 0B       		.uleb128 0xb
+ 1469 004f 3A       		.uleb128 0x3a
+ 1470 0050 0B       		.uleb128 0xb
+ 1471 0051 3B       		.uleb128 0x3b
+ 1472 0052 0B       		.uleb128 0xb
+ 1473 0053 01       		.uleb128 0x1
+ 1474 0054 13       		.uleb128 0x13
+ 1475 0055 00       		.byte	0
+ 1476 0056 00       		.byte	0
+ 1477 0057 08       		.uleb128 0x8
+ 1478 0058 0D       		.uleb128 0xd
+ 1479 0059 00       		.byte	0
+ 1480 005a 03       		.uleb128 0x3
+ 1481 005b 0E       		.uleb128 0xe
+ 1482 005c 3A       		.uleb128 0x3a
+ 1483 005d 0B       		.uleb128 0xb
+ 1484 005e 3B       		.uleb128 0x3b
+ 1485 005f 0B       		.uleb128 0xb
+ 1486 0060 49       		.uleb128 0x49
+ 1487 0061 13       		.uleb128 0x13
+ 1488 0062 38       		.uleb128 0x38
+ 1489 0063 0B       		.uleb128 0xb
+ 1490 0064 00       		.byte	0
+ 1491 0065 00       		.byte	0
+ 1492 0066 09       		.uleb128 0x9
+ 1493 0067 2E       		.uleb128 0x2e
+ 1494 0068 00       		.byte	0
+ 1495 0069 3F       		.uleb128 0x3f
+ 1496 006a 19       		.uleb128 0x19
+ 1497 006b 03       		.uleb128 0x3
+ 1498 006c 0E       		.uleb128 0xe
+ 1499 006d 3A       		.uleb128 0x3a
+ 1500 006e 0B       		.uleb128 0xb
+ 1501 006f 3B       		.uleb128 0x3b
+ 1502 0070 0B       		.uleb128 0xb
+ 1503 0071 27       		.uleb128 0x27
+ 1504 0072 19       		.uleb128 0x19
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 33
+
+
+ 1505 0073 11       		.uleb128 0x11
+ 1506 0074 01       		.uleb128 0x1
+ 1507 0075 12       		.uleb128 0x12
+ 1508 0076 06       		.uleb128 0x6
+ 1509 0077 40       		.uleb128 0x40
+ 1510 0078 18       		.uleb128 0x18
+ 1511 0079 9742     		.uleb128 0x2117
+ 1512 007b 19       		.uleb128 0x19
+ 1513 007c 00       		.byte	0
+ 1514 007d 00       		.byte	0
+ 1515 007e 0A       		.uleb128 0xa
+ 1516 007f 2E       		.uleb128 0x2e
+ 1517 0080 01       		.byte	0x1
+ 1518 0081 3F       		.uleb128 0x3f
+ 1519 0082 19       		.uleb128 0x19
+ 1520 0083 03       		.uleb128 0x3
+ 1521 0084 0E       		.uleb128 0xe
+ 1522 0085 3A       		.uleb128 0x3a
+ 1523 0086 0B       		.uleb128 0xb
+ 1524 0087 3B       		.uleb128 0x3b
+ 1525 0088 0B       		.uleb128 0xb
+ 1526 0089 27       		.uleb128 0x27
+ 1527 008a 19       		.uleb128 0x19
+ 1528 008b 11       		.uleb128 0x11
+ 1529 008c 01       		.uleb128 0x1
+ 1530 008d 12       		.uleb128 0x12
+ 1531 008e 06       		.uleb128 0x6
+ 1532 008f 40       		.uleb128 0x40
+ 1533 0090 18       		.uleb128 0x18
+ 1534 0091 9742     		.uleb128 0x2117
+ 1535 0093 19       		.uleb128 0x19
+ 1536 0094 01       		.uleb128 0x1
+ 1537 0095 13       		.uleb128 0x13
+ 1538 0096 00       		.byte	0
+ 1539 0097 00       		.byte	0
+ 1540 0098 0B       		.uleb128 0xb
+ 1541 0099 898201   		.uleb128 0x4109
+ 1542 009c 00       		.byte	0
+ 1543 009d 11       		.uleb128 0x11
+ 1544 009e 01       		.uleb128 0x1
+ 1545 009f 31       		.uleb128 0x31
+ 1546 00a0 13       		.uleb128 0x13
+ 1547 00a1 00       		.byte	0
+ 1548 00a2 00       		.byte	0
+ 1549 00a3 0C       		.uleb128 0xc
+ 1550 00a4 34       		.uleb128 0x34
+ 1551 00a5 00       		.byte	0
+ 1552 00a6 03       		.uleb128 0x3
+ 1553 00a7 0E       		.uleb128 0xe
+ 1554 00a8 3A       		.uleb128 0x3a
+ 1555 00a9 0B       		.uleb128 0xb
+ 1556 00aa 3B       		.uleb128 0x3b
+ 1557 00ab 0B       		.uleb128 0xb
+ 1558 00ac 49       		.uleb128 0x49
+ 1559 00ad 13       		.uleb128 0x13
+ 1560 00ae 02       		.uleb128 0x2
+ 1561 00af 17       		.uleb128 0x17
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 34
+
+
+ 1562 00b0 00       		.byte	0
+ 1563 00b1 00       		.byte	0
+ 1564 00b2 0D       		.uleb128 0xd
+ 1565 00b3 2E       		.uleb128 0x2e
+ 1566 00b4 01       		.byte	0x1
+ 1567 00b5 3F       		.uleb128 0x3f
+ 1568 00b6 19       		.uleb128 0x19
+ 1569 00b7 03       		.uleb128 0x3
+ 1570 00b8 0E       		.uleb128 0xe
+ 1571 00b9 3A       		.uleb128 0x3a
+ 1572 00ba 0B       		.uleb128 0xb
+ 1573 00bb 3B       		.uleb128 0x3b
+ 1574 00bc 0B       		.uleb128 0xb
+ 1575 00bd 27       		.uleb128 0x27
+ 1576 00be 19       		.uleb128 0x19
+ 1577 00bf 49       		.uleb128 0x49
+ 1578 00c0 13       		.uleb128 0x13
+ 1579 00c1 8701     		.uleb128 0x87
+ 1580 00c3 19       		.uleb128 0x19
+ 1581 00c4 11       		.uleb128 0x11
+ 1582 00c5 01       		.uleb128 0x1
+ 1583 00c6 12       		.uleb128 0x12
+ 1584 00c7 06       		.uleb128 0x6
+ 1585 00c8 40       		.uleb128 0x40
+ 1586 00c9 18       		.uleb128 0x18
+ 1587 00ca 9642     		.uleb128 0x2116
+ 1588 00cc 19       		.uleb128 0x19
+ 1589 00cd 01       		.uleb128 0x1
+ 1590 00ce 13       		.uleb128 0x13
+ 1591 00cf 00       		.byte	0
+ 1592 00d0 00       		.byte	0
+ 1593 00d1 0E       		.uleb128 0xe
+ 1594 00d2 34       		.uleb128 0x34
+ 1595 00d3 00       		.byte	0
+ 1596 00d4 03       		.uleb128 0x3
+ 1597 00d5 0E       		.uleb128 0xe
+ 1598 00d6 3A       		.uleb128 0x3a
+ 1599 00d7 0B       		.uleb128 0xb
+ 1600 00d8 3B       		.uleb128 0x3b
+ 1601 00d9 0B       		.uleb128 0xb
+ 1602 00da 49       		.uleb128 0x49
+ 1603 00db 13       		.uleb128 0x13
+ 1604 00dc 02       		.uleb128 0x2
+ 1605 00dd 18       		.uleb128 0x18
+ 1606 00de 00       		.byte	0
+ 1607 00df 00       		.byte	0
+ 1608 00e0 0F       		.uleb128 0xf
+ 1609 00e1 34       		.uleb128 0x34
+ 1610 00e2 00       		.byte	0
+ 1611 00e3 03       		.uleb128 0x3
+ 1612 00e4 0E       		.uleb128 0xe
+ 1613 00e5 3A       		.uleb128 0x3a
+ 1614 00e6 0B       		.uleb128 0xb
+ 1615 00e7 3B       		.uleb128 0x3b
+ 1616 00e8 0B       		.uleb128 0xb
+ 1617 00e9 49       		.uleb128 0x49
+ 1618 00ea 13       		.uleb128 0x13
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 35
+
+
+ 1619 00eb 1C       		.uleb128 0x1c
+ 1620 00ec 0B       		.uleb128 0xb
+ 1621 00ed 00       		.byte	0
+ 1622 00ee 00       		.byte	0
+ 1623 00ef 10       		.uleb128 0x10
+ 1624 00f0 0B       		.uleb128 0xb
+ 1625 00f1 01       		.byte	0x1
+ 1626 00f2 11       		.uleb128 0x11
+ 1627 00f3 01       		.uleb128 0x1
+ 1628 00f4 12       		.uleb128 0x12
+ 1629 00f5 06       		.uleb128 0x6
+ 1630 00f6 01       		.uleb128 0x1
+ 1631 00f7 13       		.uleb128 0x13
+ 1632 00f8 00       		.byte	0
+ 1633 00f9 00       		.byte	0
+ 1634 00fa 11       		.uleb128 0x11
+ 1635 00fb 0B       		.uleb128 0xb
+ 1636 00fc 01       		.byte	0x1
+ 1637 00fd 11       		.uleb128 0x11
+ 1638 00fe 01       		.uleb128 0x1
+ 1639 00ff 12       		.uleb128 0x12
+ 1640 0100 06       		.uleb128 0x6
+ 1641 0101 00       		.byte	0
+ 1642 0102 00       		.byte	0
+ 1643 0103 12       		.uleb128 0x12
+ 1644 0104 34       		.uleb128 0x34
+ 1645 0105 00       		.byte	0
+ 1646 0106 03       		.uleb128 0x3
+ 1647 0107 08       		.uleb128 0x8
+ 1648 0108 3A       		.uleb128 0x3a
+ 1649 0109 0B       		.uleb128 0xb
+ 1650 010a 3B       		.uleb128 0x3b
+ 1651 010b 05       		.uleb128 0x5
+ 1652 010c 49       		.uleb128 0x49
+ 1653 010d 13       		.uleb128 0x13
+ 1654 010e 02       		.uleb128 0x2
+ 1655 010f 17       		.uleb128 0x17
+ 1656 0110 00       		.byte	0
+ 1657 0111 00       		.byte	0
+ 1658 0112 13       		.uleb128 0x13
+ 1659 0113 34       		.uleb128 0x34
+ 1660 0114 00       		.byte	0
+ 1661 0115 03       		.uleb128 0x3
+ 1662 0116 0E       		.uleb128 0xe
+ 1663 0117 3A       		.uleb128 0x3a
+ 1664 0118 0B       		.uleb128 0xb
+ 1665 0119 3B       		.uleb128 0x3b
+ 1666 011a 05       		.uleb128 0x5
+ 1667 011b 49       		.uleb128 0x49
+ 1668 011c 13       		.uleb128 0x13
+ 1669 011d 02       		.uleb128 0x2
+ 1670 011e 17       		.uleb128 0x17
+ 1671 011f 00       		.byte	0
+ 1672 0120 00       		.byte	0
+ 1673 0121 14       		.uleb128 0x14
+ 1674 0122 898201   		.uleb128 0x4109
+ 1675 0125 01       		.byte	0x1
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 36
+
+
+ 1676 0126 11       		.uleb128 0x11
+ 1677 0127 01       		.uleb128 0x1
+ 1678 0128 31       		.uleb128 0x31
+ 1679 0129 13       		.uleb128 0x13
+ 1680 012a 01       		.uleb128 0x1
+ 1681 012b 13       		.uleb128 0x13
+ 1682 012c 00       		.byte	0
+ 1683 012d 00       		.byte	0
+ 1684 012e 15       		.uleb128 0x15
+ 1685 012f 8A8201   		.uleb128 0x410a
+ 1686 0132 00       		.byte	0
+ 1687 0133 02       		.uleb128 0x2
+ 1688 0134 18       		.uleb128 0x18
+ 1689 0135 9142     		.uleb128 0x2111
+ 1690 0137 18       		.uleb128 0x18
+ 1691 0138 00       		.byte	0
+ 1692 0139 00       		.byte	0
+ 1693 013a 16       		.uleb128 0x16
+ 1694 013b 0F       		.uleb128 0xf
+ 1695 013c 00       		.byte	0
+ 1696 013d 0B       		.uleb128 0xb
+ 1697 013e 0B       		.uleb128 0xb
+ 1698 013f 49       		.uleb128 0x49
+ 1699 0140 13       		.uleb128 0x13
+ 1700 0141 00       		.byte	0
+ 1701 0142 00       		.byte	0
+ 1702 0143 17       		.uleb128 0x17
+ 1703 0144 34       		.uleb128 0x34
+ 1704 0145 00       		.byte	0
+ 1705 0146 03       		.uleb128 0x3
+ 1706 0147 0E       		.uleb128 0xe
+ 1707 0148 3A       		.uleb128 0x3a
+ 1708 0149 0B       		.uleb128 0xb
+ 1709 014a 3B       		.uleb128 0x3b
+ 1710 014b 05       		.uleb128 0x5
+ 1711 014c 49       		.uleb128 0x49
+ 1712 014d 13       		.uleb128 0x13
+ 1713 014e 3F       		.uleb128 0x3f
+ 1714 014f 19       		.uleb128 0x19
+ 1715 0150 3C       		.uleb128 0x3c
+ 1716 0151 19       		.uleb128 0x19
+ 1717 0152 00       		.byte	0
+ 1718 0153 00       		.byte	0
+ 1719 0154 18       		.uleb128 0x18
+ 1720 0155 01       		.uleb128 0x1
+ 1721 0156 01       		.byte	0x1
+ 1722 0157 49       		.uleb128 0x49
+ 1723 0158 13       		.uleb128 0x13
+ 1724 0159 01       		.uleb128 0x1
+ 1725 015a 13       		.uleb128 0x13
+ 1726 015b 00       		.byte	0
+ 1727 015c 00       		.byte	0
+ 1728 015d 19       		.uleb128 0x19
+ 1729 015e 21       		.uleb128 0x21
+ 1730 015f 00       		.byte	0
+ 1731 0160 49       		.uleb128 0x49
+ 1732 0161 13       		.uleb128 0x13
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 37
+
+
+ 1733 0162 2F       		.uleb128 0x2f
+ 1734 0163 0B       		.uleb128 0xb
+ 1735 0164 00       		.byte	0
+ 1736 0165 00       		.byte	0
+ 1737 0166 1A       		.uleb128 0x1a
+ 1738 0167 34       		.uleb128 0x34
+ 1739 0168 00       		.byte	0
+ 1740 0169 03       		.uleb128 0x3
+ 1741 016a 0E       		.uleb128 0xe
+ 1742 016b 3A       		.uleb128 0x3a
+ 1743 016c 0B       		.uleb128 0xb
+ 1744 016d 3B       		.uleb128 0x3b
+ 1745 016e 0B       		.uleb128 0xb
+ 1746 016f 49       		.uleb128 0x49
+ 1747 0170 13       		.uleb128 0x13
+ 1748 0171 3F       		.uleb128 0x3f
+ 1749 0172 19       		.uleb128 0x19
+ 1750 0173 02       		.uleb128 0x2
+ 1751 0174 18       		.uleb128 0x18
+ 1752 0175 00       		.byte	0
+ 1753 0176 00       		.byte	0
+ 1754 0177 1B       		.uleb128 0x1b
+ 1755 0178 2E       		.uleb128 0x2e
+ 1756 0179 00       		.byte	0
+ 1757 017a 3F       		.uleb128 0x3f
+ 1758 017b 19       		.uleb128 0x19
+ 1759 017c 3C       		.uleb128 0x3c
+ 1760 017d 19       		.uleb128 0x19
+ 1761 017e 6E       		.uleb128 0x6e
+ 1762 017f 0E       		.uleb128 0xe
+ 1763 0180 03       		.uleb128 0x3
+ 1764 0181 0E       		.uleb128 0xe
+ 1765 0182 3A       		.uleb128 0x3a
+ 1766 0183 0B       		.uleb128 0xb
+ 1767 0184 3B       		.uleb128 0x3b
+ 1768 0185 0B       		.uleb128 0xb
+ 1769 0186 00       		.byte	0
+ 1770 0187 00       		.byte	0
+ 1771 0188 00       		.byte	0
+ 1772              		.section	.debug_loc,"",%progbits
+ 1773              	.Ldebug_loc0:
+ 1774              	.LLST0:
+ 1775 0000 10000000 		.4byte	.LVL9
+ 1776 0004 2A000000 		.4byte	.LVL10
+ 1777 0008 0100     		.2byte	0x1
+ 1778 000a 50       		.byte	0x50
+ 1779 000b 00000000 		.4byte	0
+ 1780 000f 00000000 		.4byte	0
+ 1781              	.LLST1:
+ 1782 0013 2C000000 		.4byte	.LVL14
+ 1783 0017 6E000000 		.4byte	.LVL25
+ 1784 001b 0200     		.2byte	0x2
+ 1785 001d 30       		.byte	0x30
+ 1786 001e 9F       		.byte	0x9f
+ 1787 001f 94000000 		.4byte	.LVL27
+ 1788 0023 3C010000 		.4byte	.LFE70
+ 1789 0027 0100     		.2byte	0x1
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 38
+
+
+ 1790 0029 56       		.byte	0x56
+ 1791 002a 00000000 		.4byte	0
+ 1792 002e 00000000 		.4byte	0
+ 1793              	.LLST2:
+ 1794 0032 84000000 		.4byte	.LVL26
+ 1795 0036 A0000000 		.4byte	.LVL29
+ 1796 003a 0100     		.2byte	0x1
+ 1797 003c 50       		.byte	0x50
+ 1798 003d 00000000 		.4byte	0
+ 1799 0041 00000000 		.4byte	0
+ 1800              	.LLST3:
+ 1801 0045 9E000000 		.4byte	.LVL28
+ 1802 0049 A0000000 		.4byte	.LVL29
+ 1803 004d 0200     		.2byte	0x2
+ 1804 004f 30       		.byte	0x30
+ 1805 0050 9F       		.byte	0x9f
+ 1806 0051 A0000000 		.4byte	.LVL29
+ 1807 0055 3C010000 		.4byte	.LFE70
+ 1808 0059 0100     		.2byte	0x1
+ 1809 005b 54       		.byte	0x54
+ 1810 005c 00000000 		.4byte	0
+ 1811 0060 00000000 		.4byte	0
+ 1812              	.LLST4:
+ 1813 0064 A0000000 		.4byte	.LVL29
+ 1814 0068 BE000000 		.4byte	.LVL30
+ 1815 006c 0200     		.2byte	0x2
+ 1816 006e 30       		.byte	0x30
+ 1817 006f 9F       		.byte	0x9f
+ 1818 0070 00000000 		.4byte	0
+ 1819 0074 00000000 		.4byte	0
+ 1820              	.LLST5:
+ 1821 0078 C4000000 		.4byte	.LVL31
+ 1822 007c C8000000 		.4byte	.LVL32
+ 1823 0080 0100     		.2byte	0x1
+ 1824 0082 51       		.byte	0x51
+ 1825 0083 C8000000 		.4byte	.LVL32
+ 1826 0087 D2000000 		.4byte	.LVL34
+ 1827 008b 0300     		.2byte	0x3
+ 1828 008d 73       		.byte	0x73
+ 1829 008e 03       		.sleb128 3
+ 1830 008f 9F       		.byte	0x9f
+ 1831 0090 D2000000 		.4byte	.LVL34
+ 1832 0094 DF000000 		.4byte	.LVL37-1
+ 1833 0098 0300     		.2byte	0x3
+ 1834 009a 73       		.byte	0x73
+ 1835 009b 7D       		.sleb128 -3
+ 1836 009c 9F       		.byte	0x9f
+ 1837 009d DF000000 		.4byte	.LVL37-1
+ 1838 00a1 04010000 		.4byte	.LVL41
+ 1839 00a5 0700     		.2byte	0x7
+ 1840 00a7 75       		.byte	0x75
+ 1841 00a8 7F       		.sleb128 -1
+ 1842 00a9 32       		.byte	0x32
+ 1843 00aa 24       		.byte	0x24
+ 1844 00ab 23       		.byte	0x23
+ 1845 00ac 03       		.uleb128 0x3
+ 1846 00ad 9F       		.byte	0x9f
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 39
+
+
+ 1847 00ae 00000000 		.4byte	0
+ 1848 00b2 00000000 		.4byte	0
+ 1849              	.LLST6:
+ 1850 00b6 CC000000 		.4byte	.LVL33
+ 1851 00ba DC000000 		.4byte	.LVL36
+ 1852 00be 0800     		.2byte	0x8
+ 1853 00c0 7E       		.byte	0x7e
+ 1854 00c1 00       		.sleb128 0
+ 1855 00c2 38       		.byte	0x38
+ 1856 00c3 24       		.byte	0x24
+ 1857 00c4 70       		.byte	0x70
+ 1858 00c5 00       		.sleb128 0
+ 1859 00c6 21       		.byte	0x21
+ 1860 00c7 9F       		.byte	0x9f
+ 1861 00c8 00000000 		.4byte	0
+ 1862 00cc 00000000 		.4byte	0
+ 1863              	.LLST7:
+ 1864 00d0 D8000000 		.4byte	.LVL35
+ 1865 00d4 04010000 		.4byte	.LVL41
+ 1866 00d8 0100     		.2byte	0x1
+ 1867 00da 57       		.byte	0x57
+ 1868 00db 00000000 		.4byte	0
+ 1869 00df 00000000 		.4byte	0
+ 1870              		.section	.debug_aranges,"",%progbits
+ 1871 0000 4C000000 		.4byte	0x4c
+ 1872 0004 0200     		.2byte	0x2
+ 1873 0006 00000000 		.4byte	.Ldebug_info0
+ 1874 000a 04       		.byte	0x4
+ 1875 000b 00       		.byte	0
+ 1876 000c 0000     		.2byte	0
+ 1877 000e 0000     		.2byte	0
+ 1878 0010 00000000 		.4byte	.LFB64
+ 1879 0014 2C000000 		.4byte	.LFE64-.LFB64
+ 1880 0018 00000000 		.4byte	.LFB65
+ 1881 001c 2C000000 		.4byte	.LFE65-.LFB65
+ 1882 0020 00000000 		.4byte	.LFB68
+ 1883 0024 02000000 		.4byte	.LFE68-.LFB68
+ 1884 0028 00000000 		.4byte	.LFB66
+ 1885 002c 54000000 		.4byte	.LFE66-.LFB66
+ 1886 0030 00000000 		.4byte	.LFB67
+ 1887 0034 54000000 		.4byte	.LFE67-.LFB67
+ 1888 0038 00000000 		.4byte	.LFB69
+ 1889 003c 34000000 		.4byte	.LFE69-.LFB69
+ 1890 0040 00000000 		.4byte	.LFB70
+ 1891 0044 3C010000 		.4byte	.LFE70-.LFB70
+ 1892 0048 00000000 		.4byte	0
+ 1893 004c 00000000 		.4byte	0
+ 1894              		.section	.debug_ranges,"",%progbits
+ 1895              	.Ldebug_ranges0:
+ 1896 0000 00000000 		.4byte	.LFB64
+ 1897 0004 2C000000 		.4byte	.LFE64
+ 1898 0008 00000000 		.4byte	.LFB65
+ 1899 000c 2C000000 		.4byte	.LFE65
+ 1900 0010 00000000 		.4byte	.LFB68
+ 1901 0014 02000000 		.4byte	.LFE68
+ 1902 0018 00000000 		.4byte	.LFB66
+ 1903 001c 54000000 		.4byte	.LFE66
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 40
+
+
+ 1904 0020 00000000 		.4byte	.LFB67
+ 1905 0024 54000000 		.4byte	.LFE67
+ 1906 0028 00000000 		.4byte	.LFB69
+ 1907 002c 34000000 		.4byte	.LFE69
+ 1908 0030 00000000 		.4byte	.LFB70
+ 1909 0034 3C010000 		.4byte	.LFE70
+ 1910 0038 00000000 		.4byte	0
+ 1911 003c 00000000 		.4byte	0
+ 1912              		.section	.debug_line,"",%progbits
+ 1913              	.Ldebug_line0:
+ 1914 0000 0F030000 		.section	.debug_str,"MS",%progbits,1
+ 1914      02003D02 
+ 1914      00000201 
+ 1914      FB0E0D00 
+ 1914      01010101 
+ 1915              	.LASF23:
+ 1916 0000 50676169 		.ascii	"Pgain\000"
+ 1916      6E00
+ 1917              	.LASF84:
+ 1918 0006 6765745F 		.ascii	"get_robot_ID\000"
+ 1918      726F626F 
+ 1918      745F4944 
+ 1918      00
+ 1919              	.LASF30:
+ 1920 0013 616E6776 		.ascii	"angv\000"
+ 1920      00
+ 1921              	.LASF57:
+ 1922 0018 74696D65 		.ascii	"timerL_count\000"
+ 1922      724C5F63 
+ 1922      6F756E74 
+ 1922      00
+ 1923              	.LASF80:
+ 1924 0025 454E434F 		.ascii	"ENCODER_R_OVF_ISR_StartEx\000"
+ 1924      4445525F 
+ 1924      525F4F56 
+ 1924      465F4953 
+ 1924      525F5374 
+ 1925              	.LASF36:
+ 1926 003f 454E435F 		.ascii	"ENC_L_ISR_vect\000"
+ 1926      4C5F4953 
+ 1926      525F7665 
+ 1926      637400
+ 1927              	.LASF43:
+ 1928 004e 74656D70 		.ascii	"temp\000"
+ 1928      00
+ 1929              	.LASF2:
+ 1930 0053 73686F72 		.ascii	"short int\000"
+ 1930      7420696E 
+ 1930      7400
+ 1931              	.LASF70:
+ 1932 005d 456E636F 		.ascii	"Encoder_L_Timer_ClearFIFO\000"
+ 1932      6465725F 
+ 1932      4C5F5469 
+ 1932      6D65725F 
+ 1932      436C6561 
+ 1933              	.LASF22:
+ 1934 0077 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 41
+
+
+ 1934      74797065 
+ 1934      00
+ 1935              	.LASF73:
+ 1936 0080 55415254 		.ascii	"UART_ReadRxStatus\000"
+ 1936      5F526561 
+ 1936      64527853 
+ 1936      74617475 
+ 1936      7300
+ 1937              	.LASF56:
+ 1938 0092 74696D65 		.ascii	"timerR_on\000"
+ 1938      72525F6F 
+ 1938      6E00
+ 1939              	.LASF90:
+ 1940 009c 6D61696E 		.ascii	"main\000"
+ 1940      00
+ 1941              	.LASF24:
+ 1942 00a1 44676169 		.ascii	"Dgain\000"
+ 1942      6E00
+ 1943              	.LASF4:
+ 1944 00a7 5F5F7569 		.ascii	"__uint16_t\000"
+ 1944      6E743136 
+ 1944      5F7400
+ 1945              	.LASF85:
+ 1946 00b2 50574D5F 		.ascii	"PWM_L_Start\000"
+ 1946      4C5F5374 
+ 1946      61727400 
+ 1947              	.LASF74:
+ 1948 00be 55415254 		.ascii	"UART_GetChar\000"
+ 1948      5F476574 
+ 1948      43686172 
+ 1948      00
+ 1949              	.LASF82:
+ 1950 00cb 454E435F 		.ascii	"ENC_R_ISR_StartEx\000"
+ 1950      525F4953 
+ 1950      525F5374 
+ 1950      61727445 
+ 1950      7800
+ 1951              	.LASF60:
+ 1952 00dd 74696D65 		.ascii	"timerR_overflows\000"
+ 1952      72525F6F 
+ 1952      76657266 
+ 1952      6C6F7773 
+ 1952      00
+ 1953              	.LASF12:
+ 1954 00ee 75696E74 		.ascii	"uint8_t\000"
+ 1954      385F7400 
+ 1955              	.LASF15:
+ 1956 00f6 75696E74 		.ascii	"uint8\000"
+ 1956      3800
+ 1957              	.LASF58:
+ 1958 00fc 74696D65 		.ascii	"timerR_count\000"
+ 1958      72525F63 
+ 1958      6F756E74 
+ 1958      00
+ 1959              	.LASF17:
+ 1960 0109 666C6F61 		.ascii	"float\000"
+ 1960      7400
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 42
+
+
+ 1961              	.LASF89:
+ 1962 010f 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Documents\\Summer"
+ 1962      6C65732E 
+ 1962      6175636B 
+ 1962      6C616E64 
+ 1962      2E61632E 
+ 1963 013d 20526573 		.ascii	" Research\\Robot Soccer Code\\EmbeddedCode\\PsOC Pr"
+ 1963      65617263 
+ 1963      685C526F 
+ 1963      626F7420 
+ 1963      536F6363 
+ 1964 016d 6F6A6563 		.ascii	"oject\\Robot_PSoC_test.cydsn\\Robot_PSoC_test.cydsn"
+ 1964      745C526F 
+ 1964      626F745F 
+ 1964      50536F43 
+ 1964      5F746573 
+ 1965 019e 00       		.ascii	"\000"
+ 1966              	.LASF79:
+ 1967 019f 72785F69 		.ascii	"rx_isr_StartEx\000"
+ 1967      73725F53 
+ 1967      74617274 
+ 1967      457800
+ 1968              	.LASF40:
+ 1969 01ae 726F626F 		.ascii	"robot_id\000"
+ 1969      745F6964 
+ 1969      00
+ 1970              	.LASF9:
+ 1971 01b7 6C6F6E67 		.ascii	"long long int\000"
+ 1971      206C6F6E 
+ 1971      6720696E 
+ 1971      7400
+ 1972              	.LASF29:
+ 1973 01c5 6C696E76 		.ascii	"linv\000"
+ 1973      00
+ 1974              	.LASF7:
+ 1975 01ca 6C6F6E67 		.ascii	"long int\000"
+ 1975      20696E74 
+ 1975      00
+ 1976              	.LASF83:
+ 1977 01d3 454E435F 		.ascii	"ENC_L_ISR_StartEx\000"
+ 1977      4C5F4953 
+ 1977      525F5374 
+ 1977      61727445 
+ 1977      7800
+ 1978              	.LASF66:
+ 1979 01e5 456E636F 		.ascii	"Encoder_R_Timer_ClearFIFO\000"
+ 1979      6465725F 
+ 1979      525F5469 
+ 1979      6D65725F 
+ 1979      436C6561 
+ 1980              	.LASF68:
+ 1981 01ff 456E636F 		.ascii	"Encoder_R_Timer_Start\000"
+ 1981      6465725F 
+ 1981      525F5469 
+ 1981      6D65725F 
+ 1981      53746172 
+ 1982              	.LASF3:
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 43
+
+
+ 1983 0215 5F5F7569 		.ascii	"__uint8_t\000"
+ 1983      6E74385F 
+ 1983      7400
+ 1984              	.LASF37:
+ 1985 021f 52585F49 		.ascii	"RX_ISR_vect\000"
+ 1985      53525F76 
+ 1985      65637400 
+ 1986              	.LASF81:
+ 1987 022b 454E434F 		.ascii	"ENCODER_L_OVF_ISR_StartEx\000"
+ 1987      4445525F 
+ 1987      4C5F4F56 
+ 1987      465F4953 
+ 1987      525F5374 
+ 1988              	.LASF1:
+ 1989 0245 756E7369 		.ascii	"unsigned char\000"
+ 1989      676E6564 
+ 1989      20636861 
+ 1989      7200
+ 1990              	.LASF53:
+ 1991 0253 70726F63 		.ascii	"processing_buffer_ptr\000"
+ 1991      65737369 
+ 1991      6E675F62 
+ 1991      75666665 
+ 1991      725F7074 
+ 1992              	.LASF50:
+ 1993 0269 62756666 		.ascii	"buffer_1\000"
+ 1993      65725F31 
+ 1993      00
+ 1994              	.LASF51:
+ 1995 0272 62756666 		.ascii	"buffer_2\000"
+ 1995      65725F32 
+ 1995      00
+ 1996              	.LASF77:
+ 1997 027b 55415254 		.ascii	"UART_Start\000"
+ 1997      5F537461 
+ 1997      727400
+ 1998              	.LASF21:
+ 1999 0286 6C6F6E67 		.ascii	"long double\000"
+ 1999      20646F75 
+ 1999      626C6500 
+ 2000              	.LASF61:
+ 2001 0292 74696D65 		.ascii	"timerL_index\000"
+ 2001      724C5F69 
+ 2001      6E646578 
+ 2001      00
+ 2002              	.LASF55:
+ 2003 029f 74696D65 		.ascii	"timerL_on\000"
+ 2003      724C5F6F 
+ 2003      6E00
+ 2004              	.LASF35:
+ 2005 02a9 454E435F 		.ascii	"ENC_R_ISR_vect\000"
+ 2005      525F4953 
+ 2005      525F7665 
+ 2005      637400
+ 2006              	.LASF69:
+ 2007 02b8 456E636F 		.ascii	"Encoder_L_Timer_ReadCounter\000"
+ 2007      6465725F 
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 44
+
+
+ 2007      4C5F5469 
+ 2007      6D65725F 
+ 2007      52656164 
+ 2008              	.LASF46:
+ 2009 02d4 7363616C 		.ascii	"scaled_linv\000"
+ 2009      65645F6C 
+ 2009      696E7600 
+ 2010              	.LASF26:
+ 2011 02e0 70726576 		.ascii	"previous_error\000"
+ 2011      696F7573 
+ 2011      5F657272 
+ 2011      6F7200
+ 2012              	.LASF0:
+ 2013 02ef 7369676E 		.ascii	"signed char\000"
+ 2013      65642063 
+ 2013      68617200 
+ 2014              	.LASF14:
+ 2015 02fb 696E7433 		.ascii	"int32_t\000"
+ 2015      325F7400 
+ 2016              	.LASF10:
+ 2017 0303 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2017      206C6F6E 
+ 2017      6720756E 
+ 2017      7369676E 
+ 2017      65642069 
+ 2018              	.LASF44:
+ 2019 031a 63686563 		.ascii	"check_sum\000"
+ 2019      6B5F7375 
+ 2019      6D00
+ 2020              	.LASF78:
+ 2021 0324 74785F69 		.ascii	"tx_isr_StartEx\000"
+ 2021      73725F53 
+ 2021      74617274 
+ 2021      457800
+ 2022              	.LASF11:
+ 2023 0333 756E7369 		.ascii	"unsigned int\000"
+ 2023      676E6564 
+ 2023      20696E74 
+ 2023      00
+ 2024              	.LASF13:
+ 2025 0340 75696E74 		.ascii	"uint16_t\000"
+ 2025      31365F74 
+ 2025      00
+ 2026              	.LASF32:
+ 2027 0349 454E434F 		.ascii	"ENCODER_R_OVF_ISR_vect\000"
+ 2027      4445525F 
+ 2027      525F4F56 
+ 2027      465F4953 
+ 2027      525F7665 
+ 2028              	.LASF25:
+ 2029 0360 49676169 		.ascii	"Igain\000"
+ 2029      6E00
+ 2030              	.LASF31:
+ 2031 0366 524F424F 		.ascii	"ROBOT_COMMAND\000"
+ 2031      545F434F 
+ 2031      4D4D414E 
+ 2031      4400
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 45
+
+
+ 2032              	.LASF5:
+ 2033 0374 73686F72 		.ascii	"short unsigned int\000"
+ 2033      7420756E 
+ 2033      7369676E 
+ 2033      65642069 
+ 2033      6E7400
+ 2034              	.LASF71:
+ 2035 0387 456E636F 		.ascii	"Encoder_L_Timer_Stop\000"
+ 2035      6465725F 
+ 2035      4C5F5469 
+ 2035      6D65725F 
+ 2035      53746F70 
+ 2036              	.LASF39:
+ 2037 039c 72656164 		.ascii	"read_buffer_size\000"
+ 2037      5F627566 
+ 2037      6665725F 
+ 2037      73697A65 
+ 2037      00
+ 2038              	.LASF19:
+ 2039 03ad 63686172 		.ascii	"char\000"
+ 2039      00
+ 2040              	.LASF64:
+ 2041 03b2 7069645F 		.ascii	"pid_angv\000"
+ 2041      616E6776 
+ 2041      00
+ 2042              	.LASF67:
+ 2043 03bb 456E636F 		.ascii	"Encoder_R_Timer_Stop\000"
+ 2043      6465725F 
+ 2043      525F5469 
+ 2043      6D65725F 
+ 2043      53746F70 
+ 2044              	.LASF52:
+ 2045 03d0 72656365 		.ascii	"receiving_buffer_ptr\000"
+ 2045      6976696E 
+ 2045      675F6275 
+ 2045      66666572 
+ 2045      5F707472 
+ 2046              	.LASF76:
+ 2047 03e5 454E434F 		.ascii	"ENCODER_TMR_RESET_Write\000"
+ 2047      4445525F 
+ 2047      544D525F 
+ 2047      52455345 
+ 2047      545F5772 
+ 2048              	.LASF86:
+ 2049 03fd 50574D5F 		.ascii	"PWM_R_Start\000"
+ 2049      525F5374 
+ 2049      61727400 
+ 2050              	.LASF48:
+ 2051 0409 5F426F6F 		.ascii	"_Bool\000"
+ 2051      6C00
+ 2052              	.LASF45:
+ 2053 040f 73746172 		.ascii	"starting_index\000"
+ 2053      74696E67 
+ 2053      5F696E64 
+ 2053      657800
+ 2054              	.LASF62:
+ 2055 041e 74696D65 		.ascii	"timerR_index\000"
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 46
+
+
+ 2055      72525F69 
+ 2055      6E646578 
+ 2055      00
+ 2056              	.LASF34:
+ 2057 042b 54585F49 		.ascii	"TX_ISR_vect\000"
+ 2057      53525F76 
+ 2057      65637400 
+ 2058              	.LASF42:
+ 2059 0437 6D61696E 		.ascii	"main_rdy_to_read\000"
+ 2059      5F726479 
+ 2059      5F746F5F 
+ 2059      72656164 
+ 2059      00
+ 2060              	.LASF88:
+ 2061 0448 6D61696E 		.ascii	"main.c\000"
+ 2061      2E6300
+ 2062              	.LASF47:
+ 2063 044f 7363616C 		.ascii	"scaled_argv\000"
+ 2063      65645F61 
+ 2063      72677600 
+ 2064              	.LASF8:
+ 2065 045b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2065      20756E73 
+ 2065      69676E65 
+ 2065      6420696E 
+ 2065      7400
+ 2066              	.LASF16:
+ 2067 046d 75696E74 		.ascii	"uint32\000"
+ 2067      333200
+ 2068              	.LASF72:
+ 2069 0474 456E636F 		.ascii	"Encoder_L_Timer_Start\000"
+ 2069      6465725F 
+ 2069      4C5F5469 
+ 2069      6D65725F 
+ 2069      53746172 
+ 2070              	.LASF59:
+ 2071 048a 74696D65 		.ascii	"timerL_overflows\000"
+ 2071      724C5F6F 
+ 2071      76657266 
+ 2071      6C6F7773 
+ 2071      00
+ 2072              	.LASF27:
+ 2073 049b 6572726F 		.ascii	"error_sum\000"
+ 2073      725F7375 
+ 2073      6D00
+ 2074              	.LASF6:
+ 2075 04a5 5F5F696E 		.ascii	"__int32_t\000"
+ 2075      7433325F 
+ 2075      7400
+ 2076              	.LASF38:
+ 2077 04af 62797465 		.ascii	"byte_received\000"
+ 2077      5F726563 
+ 2077      65697665 
+ 2077      6400
+ 2078              	.LASF65:
+ 2079 04bd 456E636F 		.ascii	"Encoder_R_Timer_ReadCounter\000"
+ 2079      6465725F 
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 47
+
+
+ 2079      525F5469 
+ 2079      6D65725F 
+ 2079      52656164 
+ 2080              	.LASF18:
+ 2081 04d9 646F7562 		.ascii	"double\000"
+ 2081      6C6500
+ 2082              	.LASF28:
+ 2083 04e0 5049445F 		.ascii	"PID_DATA\000"
+ 2083      44415441 
+ 2083      00
+ 2084              	.LASF49:
+ 2085 04e9 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2085      52784275 
+ 2085      66666572 
+ 2085      00
+ 2086              	.LASF87:
+ 2087 04f6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2087      43313120 
+ 2087      352E342E 
+ 2087      31203230 
+ 2087      31363036 
+ 2088 0529 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2088      20726576 
+ 2088      6973696F 
+ 2088      6E203233 
+ 2088      37373135 
+ 2089 055c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2089      66756E63 
+ 2089      74696F6E 
+ 2089      2D736563 
+ 2089      74696F6E 
+ 2090              	.LASF63:
+ 2091 0584 7069645F 		.ascii	"pid_linv\000"
+ 2091      6C696E76 
+ 2091      00
+ 2092              	.LASF33:
+ 2093 058d 454E434F 		.ascii	"ENCODER_L_OVF_ISR_vect\000"
+ 2093      4445525F 
+ 2093      4C5F4F56 
+ 2093      465F4953 
+ 2093      525F7665 
+ 2094              	.LASF54:
+ 2095 05a4 72785F62 		.ascii	"rx_buffer_size\000"
+ 2095      75666665 
+ 2095      725F7369 
+ 2095      7A6500
+ 2096              	.LASF20:
+ 2097 05b3 72656733 		.ascii	"reg32\000"
+ 2097      3200
+ 2098              	.LASF75:
+ 2099 05b9 50574D5F 		.ascii	"PWM_RESET_Write\000"
+ 2099      52455345 
+ 2099      545F5772 
+ 2099      69746500 
+ 2100              	.LASF41:
+ 2101 05c9 63757272 		.ascii	"current_command\000"
+ 2101      656E745F 
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc0cJLrV.s 			page 48
+
+
+ 2101      636F6D6D 
+ 2101      616E6400 
+ 2102              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

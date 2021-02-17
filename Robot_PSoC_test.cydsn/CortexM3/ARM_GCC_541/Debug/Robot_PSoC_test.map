@@ -1,0 +1,1817 @@
+Archive member included to satisfy reference by file (symbol)
+
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (CyHalt)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o) (CyPmReadStatus)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (PWM_RESET_Write)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                              .\CortexM3\ARM_GCC_541\Debug\robotmove.o (PWM_L_WriteCompare1)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                              .\CortexM3\ARM_GCC_541\Debug\robotmove.o (PWM_R_WriteCompare1)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (Encoder_L_Timer_Stop)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ENCODER_R_OVF_ISR_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ENCODER_TMR_RESET_Write)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (Encoder_R_Timer_Stop)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ENCODER_L_OVF_ISR_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (tx_isr_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (rx_isr_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ENC_L_ISR_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ENC_R_ISR_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+                              .\CortexM3\ARM_GCC_541\Debug\robot_ID.o (ROBOT_ID_REG_Read)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (UART_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o) (UART_RXISR)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o) (UART_IntClock_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (CyDelayCycles)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o) (CyFlash_SetWaitCycles)
+.\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o) (CySpcStart)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\robotmove.o (__aeabi_dsub)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (__aeabi_dmul)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+                              .\CortexM3\ARM_GCC_541\Debug\robotmove.o (__aeabi_dcmplt)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+                              .\CortexM3\ARM_GCC_541\Debug\robotmove.o (__aeabi_d2iz)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (__errno)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (exit)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (__libc_init_array)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (memcpy)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+processing_buffer_ptr
+                    0x4               .\CortexM3\ARM_GCC_541\Debug\main.o
+UART_rxBuffer       0xa               .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+receiving_buffer_ptr
+                    0x4               .\CortexM3\ARM_GCC_541\Debug\main.o
+pid_angv            0x28              .\CortexM3\ARM_GCC_541\Debug\main.o
+dieTemperature      0x2               .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+pid_linv            0x28              .\CortexM3\ARM_GCC_541\Debug\main.o
+UART_txBuffer       0x5               .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text          0x00000000       0x74 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.RPM_to_radps
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.radps_to_RPM
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.radps_to_duty_cycle
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.move_right_wheel
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.move_left_wheel
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.move_robot
+                0x00000000       0x7c .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.PID_initialise
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text.PID_update
+                0x00000000       0x88 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.count_to_angv
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.motor_angv_to_wheel_angv
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.motor_angv_to_wheel_linv
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.wheel_linv_to_motor_angv
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.get_robot_linv
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.get_robot_angv
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.get_robot_v_left
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text.get_robot_v_right
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.SetAnalogRoutingPumps
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .data          0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._exit    0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._sbrk    0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .data          0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .bss           0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyUSB_PowerOnCheck
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyBusClk_Internal_SetDivider
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyPLL_OUT_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIMO_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIMO_EnableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIMO_DisableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyMasterClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyMasterClk_SetDivider
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyBusClk_SetDivider
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyUsbClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_Start1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_Stop1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_Start100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_Stop100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyPLL_OUT_Start
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIMO_Start
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_Enable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_Disable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyILO_SetPowerMode
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Stop
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_32KHZ_ReadStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_Start
+                0x00000000       0xac .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_EnableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_DisableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_ReadStatus
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_EnableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_DisableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_SetStartup
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_SetFbVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_SetWdVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyPLL_OUT_SetPQ
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyPLL_OUT_SetSource
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIMO_SetTrimValue
+                0x00000000       0xcc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIMO_SetFreq
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIMO_SetSource
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyDelay  0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyDelayUs
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_32KHZ_SetPowerMode
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Start
+                0x00000000       0x74 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyWdtStart
+                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyWdtClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdStickyStatus
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdLvDigitEnable
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdLvAnalogEnable
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdLvDigitDisable
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdLvAnalogDisable
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdHvAnalogEnable
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdHvAnalogDisable
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyVdRealTimeStatus
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyFlushCache
+                0x00000000       0x44 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickStop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickEnableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickEnable
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickDisableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickSetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickGetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickGetValue
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickSetClockSource
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickGetClockSource
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickGetCountFlag
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickServiceCallbacks
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickInit
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickStart
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickSetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CySysTickGetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text.CyGetUniqueId
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .bss           0x00000000       0x43 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHibSlpSaveSet
+                0x00000000      0x1dc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHibSlpRestore
+                0x00000000       0xd8 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHviLviSaveDisable
+                0x00000000       0xa0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHibSaveSet
+                0x00000000       0x98 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHviLviRestore
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHibRestore
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmSaveClocks
+                0x00000000      0x218 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmRestoreClocks
+                0x00000000      0x24c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmAltAct
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmSleep
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHibernateEx
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmHibernate
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmReadStatus
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmCtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmOppsSet
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text.CyPmFtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .rodata        0x00000000        0xf .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .text.PWM_RESET_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_ReadCounter
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_ReadCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_ReadCompare1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_ReadCompare2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text.PWM_L_ReadPeriod
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_ReadCounter
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_ReadCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_ReadCompare1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_ReadCompare2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text.PWM_R_ReadPeriod
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .text.Encoder_L_Timer_SoftwareCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .text.Encoder_L_Timer_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .text.Encoder_L_Timer_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .text.Encoder_L_Timer_ReadPeriod
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .text.Encoder_L_Timer_DisableTrigger
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text.ENCODER_R_OVF_ISR_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .text.ENCODER_TMR_RESET_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .text.Encoder_R_Timer_SoftwareCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .text.Encoder_R_Timer_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .text.Encoder_R_Timer_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .text.Encoder_R_Timer_ReadPeriod
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .text.Encoder_R_Timer_DisableTrigger
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_GetState
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text.ENCODER_L_OVF_ISR_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text.tx_isr_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text.rx_isr_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_SetPending
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text.ENC_L_ISR_ClearPending
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text.ENC_R_ISR_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .text.ROBOT_ID_REG_InterruptEnable
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .text.ROBOT_ID_REG_InterruptDisable
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .text.ROBOT_ID_REG_WriteMask
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .text.ROBOT_ID_REG_ReadMask
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_Stop
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_ReadControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_WriteControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_SetRxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_ReadRxData
+                0x00000000       0x64 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_GetByte
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_GetRxBufferSize
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_ClearRxBuffer
+                0x00000000       0x44 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_SetRxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_SetRxAddress1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_SetRxAddress2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_SetTxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_WriteTxData
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_ReadTxStatus
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_PutChar
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_PutString
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_PutArray
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_PutCRLF
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_GetTxBufferSize
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_ClearTxBuffer
+                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_SendBreak
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text.UART_SetTxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .text.UART_IntClock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CySetTempInt
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyFlash_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyFlash_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyFlash_EraseRow
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyFlashGetSpcAlgorithm
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CySetTemp
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CySetFlashEEBuffer
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyWriteRowFull
+                0x00000000       0xf8 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyWriteRowData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyFlash_SetWaitCycles
+                0x00000000       0x7c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyEEPROM_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyEEPROM_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyEEPROM_ReadReserve
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text.CyEEPROM_ReadRelease
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ COMMON         0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .bss           0x00000000        0x8 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcStart
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcStop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcReadData
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcLoadMultiByte
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcLoadRow
+                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcLoadRowFull
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcWriteRow
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcEraseSector
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcEraseRow
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcGetTemp
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcLock
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcUnlock
+                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .text.CySpcGetAlgorithm
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+ .text          0x00000000      0x110 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .text          0x00000000       0x50 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00040000         xr
+ram              0x1fff8000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+START GROUP
+LOAD .\CortexM3\ARM_GCC_541\Debug\main.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\encoder.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a
+LOAD C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000100                CY_FLASH_ROW_SIZE = 0x100
+                0x00000020                CY_ECC_ROW_SIZE = 0x20
+                0x00000000                CY_EE_IN_BTLDR = 0x0
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000800                CY_EE_SIZE = 0x800
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000001                CY_APPL_MAX = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
+                [!provide]                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20008000                PROVIDE (__cy_stack, (ORIGIN (ram) + LENGTH (ram)))
+                [!provide]                PROVIDE (__cy_heap_end, (__cy_stack - 0x800))
+
+.cybootloader   0x00000000        0x0
+ *(.cybootloader)
+                0x00000000                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x0001ff00                appl2_start = (appl1_start + ALIGN ((((LENGTH (rom) - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000000                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+                0x00000000                ecc_offset = ((appl_start / CY_FLASH_ROW_SIZE) * CY_ECC_ROW_SIZE)
+                0x00000000                ee_offset = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?((CY_EE_SIZE / CY_APPL_MAX) * (CY_APPL_NUM - 0x1)):0x0
+                0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
+                [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
+
+.text           0x00000000     0x174a
+ CREATE_OBJECT_SYMBOLS
+                0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000000                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000010                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000010       0x18 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000010                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.dma_init)
+                0x00000001                ASSERT ((((appl_start + .) <= 0x10000) || 0x1), DMA Init must be within the first 64k of flash)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00000028       0x5c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text.ENCODER_R_OVF_ISR_vect
+                0x00000084       0x2c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000084                ENCODER_R_OVF_ISR_vect
+ .text.ENCODER_L_OVF_ISR_vect
+                0x000000b0       0x2c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000b0                ENCODER_L_OVF_ISR_vect
+ .text.TX_ISR_vect
+                0x000000dc        0x4 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000dc                TX_ISR_vect
+ .text.ENC_R_ISR_vect
+                0x000000e0       0x54 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000e0                ENC_R_ISR_vect
+ .text.ENC_L_ISR_vect
+                0x00000134       0x54 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000134                ENC_L_ISR_vect
+ .text.RX_ISR_vect
+                0x00000188       0x34 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000188                RX_ISR_vect
+ .text.main     0x000001bc      0x13c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000001bc                main
+ .text.get_robot_ID
+                0x000002f8       0x2c .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+                0x000002f8                get_robot_ID
+ .text.CyClockStartupError
+                0x00000324        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cfg_write_bytes32
+                0x00000328       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.AnalogSetDefault
+                0x0000035c       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYMEMZERO
+                0x00000384        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.ClockSetup
+                0x00000390       0xd4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYCONFIGCPY
+                0x00000464        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cyfitter_cfg
+                0x0000046c      0x150 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000046c                cyfitter_cfg
+ .text.IntDefaultHandler
+                0x000005bc       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000005bc                IntDefaultHandler
+ .text.Start_c  0x000005cc       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000005cc                Start_c
+ .text.initialize_psoc
+                0x00000618       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000618                initialize_psoc
+ .text.CyHalt   0x00000680        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+                0x00000680                CyHalt
+ .text.CyIntSetVector
+                0x00000684       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+                0x00000684                CyIntSetVector
+ .text.CyIntSetPriority
+                0x000006ac       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+                0x000006ac                CyIntSetPriority
+ .text.PWM_RESET_Write
+                0x000006dc        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+                0x000006dc                PWM_RESET_Write
+ .text.PWM_L_Enable
+                0x000006e8       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x000006e8                PWM_L_Enable
+ .text.PWM_L_WriteCounter
+                0x000006f8        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x000006f8                PWM_L_WriteCounter
+ .text.PWM_L_WritePeriod
+                0x00000704        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x00000704                PWM_L_WritePeriod
+ .text.PWM_L_WriteCompare1
+                0x00000710        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x00000710                PWM_L_WriteCompare1
+ .text.PWM_L_WriteCompare2
+                0x0000071c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x0000071c                PWM_L_WriteCompare2
+ .text.PWM_L_Init
+                0x00000728       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x00000728                PWM_L_Init
+ .text.PWM_L_Start
+                0x00000760       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x00000760                PWM_L_Start
+ .text.PWM_R_Enable
+                0x0000077c       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x0000077c                PWM_R_Enable
+ .text.PWM_R_WriteCounter
+                0x0000078c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x0000078c                PWM_R_WriteCounter
+ .text.PWM_R_WritePeriod
+                0x00000798        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x00000798                PWM_R_WritePeriod
+ .text.PWM_R_WriteCompare1
+                0x000007a4        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x000007a4                PWM_R_WriteCompare1
+ .text.PWM_R_WriteCompare2
+                0x000007b0        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x000007b0                PWM_R_WriteCompare2
+ .text.PWM_R_Init
+                0x000007bc       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x000007bc                PWM_R_Init
+ .text.PWM_R_Start
+                0x000007f8       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x000007f8                PWM_R_Start
+ .text.Encoder_L_Timer_Enable
+                0x00000814       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000814                Encoder_L_Timer_Enable
+ .text.Encoder_L_Timer_Stop
+                0x00000824       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000824                Encoder_L_Timer_Stop
+ .text.Encoder_L_Timer_SetInterruptMode
+                0x00000834        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000834                Encoder_L_Timer_SetInterruptMode
+ .text.Encoder_L_Timer_ReadStatusRegister
+                0x00000840        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000840                Encoder_L_Timer_ReadStatusRegister
+ .text.Encoder_L_Timer_WritePeriod
+                0x0000084c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x0000084c                Encoder_L_Timer_WritePeriod
+ .text.Encoder_L_Timer_ReadCapture
+                0x00000858        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000858                Encoder_L_Timer_ReadCapture
+ .text.Encoder_L_Timer_WriteCounter
+                0x00000864        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000864                Encoder_L_Timer_WriteCounter
+ .text.Encoder_L_Timer_ReadCounter
+                0x00000870       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000870                Encoder_L_Timer_ReadCounter
+ .text.Encoder_L_Timer_SetCaptureMode
+                0x00000884       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000884                Encoder_L_Timer_SetCaptureMode
+ .text.Encoder_L_Timer_SetTriggerMode
+                0x000008a0       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x000008a0                Encoder_L_Timer_SetTriggerMode
+ .text.Encoder_L_Timer_EnableTrigger
+                0x000008c0       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x000008c0                Encoder_L_Timer_EnableTrigger
+ .text.Encoder_L_Timer_ClearFIFO
+                0x000008d0       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x000008d0                Encoder_L_Timer_ClearFIFO
+ .text.Encoder_L_Timer_Init
+                0x000008e4       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x000008e4                Encoder_L_Timer_Init
+ .text.Encoder_L_Timer_Start
+                0x00000938       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x00000938                Encoder_L_Timer_Start
+ .text.ENCODER_R_OVF_ISR_SetVector
+                0x00000954        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+                0x00000954                ENCODER_R_OVF_ISR_SetVector
+ .text.ENCODER_R_OVF_ISR_SetPriority
+                0x00000960       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+                0x00000960                ENCODER_R_OVF_ISR_SetPriority
+ .text.ENCODER_R_OVF_ISR_Enable
+                0x00000970        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+                0x00000970                ENCODER_R_OVF_ISR_Enable
+ .text.ENCODER_R_OVF_ISR_Disable
+                0x0000097c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+                0x0000097c                ENCODER_R_OVF_ISR_Disable
+ .text.ENCODER_R_OVF_ISR_StartEx
+                0x00000988       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+                0x00000988                ENCODER_R_OVF_ISR_StartEx
+ .text.ENCODER_TMR_RESET_Write
+                0x000009a4        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+                0x000009a4                ENCODER_TMR_RESET_Write
+ .text.Encoder_R_Timer_Enable
+                0x000009b0       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x000009b0                Encoder_R_Timer_Enable
+ .text.Encoder_R_Timer_Stop
+                0x000009c0       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x000009c0                Encoder_R_Timer_Stop
+ .text.Encoder_R_Timer_SetInterruptMode
+                0x000009d0        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x000009d0                Encoder_R_Timer_SetInterruptMode
+ .text.Encoder_R_Timer_ReadStatusRegister
+                0x000009dc        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x000009dc                Encoder_R_Timer_ReadStatusRegister
+ .text.Encoder_R_Timer_WritePeriod
+                0x000009e8        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x000009e8                Encoder_R_Timer_WritePeriod
+ .text.Encoder_R_Timer_ReadCapture
+                0x000009f4        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x000009f4                Encoder_R_Timer_ReadCapture
+ .text.Encoder_R_Timer_WriteCounter
+                0x00000a00        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000a00                Encoder_R_Timer_WriteCounter
+ .text.Encoder_R_Timer_ReadCounter
+                0x00000a0c       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000a0c                Encoder_R_Timer_ReadCounter
+ .text.Encoder_R_Timer_SetCaptureMode
+                0x00000a20       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000a20                Encoder_R_Timer_SetCaptureMode
+ .text.Encoder_R_Timer_SetTriggerMode
+                0x00000a3c       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000a3c                Encoder_R_Timer_SetTriggerMode
+ .text.Encoder_R_Timer_EnableTrigger
+                0x00000a5c       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000a5c                Encoder_R_Timer_EnableTrigger
+ .text.Encoder_R_Timer_ClearFIFO
+                0x00000a6c       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000a6c                Encoder_R_Timer_ClearFIFO
+ .text.Encoder_R_Timer_Init
+                0x00000a80       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000a80                Encoder_R_Timer_Init
+ .text.Encoder_R_Timer_Start
+                0x00000ad4       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x00000ad4                Encoder_R_Timer_Start
+ .text.ENCODER_L_OVF_ISR_SetVector
+                0x00000af0        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+                0x00000af0                ENCODER_L_OVF_ISR_SetVector
+ .text.ENCODER_L_OVF_ISR_SetPriority
+                0x00000afc       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+                0x00000afc                ENCODER_L_OVF_ISR_SetPriority
+ .text.ENCODER_L_OVF_ISR_Enable
+                0x00000b0c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+                0x00000b0c                ENCODER_L_OVF_ISR_Enable
+ .text.ENCODER_L_OVF_ISR_Disable
+                0x00000b18        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+                0x00000b18                ENCODER_L_OVF_ISR_Disable
+ .text.ENCODER_L_OVF_ISR_StartEx
+                0x00000b24       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+                0x00000b24                ENCODER_L_OVF_ISR_StartEx
+ .text.tx_isr_SetVector
+                0x00000b40        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+                0x00000b40                tx_isr_SetVector
+ .text.tx_isr_SetPriority
+                0x00000b4c       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+                0x00000b4c                tx_isr_SetPriority
+ .text.tx_isr_Enable
+                0x00000b5c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+                0x00000b5c                tx_isr_Enable
+ .text.tx_isr_Disable
+                0x00000b68        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+                0x00000b68                tx_isr_Disable
+ .text.tx_isr_StartEx
+                0x00000b74       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+                0x00000b74                tx_isr_StartEx
+ .text.rx_isr_SetVector
+                0x00000b90        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+                0x00000b90                rx_isr_SetVector
+ .text.rx_isr_SetPriority
+                0x00000b9c       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+                0x00000b9c                rx_isr_SetPriority
+ .text.rx_isr_Enable
+                0x00000bac        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+                0x00000bac                rx_isr_Enable
+ .text.rx_isr_Disable
+                0x00000bb8        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+                0x00000bb8                rx_isr_Disable
+ .text.rx_isr_StartEx
+                0x00000bc4       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+                0x00000bc4                rx_isr_StartEx
+ .text.ENC_L_ISR_SetVector
+                0x00000be0        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+                0x00000be0                ENC_L_ISR_SetVector
+ .text.ENC_L_ISR_SetPriority
+                0x00000bec       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+                0x00000bec                ENC_L_ISR_SetPriority
+ .text.ENC_L_ISR_Enable
+                0x00000bfc       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+                0x00000bfc                ENC_L_ISR_Enable
+ .text.ENC_L_ISR_Disable
+                0x00000c0c       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+                0x00000c0c                ENC_L_ISR_Disable
+ .text.ENC_L_ISR_StartEx
+                0x00000c1c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+                0x00000c1c                ENC_L_ISR_StartEx
+ .text.ENC_R_ISR_SetVector
+                0x00000c38        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+                0x00000c38                ENC_R_ISR_SetVector
+ .text.ENC_R_ISR_SetPriority
+                0x00000c44       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+                0x00000c44                ENC_R_ISR_SetPriority
+ .text.ENC_R_ISR_Enable
+                0x00000c54        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+                0x00000c54                ENC_R_ISR_Enable
+ .text.ENC_R_ISR_Disable
+                0x00000c60        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+                0x00000c60                ENC_R_ISR_Disable
+ .text.ENC_R_ISR_StartEx
+                0x00000c6c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+                0x00000c6c                ENC_R_ISR_StartEx
+ .text.ROBOT_ID_REG_Read
+                0x00000c88        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+                0x00000c88                ROBOT_ID_REG_Read
+ .text.UART_Init
+                0x00000c94       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                0x00000c94                UART_Init
+ .text.UART_Enable
+                0x00000cf4       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                0x00000cf4                UART_Enable
+ .text.UART_Start
+                0x00000d48       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                0x00000d48                UART_Start
+ .text.UART_ReadRxStatus
+                0x00000d64       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                0x00000d64                UART_ReadRxStatus
+ .text.UART_GetChar
+                0x00000d8c       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                0x00000d8c                UART_GetChar
+ .text.UART_RXISR
+                0x00000e0c       0x98 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+                0x00000e0c                UART_RXISR
+ .text.UART_TXISR
+                0x00000ea4       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+                0x00000ea4                UART_TXISR
+ .text.UART_IntClock_Start
+                0x00000efc       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+                0x00000efc                UART_IntClock_Start
+ .text          0x00000f18       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+                0x00000f18                CyDelayCycles
+                0x00000f28                CyEnterCriticalSection
+                0x00000f30                CyExitCriticalSection
+ .text          0x00000f38      0x370 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x00000f38                __aeabi_drsub
+                0x00000f40                __aeabi_dsub
+                0x00000f40                __subdf3
+                0x00000f44                __aeabi_dadd
+                0x00000f44                __adddf3
+                0x000011bc                __floatunsidf
+                0x000011bc                __aeabi_ui2d
+                0x000011dc                __floatsidf
+                0x000011dc                __aeabi_i2d
+                0x00001200                __aeabi_f2d
+                0x00001200                __extendsfdf2
+                0x0000123c                __floatundidf
+                0x0000123c                __aeabi_ul2d
+                0x0000124c                __floatdidf
+                0x0000124c                __aeabi_l2d
+ .text          0x000012a8      0x424 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+                0x000012a8                __aeabi_dmul
+                0x000012a8                __muldf3
+                0x000014fc                __divdf3
+                0x000014fc                __aeabi_ddiv
+ .text.__errno  0x000016cc        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x000016cc                __errno
+ .text.__libc_init_array
+                0x000016d8       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x000016d8                __libc_init_array
+ .text.memcpy   0x00001724       0x16 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00001724                memcpy
+ .text.memset   0x0000173a       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x0000173a                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x0000174a        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x0000174a        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x0000174a        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x0000174c        0x0
+ .v4_bx         0x0000174c        0x0 linker stubs
+
+.iplt           0x0000174c        0x0
+ .iplt          0x0000174c        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x0000174c        0x4
+ *(.eh_frame)
+ .eh_frame      0x0000174c        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x0000174c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+                [!provide]                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00001750                __exidx_end = .
+
+.rodata         0x00001750       0x88
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00001750       0x4c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .rodata.str1.1
+                0x0000179c        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x000017a0                . = ALIGN (0x4)
+ *fill*         0x0000179e        0x2 
+ *(.init)
+ .init          0x000017a0        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x000017a0                _init
+ .init          0x000017a4        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x000017ac                . = ALIGN (0x4)
+                0x000017ac                __preinit_array_start = .
+ *(.preinit_array)
+                0x000017ac                __preinit_array_end = .
+                0x000017ac                . = ALIGN (0x4)
+                0x000017ac                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x000017ac        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x000017b0        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000017b4                __init_array_end = .
+                0x000017b4                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x000017b4        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x000017b4                _fini
+ .fini          0x000017b8        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x000017c0                . = ALIGN (0x4)
+                0x000017c0                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x000017c0        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x000017c4                __fini_array_end = .
+                0x000017c4                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x000017c4                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x000017c4                . = ALIGN (0x4)
+                0x000017c4                __cy_regions = .
+                0x000017c4        0x4 LONG 0x17d8 __cy_region_init_ram
+                0x000017c8        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x000017cc        0x4 LONG 0x68 __cy_region_init_size_ram
+                0x000017d0        0x4 LONG 0x140 __cy_region_zero_size_ram
+                0x000017d4                __cy_regions_end = .
+                0x000017d8                . = ALIGN (0x8)
+ *fill*         0x000017d4        0x4 
+                0x000017d8                _etext = .
+
+.cy_checksum_exclude
+                0x000017d8        0x0
+ *(.cy_checksum_exclude)
+
+.ramvectors     0x1fff8000       0xc0
+                0x1fff8000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x1fff8000       0xc0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x1fff8000                CyRamVectors
+
+.noinit         0x1fff80c0        0x1
+ *(.noinit)
+ .noinit        0x1fff80c0        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+                0x1fff80c0                CyResetStatus
+
+.data           0x1fff80c8       0x68 load address 0x000017d8
+                0x1fff80c8                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x1fff80c8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .jcr           0x1fff80c8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data.impure_data
+                0x1fff80cc       0x60 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x1fff812c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x1fff812c                _impure_ptr
+                0x1fff8130                . = ALIGN (0x8)
+ *(.ram)
+                0x1fff8130                _edata = .
+
+.igot.plt       0x1fff8130        0x0 load address 0x00001840
+ .igot.plt      0x1fff8130        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.bss            0x1fff8130      0x140 load address 0x00001840
+                0x1fff8130                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x1fff8130       0x1c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .bss           0x1fff814c       0xa4 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x1fff814c                timerR_index
+                0x1fff8150                timerR_overflows
+                0x1fff8155                timerL_index
+                0x1fff8158                timerL_overflows
+                0x1fff815d                timerR_on
+                0x1fff8160                timerR_count
+                0x1fff816a                timerL_on
+                0x1fff816c                timerL_count
+                0x1fff8176                rx_buffer_size
+                0x1fff8178                buffer_1
+                0x1fff81b4                buffer_2
+ .bss           0x1fff81f0        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                0x1fff81f0                PWM_L_initVar
+ .bss           0x1fff81f1        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                0x1fff81f1                PWM_R_initVar
+ .bss           0x1fff81f2        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                0x1fff81f2                Encoder_L_Timer_initVar
+ .bss           0x1fff81f3        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                0x1fff81f3                Encoder_R_Timer_initVar
+ .bss           0x1fff81f4        0x9 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                0x1fff81f4                UART_errorStatus
+                0x1fff81f5                UART_initVar
+                0x1fff81f6                UART_rxBufferRead
+                0x1fff81f7                UART_rxBufferWrite
+                0x1fff81f8                UART_rxBufferLoopDetect
+                0x1fff81f9                UART_rxBufferOverflow
+                0x1fff81fa                UART_txBufferRead
+                0x1fff81fb                UART_txBufferWrite
+ *(COMMON)
+ *fill*         0x1fff81fd        0x3 
+ COMMON         0x1fff8200       0x58 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x1fff8200                processing_buffer_ptr
+                0x1fff8204                receiving_buffer_ptr
+                0x1fff8208                pid_angv
+                0x1fff8230                pid_linv
+ COMMON         0x1fff8258       0x11 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                0x1fff8258                UART_rxBuffer
+                0x1fff8264                UART_txBuffer
+                0x1fff8270                . = ALIGN (0x8)
+ *fill*         0x1fff8269        0x7 
+ *(.ram.b)
+                0x1fff8270                _end = .
+                0x1fff8270                __end = .
+                0x1fff8270                PROVIDE (end, .)
+                0x1fff8270                PROVIDE (__bss_end__, .)
+                0x000017d8                __cy_region_init_ram = LOADADDR (.data)
+                0x00000068                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000140                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x1fff8270       0x80 load address 0x00001840
+                0x1fff8270                . = _end
+                0x1fff82f0                . = (. + 0x80)
+ *fill*         0x1fff8270       0x80 
+                0x1fff82f0                __cy_heap_limit = .
+
+.stack          0x20007800      0x800
+                0x20007800                __cy_stack_limit = .
+                0x20008000                . = (. + 0x800)
+ *fill*         0x20007800      0x800 
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+                0x00000000                cy_checksum_exclude_size = (CY_APPL_LOADABLE == 0x1)?SIZEOF (.cy_checksum_exclude):0x0
+                0x00000001                ASSERT ((cy_checksum_exclude_size <= CY_CHECKSUM_EXCLUDE_SIZE), CY_BOOT: Section .cy_checksum_exclude size exceedes specified limit.)
+
+.cyloadermeta
+ *(.cyloadermeta)
+
+.cyloadablemeta
+ *(.cyloadablemeta)
+
+.cyconfigecc    0x80000000      0x874
+ *(.cyconfigecc)
+ .cyconfigecc   0x80000000      0x874 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x80000000                cy_meta_configecc
+
+.cycustnvl      0x90000000        0x4
+ *(.cycustnvl)
+ .cycustnvl     0x90000000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90000000                cy_meta_custnvl
+
+.cywolatch      0x90100000        0x4
+ *(.cywolatch)
+ .cywolatch     0x90100000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90100000                cy_meta_wonvl
+
+.cyeeprom       0x90200000        0x0
+ *(.cyeeprom)
+                0x00000001                ASSERT ((. <= ((0x90200000 + ee_offset) + ee_size)), .cyeeprom data will not fit in EEPROM)
+
+.cyflashprotect
+                0x90400000      0x100
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000      0x100 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90500000                cy_metadata
+
+.rel.dyn        0x00001840        0x0 load address 0x9050000c
+ .rel.iplt      0x00001840        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0xdd0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_aranges
+                0x00000050       0x58 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .debug_aranges
+                0x000000a8       0x58 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .debug_aranges
+                0x00000100       0x20 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .debug_aranges
+                0x00000120       0x58 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_aranges
+                0x00000178       0x18 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_aranges
+                0x00000190       0x48 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_aranges
+                0x000001d8      0x2a0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .debug_aranges
+                0x00000478       0x98 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .debug_aranges
+                0x00000510       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .debug_aranges
+                0x00000538       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .debug_aranges
+                0x000005c8       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .debug_aranges
+                0x00000658       0xb0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .debug_aranges
+                0x00000708       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .debug_aranges
+                0x00000788       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .debug_aranges
+                0x000007b0       0xb0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .debug_aranges
+                0x00000860       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .debug_aranges
+                0x000008e0       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .debug_aranges
+                0x00000960       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .debug_aranges
+                0x000009e0       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .debug_aranges
+                0x00000a60       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .debug_aranges
+                0x00000ae0       0x40 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .debug_aranges
+                0x00000b20       0xf0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .debug_aranges
+                0x00000c10       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .debug_aranges
+                0x00000c38       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .debug_aranges
+                0x00000ca8       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x00000cc8       0x88 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .debug_aranges
+                0x00000d50       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x7295
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x677 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_info    0x00000677      0x611 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .debug_info    0x00000c88      0x341 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .debug_info    0x00000fc9      0x109 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .debug_info    0x000010d2      0x603 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x000016d5      0x139 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x0000180e      0x3bb .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_info    0x00001bc9     0x1374 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .debug_info    0x00002f3d      0xa2a .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .debug_info    0x00003967       0xd6 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .debug_info    0x00003a3d      0x2c8 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .debug_info    0x00003d05      0x2c8 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .debug_info    0x00003fcd      0x390 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .debug_info    0x0000435d      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .debug_info    0x0000462f       0xd6 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .debug_info    0x00004705      0x390 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .debug_info    0x00004a95      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .debug_info    0x00004d67      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .debug_info    0x00005039      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .debug_info    0x0000530b      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .debug_info    0x000055dd      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .debug_info    0x000058af      0x17f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .debug_info    0x00005a2e      0x7be .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .debug_info    0x000061ec      0x196 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .debug_info    0x00006382      0x283 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .debug_info    0x00006605       0xf3 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+ .debug_info    0x000066f8      0x64d .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .debug_info    0x00006d45      0x550 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+
+.debug_abbrev   0x00000000     0x2226
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x189 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x00000189      0x135 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .debug_abbrev  0x000002be       0xa0 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .debug_abbrev  0x0000035e       0x96 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .debug_abbrev  0x000003f4      0x20d .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x00000601       0x77 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x00000678      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_abbrev  0x00000860      0x254 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .debug_abbrev  0x00000ab4      0x1ab .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .debug_abbrev  0x00000c5f       0x81 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .debug_abbrev  0x00000ce0      0x12d .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .debug_abbrev  0x00000e0d      0x12d .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .debug_abbrev  0x00000f3a      0x13a .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .debug_abbrev  0x00001074      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .debug_abbrev  0x000011e7       0x81 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .debug_abbrev  0x00001268      0x13a .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .debug_abbrev  0x000013a2      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .debug_abbrev  0x00001515      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .debug_abbrev  0x00001688      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .debug_abbrev  0x000017fb      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .debug_abbrev  0x0000196e      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .debug_abbrev  0x00001ae1       0xac .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .debug_abbrev  0x00001b8d      0x16f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .debug_abbrev  0x00001cfc       0xa2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .debug_abbrev  0x00001d9e      0x139 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .debug_abbrev  0x00001ed7       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00001eeb      0x1a7 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .debug_abbrev  0x00002092      0x194 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+
+.debug_line     0x00000000     0x3305
+ *(.debug_line)
+ .debug_line    0x00000000      0x313 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_line    0x00000313      0x23b .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .debug_line    0x0000054e      0x1dd .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .debug_line    0x0000072b      0x17b .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .debug_line    0x000008a6      0x1fb .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x00000aa1      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000be2      0x234 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x00000e16      0x816 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .debug_line    0x0000162c      0x367 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .debug_line    0x00001993       0x71 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .debug_line    0x00001a04      0x15e .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .debug_line    0x00001b62      0x15e .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .debug_line    0x00001cc0      0x1c5 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .debug_line    0x00001e85      0x13e .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .debug_line    0x00001fc3       0x79 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .debug_line    0x0000203c      0x1c5 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .debug_line    0x00002201      0x13e .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .debug_line    0x0000233f      0x133 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .debug_line    0x00002472      0x133 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .debug_line    0x000025a5      0x136 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .debug_line    0x000026db      0x136 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .debug_line    0x00002811       0xb8 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .debug_line    0x000028c9      0x33b .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .debug_line    0x00002c04       0xa5 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .debug_line    0x00002ca9      0x17c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .debug_line    0x00002e25       0x66 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+ .debug_line    0x00002e8b      0x21a .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .debug_line    0x000030a5      0x260 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+
+.debug_frame    0x00000000     0x212c
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xc4 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_frame   0x000000c4      0x120 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .debug_frame   0x000001e4      0x12c .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .debug_frame   0x00000310       0x2c .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .debug_frame   0x0000033c       0xe4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x00000420       0xb8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_frame   0x000004d8      0x738 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .debug_frame   0x00000c10      0x1f8 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .debug_frame   0x00000e08       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .debug_frame   0x00000e38      0x118 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .debug_frame   0x00000f50      0x118 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .debug_frame   0x00001068      0x164 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .debug_frame   0x000011cc      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .debug_frame   0x000012d0       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .debug_frame   0x00001300      0x164 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .debug_frame   0x00001464      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .debug_frame   0x00001568      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .debug_frame   0x0000166c      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .debug_frame   0x00001770      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .debug_frame   0x00001874      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .debug_frame   0x00001978       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .debug_frame   0x000019f0      0x25c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .debug_frame   0x00001c4c       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .debug_frame   0x00001c7c       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .debug_frame   0x00001d5c      0x194 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .debug_frame   0x00001ef0      0x180 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .debug_frame   0x00002070       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00002090       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x000020b8       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x000020e4       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000210c       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x2de2
+ *(.debug_str)
+ .debug_str     0x00000000      0x576 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x5d9 (size before relaxing)
+ .debug_str     0x00000576      0x1cb .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+                                0x444 (size before relaxing)
+ .debug_str     0x00000741      0x14e .\CortexM3\ARM_GCC_541\Debug\encoder.o
+                                0x35f (size before relaxing)
+ .debug_str     0x0000088f       0x31 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+                                0x24d (size before relaxing)
+ .debug_str     0x000008c0      0x1a3 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x3ad (size before relaxing)
+ .debug_str     0x00000a63       0x75 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x247 (size before relaxing)
+ .debug_str     0x00000ad8      0x13e .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x36d (size before relaxing)
+ .debug_str     0x00000c16      0x845 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+                                0xaaa (size before relaxing)
+ .debug_str     0x0000145b      0x365 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+                                0x796 (size before relaxing)
+ .debug_str     0x000017c0       0x3a .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+                                0x21e (size before relaxing)
+ .debug_str     0x000017fa      0x128 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+                                0x34d (size before relaxing)
+ .debug_str     0x00001922      0x105 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+                                0x34d (size before relaxing)
+ .debug_str     0x00001a27      0x24a .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+                                0x4e5 (size before relaxing)
+ .debug_str     0x00001c71      0x174 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+                                0x3b1 (size before relaxing)
+ .debug_str     0x00001de5       0x42 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+                                0x236 (size before relaxing)
+ .debug_str     0x00001e27      0x224 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+                                0x4e5 (size before relaxing)
+ .debug_str     0x0000204b      0x174 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+                                0x3b1 (size before relaxing)
+ .debug_str     0x000021bf       0xe5 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+                                0x317 (size before relaxing)
+ .debug_str     0x000022a4       0xe5 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+                                0x317 (size before relaxing)
+ .debug_str     0x00002389      0x10c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+                                0x341 (size before relaxing)
+ .debug_str     0x00002495      0x10c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+                                0x341 (size before relaxing)
+ .debug_str     0x000025a1       0x8e .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+                                0x2ca (size before relaxing)
+ .debug_str     0x0000262f      0x36b .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+                                0x5fb (size before relaxing)
+ .debug_str     0x0000299a       0x5e .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+                                0x2ec (size before relaxing)
+ .debug_str     0x000029f8      0x183 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+                                0x399 (size before relaxing)
+ .debug_str     0x00002b7b      0x1bb .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+                                0x423 (size before relaxing)
+ .debug_str     0x00002d36       0xac .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+                                0x39b (size before relaxing)
+
+.debug_loc      0x00000000     0x29c4
+ *(.debug_loc)
+ .debug_loc     0x00000000       0xe3 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_loc     0x000000e3      0x2e7 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .debug_loc     0x000003ca      0x35d .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .debug_loc     0x00000727       0x3f .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .debug_loc     0x00000766      0x289 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x000009ef      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_loc     0x00000b33      0xa11 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .debug_loc     0x00001544      0x1e4 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .debug_loc     0x00001728       0x13 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .debug_loc     0x0000173b       0x13 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .debug_loc     0x0000174e       0x4f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .debug_loc     0x0000179d       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .debug_loc     0x000017f3       0x4f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .debug_loc     0x00001842       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .debug_loc     0x00001898       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .debug_loc     0x000018ee       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .debug_loc     0x00001944       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .debug_loc     0x0000199a       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .debug_loc     0x000019f0       0x44 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .debug_loc     0x00001a34      0x36c .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .debug_loc     0x00001da0       0x45 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .debug_loc     0x00001de5      0x128 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .debug_loc     0x00001f0d      0x3b2 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .debug_loc     0x000022bf      0x705 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0xbf8
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_ranges  0x00000040       0x48 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .debug_ranges  0x00000088       0x48 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .debug_ranges  0x000000d0       0x10 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .debug_ranges  0x000000e0       0x48 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_ranges  0x00000128       0x38 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_ranges  0x00000160      0x290 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .debug_ranges  0x000003f0       0x88 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .debug_ranges  0x00000478       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .debug_ranges  0x00000490       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .debug_ranges  0x00000510       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .debug_ranges  0x00000590       0xa0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .debug_ranges  0x00000630       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .debug_ranges  0x000006a0       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .debug_ranges  0x000006b8       0xa0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .debug_ranges  0x00000758       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .debug_ranges  0x000007c8       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .debug_ranges  0x00000838       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .debug_ranges  0x000008a8       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .debug_ranges  0x00000918       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .debug_ranges  0x00000988       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .debug_ranges  0x000009b8       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .debug_ranges  0x00000a98       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .debug_ranges  0x00000ab0       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .debug_ranges  0x00000b10       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .debug_ranges  0x00000b88       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e .\CortexM3\ARM_GCC_541\Debug\main.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x29
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .ARM.attributes
+                0x0000001d       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x33 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .ARM.attributes
+                0x00000098       0x33 .\CortexM3\ARM_GCC_541\Debug\robotmove.o
+ .ARM.attributes
+                0x000000cb       0x33 .\CortexM3\ARM_GCC_541\Debug\encoder.o
+ .ARM.attributes
+                0x000000fe       0x33 .\CortexM3\ARM_GCC_541\Debug\robot_ID.o
+ .ARM.attributes
+                0x00000131       0x33 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .ARM.attributes
+                0x00000164       0x33 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .ARM.attributes
+                0x00000197       0x33 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .ARM.attributes
+                0x000001ca       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyLib.o)
+ .ARM.attributes
+                0x000001fd       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(cyPm.o)
+ .ARM.attributes
+                0x00000230       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_RESET.o)
+ .ARM.attributes
+                0x00000263       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_L.o)
+ .ARM.attributes
+                0x00000296       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(PWM_R.o)
+ .ARM.attributes
+                0x000002c9       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_L_Timer.o)
+ .ARM.attributes
+                0x000002fc       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_R_OVF_ISR.o)
+ .ARM.attributes
+                0x0000032f       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_TMR_RESET.o)
+ .ARM.attributes
+                0x00000362       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(Encoder_R_Timer.o)
+ .ARM.attributes
+                0x00000395       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENCODER_L_OVF_ISR.o)
+ .ARM.attributes
+                0x000003c8       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(tx_isr.o)
+ .ARM.attributes
+                0x000003fb       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(rx_isr.o)
+ .ARM.attributes
+                0x0000042e       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_L_ISR.o)
+ .ARM.attributes
+                0x00000461       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ENC_R_ISR.o)
+ .ARM.attributes
+                0x00000494       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(ROBOT_ID_REG.o)
+ .ARM.attributes
+                0x000004c7       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART.o)
+ .ARM.attributes
+                0x000004fa       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_INT.o)
+ .ARM.attributes
+                0x0000052d       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(UART_IntClock.o)
+ .ARM.attributes
+                0x00000560       0x21 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x00000581       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CyFlash.o)
+ .ARM.attributes
+                0x000005b4       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.a(CySpc.o)
+ .ARM.attributes
+                0x000005e7       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x00000604       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x00000621       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x0000063e       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x0000065b       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .ARM.attributes
+                0x00000688       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x000006b5       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000006e2       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x0000070f       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x0000073c       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000769       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .ARM.attributes
+                0x00000796       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.elf elf32-littlearm)

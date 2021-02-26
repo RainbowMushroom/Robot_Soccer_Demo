@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Robot_PSoC_test-000\Robot_PSoC_test\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Robot_PSoC_test-000\Robot_PSoC_test\Header Files\encoder.h">
 <ExpandedNodeIds>
 <v>Robot_PSoC_test-000</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test</v>
@@ -39,9 +39,34 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\Source Files\robot_ID.c</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\Source Files\robotmove.c</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\Generated_Source</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\Generated_Source\PSoC5\Encoder_L</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Robot_PSoC_test-000</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\TopDesign</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\Pins</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\Analog</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\Clocks</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\Interrupts</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\DMA</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\System</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\Directives</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\Flash Security</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.cydwr\EEPROM</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Header Files</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Header Files\cyapicallbacks.h</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Header Files\encoder.h</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Header Files\robot_ID.h</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Header Files\robotmove.h</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Source Files</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Source Files\encoder.c</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Source Files\main.c</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Source Files\robot_ID.c</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Source Files\robotmove.c</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Generated_Source</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Generated_Source\PSoC5</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Robot_PSoC_test-000\Robot_PSoC_test\TopDesign\TopDesign.cysch">
 <ExpandedNodeIds>
@@ -50,7 +75,12 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\TopDesign</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Robot_PSoC_test-000</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\TopDesign</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -62,6 +92,7 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_3.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
@@ -77,17 +108,21 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\DIP_1.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\DIP_2.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\DIP_3.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_L_ISR.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_R_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_L0_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_L1_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_R0_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_R1_ISR.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\encoder.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_L_OVF_ISR.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L_Timer.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L_Timer_PM.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_R_OVF_ISR.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R_Timer.lst</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R_Timer_PM.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L0.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_L0_OVF_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L0_Timer.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L0_Timer_PM.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L1.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R0.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_R0_OVF_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R0_Timer.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R0_Timer_PM.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R1.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_TMR_RESET.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_TMR_RESET_PM.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
@@ -111,6 +146,22 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_audio.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_boot.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_cdc.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_cls.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_descr.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_Dm.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_Dp.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_drv.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_episr.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_hid.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_midi.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_msc.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_pm.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_std.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_vnd.lst</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.elf</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.hex</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Robot_PSoC_test.map</v>
@@ -118,7 +169,46 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test.rpt</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\Robot_PSoC_test_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Robot_PSoC_test-000</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_3.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\DIP_0.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\DIP_1.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\DIP_2.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\DIP_3.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_L0_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_L1_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_R0_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENC_R1_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\encoder.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L0.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_L0_OVF_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L0_Timer.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L0_Timer_PM.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_L1.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R0.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ENCODER_R0_OVF_ISR.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R0_Timer.lst</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_R0_Timer_PM.lst</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -132,24 +222,14 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\PSoC 5LP Architecture TRM</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CY8C58LP Family Datasheet</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\System Reference Guides</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\System Reference Guides\cy_boot_v5_70</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_clock_v2_20</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_constant_v1_0.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_isr_v1_70</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_pins_v2_20</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CyControlReg_v1_80</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\CyStatusReg_v1_90.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\PWM_v3_30</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\Timer_v2_80</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\Timer_v2_80\Timer_v2_80.pdf</v>
-<v>Robot_PSoC_test-000\Robot_PSoC_test\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Robot_PSoC_test-000</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\PSoC 5LP Architecture TRM</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CY8C58LP Family Datasheet</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\System Reference Guides</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -157,14 +237,19 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\main.c" />
+<name v=".\encoder.c" />
+<name v=".\encoder.h" />
+<name v=".\TopDesign\TopDesign.cysch" />
+</OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1039, 536" SelectedTabbedMdiWindow="be3b8e1a-6e52-4e28-b154-08f2428e0f28"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="be3b8e1a-6e52-4e28-b154-08f2428e0f28" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1317, 535" SelectedTabbedMdiWindow="52207f1c-68b2-4147-8990-29e5e4ce28b7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="be3b8e1a-6e52-4e28-b154-08f2428e0f28" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\main.c" Guid="52207f1c-68b2-4147-8990-29e5e4ce28b7" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\encoder.c" Guid="baf4d50a-db46-4c07-aa75-8bc9fbe1fc2b" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\encoder.h" Guid="4c6593f8-00e4-42f8-870a-ce33db44c5b6" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\TopDesign\TopDesign.cysch" Guid="7bf773ab-54ee-450c-b306-380fa981f661" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

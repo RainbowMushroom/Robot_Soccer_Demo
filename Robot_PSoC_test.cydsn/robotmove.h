@@ -11,8 +11,8 @@
 #define ROBOTMOVE_H_
 #include "project.h"
 
-void move_right_wheel(double angv, uint16_t motor_max_rpm); //Positive angv -> clockwise, negative angv -> anticlockwise (counterclockwise)
-void move_left_wheel(double angv, uint16_t motor_max_rpm);
+void move_right_motor(double angv, uint16_t motor_max_rpm); //Positive angv -> clockwise, negative angv -> anticlockwise (counterclockwise)
+void move_left_motor(double angv, uint16_t motor_max_rpm);
 void move_robot(double linv, double angv, double robot_width, double wheel_diameter, uint16_t motor_max_rpm, uint8_t gear_ratio);
 
 double RPM_to_radps(double RPM);

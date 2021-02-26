@@ -237,8 +237,8 @@ void PWM_R_RestoreConfig(void) ;
                                                     PWM_R_STATUS_CMP1_INT_EN_MASK_SHIFT )) | \
                                                     (uint8)((uint8)(0u <<  \
                                                     PWM_R_STATUS_KILL_INT_EN_MASK_SHIFT )))
-#define PWM_R_DEFAULT_COMPARE2_MODE      (uint8)((uint8)1u <<  PWM_R_CTRL_CMPMODE2_SHIFT)
-#define PWM_R_DEFAULT_COMPARE1_MODE      (uint8)((uint8)1u <<  PWM_R_CTRL_CMPMODE1_SHIFT)
+#define PWM_R_DEFAULT_COMPARE2_MODE      (uint8)((uint8)2u <<  PWM_R_CTRL_CMPMODE2_SHIFT)
+#define PWM_R_DEFAULT_COMPARE1_MODE      (uint8)((uint8)2u <<  PWM_R_CTRL_CMPMODE1_SHIFT)
 #define PWM_R_INIT_DEAD_TIME             (1u)
 
 

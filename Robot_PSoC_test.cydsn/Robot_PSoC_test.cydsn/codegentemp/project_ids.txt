@@ -1,6 +1,0 @@
-\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn-20210126T222121Z-001\Robot_PSoC_test.cydsn\Robot_PSoC_test.cyprj|08e8f2a4-4d88-4f04-b0f3-bf323e20d658
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|bf92daa0-5749-4754-83cf-09286f472491
-\\files.auckland.ac.nz\myhome\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|7f612d48-6046-4649-ac69-7ba9f71f6437
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|628d606a-6a68-4299-9a70-81f1535629d8
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|e178b24e-81e5-42b8-a555-6cc3e9d55ae4
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|86c755e1-9026-4185-9e1f-7bd48627abf6

@@ -1,6 +1,6 @@
 -- Project:   Robot_PSoC_test
--- Generated: 01/29/2021 15:23:45
--- PSoC Creator  4.2
+-- Generated: 02/26/2021 21:42:09
+-- PSoC Creator  4.4
 
 ENTITY Robot_PSoC_test IS
     PORT(
@@ -8,14 +8,16 @@ ENTITY Robot_PSoC_test IS
         PWM_L_CW(0)_PAD : OUT std_ulogic;
         PWM_R_CCW(0)_PAD : OUT std_ulogic;
         PWM_L_CCW(0)_PAD : OUT std_ulogic;
-        Encoder_L(0)_PAD : IN std_ulogic;
-        Encoder_R(0)_PAD : IN std_ulogic;
+        Encoder_L0(0)_PAD : IN std_ulogic;
+        Encoder_R0(0)_PAD : IN std_ulogic;
         Rx_1(0)_PAD : IN std_ulogic;
         Tx_1(0)_PAD : OUT std_ulogic;
         DIP_0(0)_PAD : IN std_ulogic;
         DIP_1(0)_PAD : IN std_ulogic;
         DIP_2(0)_PAD : IN std_ulogic;
-        DIP_3(0)_PAD : IN std_ulogic);
+        DIP_3(0)_PAD : IN std_ulogic;
+        Encoder_R1(0)_PAD : IN std_ulogic;
+        Encoder_L1(0)_PAD : IN std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
@@ -43,23 +45,19 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     SIGNAL DIP_1(0)__PA : bit;
     SIGNAL DIP_2(0)__PA : bit;
     SIGNAL DIP_3(0)__PA : bit;
-    SIGNAL Encoder_L(0)__PA : bit;
-    SIGNAL Encoder_R(0)__PA : bit;
+    SIGNAL Encoder_L0(0)__PA : bit;
+    SIGNAL Encoder_L1(0)__PA : bit;
+    SIGNAL Encoder_R0(0)__PA : bit;
+    SIGNAL Encoder_R1(0)__PA : bit;
     SIGNAL Net_1139 : bit;
-    SIGNAL Net_12 : bit;
-    SIGNAL Net_1361 : bit;
-    SIGNAL Net_1373 : bit;
-    SIGNAL Net_1396 : bit;
-    SIGNAL Net_1403 : bit;
-    SIGNAL Net_1425 : bit;
+    SIGNAL Net_1398 : bit;
+    SIGNAL Net_1427 : bit;
     SIGNAL Net_1428 : bit;
     SIGNAL Net_1466 : bit;
     SIGNAL Net_1471 : bit;
     SIGNAL Net_1472 : bit;
     SIGNAL Net_1473 : bit;
-    SIGNAL Net_1478 : bit;
     SIGNAL Net_1481 : bit;
-    SIGNAL Net_1485 : bit;
     SIGNAL Net_1506 : bit;
     SIGNAL Net_1507 : bit;
     SIGNAL Net_1508 : bit;
@@ -67,12 +65,25 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     SIGNAL Net_1510 : bit;
     ATTRIBUTE global_signal OF Net_1510 : SIGNAL IS true;
     SIGNAL Net_1510_local : bit;
-    SIGNAL Net_745 : bit;
-    ATTRIBUTE udbclken_assigned OF Net_745 : SIGNAL IS "True";
-    ATTRIBUTE global_signal OF Net_745 : SIGNAL IS true;
-    SIGNAL Net_745_local : bit;
+    SIGNAL Net_1541 : bit;
+    SIGNAL Net_1542 : bit;
+    SIGNAL Net_1543 : bit;
+    SIGNAL Net_2860 : bit;
+    ATTRIBUTE udbclken_assigned OF Net_2860 : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF Net_2860 : SIGNAL IS true;
+    SIGNAL Net_2860_local : bit;
+    SIGNAL Net_3645 : bit;
+    SIGNAL Net_3646 : bit;
+    SIGNAL Net_3930 : bit;
+    SIGNAL Net_4023 : bit;
+    SIGNAL Net_4035 : bit;
+    SIGNAL Net_4058 : bit;
+    ATTRIBUTE udbclken_assigned OF Net_4058 : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF Net_4058 : SIGNAL IS true;
+    SIGNAL Net_4058_local : bit;
+    SIGNAL Net_4059 : bit;
+    SIGNAL Net_4060 : bit;
     SIGNAL Net_973 : bit;
-    SIGNAL Net_975 : bit;
     SIGNAL Net_976 : bit;
     SIGNAL PWM_L_CCW(0)__PA : bit;
     SIGNAL PWM_L_CW(0)__PA : bit;
@@ -86,46 +97,35 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     SIGNAL \ENCODER_TMR_RESET:control_5\ : bit;
     SIGNAL \ENCODER_TMR_RESET:control_6\ : bit;
     SIGNAL \ENCODER_TMR_RESET:control_7\ : bit;
-    SIGNAL \Encoder_L_Timer:Net_55\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_0\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_1\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_2\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_3\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_4\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_5\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_6\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:control_7\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:per_zero\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:run_mode\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:status_2\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:status_3\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:status_tc\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:timer_enable\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:trig_disable\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:trig_fall_detected\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:trig_last\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:trig_reg\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:trig_rise_detected\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_0\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_1\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_2\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_3\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_4\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_5\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_6\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:control_7\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:per_zero\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:run_mode\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:status_2\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:status_3\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:status_tc\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:timer_enable\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:trig_disable\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:trig_fall_detected\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:trig_last\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:trig_reg\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:trig_rise_detected\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:capt_fifo_load\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:capture_last\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_0\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_1\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_2\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_3\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_4\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_5\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_6\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:control_7\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:per_zero\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:status_2\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:status_3\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:status_tc\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:capt_fifo_load\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:capture_last\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_0\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_1\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_2\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_3\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_4\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_5\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_6\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:control_7\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:per_zero\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:status_2\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:status_3\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:status_tc\ : bit;
     SIGNAL \PWM_L:PWMUDB:cmp1_less\ : bit;
     SIGNAL \PWM_L:PWMUDB:cmp2_less\ : bit;
     SIGNAL \PWM_L:PWMUDB:control_0\ : bit;
@@ -138,7 +138,9 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     SIGNAL \PWM_L:PWMUDB:control_7\ : bit;
     SIGNAL \PWM_L:PWMUDB:runmode_enable\ : bit;
     SIGNAL \PWM_L:PWMUDB:tc_i\ : bit;
+    SIGNAL \PWM_R:PWMUDB:cmp1_eq\ : bit;
     SIGNAL \PWM_R:PWMUDB:cmp1_less\ : bit;
+    SIGNAL \PWM_R:PWMUDB:cmp2_eq\ : bit;
     SIGNAL \PWM_R:PWMUDB:cmp2_less\ : bit;
     SIGNAL \PWM_R:PWMUDB:control_0\ : bit;
     SIGNAL \PWM_R:PWMUDB:control_1\ : bit;
@@ -203,6 +205,30 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     ATTRIBUTE udbclken_assigned OF \UART:Net_9\ : SIGNAL IS "True";
     ATTRIBUTE global_signal OF \UART:Net_9\ : SIGNAL IS true;
     SIGNAL \UART:Net_9_local\ : bit;
+    SIGNAL \\\USBUART:Dm(0)\\__PA\ : bit;
+    SIGNAL \\\USBUART:Dp(0)\\__PA\ : bit;
+    SIGNAL \USBUART:Net_1010\ : bit;
+    SIGNAL \USBUART:Net_1876\ : bit;
+    SIGNAL \USBUART:Net_1889\ : bit;
+    SIGNAL \USBUART:Net_95\ : bit;
+    SIGNAL \USBUART:dma_request_0\ : bit;
+    SIGNAL \USBUART:dma_request_1\ : bit;
+    SIGNAL \USBUART:dma_request_2\ : bit;
+    SIGNAL \USBUART:dma_request_3\ : bit;
+    SIGNAL \USBUART:dma_request_4\ : bit;
+    SIGNAL \USBUART:dma_request_5\ : bit;
+    SIGNAL \USBUART:dma_request_6\ : bit;
+    SIGNAL \USBUART:dma_request_7\ : bit;
+    SIGNAL \USBUART:dma_terminate\ : bit;
+    SIGNAL \USBUART:ep_int_0\ : bit;
+    SIGNAL \USBUART:ep_int_1\ : bit;
+    SIGNAL \USBUART:ep_int_2\ : bit;
+    SIGNAL \USBUART:ep_int_3\ : bit;
+    SIGNAL \USBUART:ep_int_4\ : bit;
+    SIGNAL \USBUART:ep_int_5\ : bit;
+    SIGNAL \USBUART:ep_int_6\ : bit;
+    SIGNAL \USBUART:ep_int_7\ : bit;
+    SIGNAL \USBUART:ep_int_8\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
@@ -211,47 +237,47 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     ATTRIBUTE POWER OF tmpOE__PWM_R_CW_net_0 : SIGNAL IS true;
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\ : bit;
-    SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\ : bit;
-    SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\ : bit;
+    SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\ : bit;
+    SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\ : bit;
     ATTRIBUTE lib_model OF PWM_R_CW(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF PWM_R_CW(0) : LABEL IS "P12[3]";
+    ATTRIBUTE Location OF PWM_R_CW(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF PWM_L_CW(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF PWM_L_CW(0) : LABEL IS "P0[2]";
+    ATTRIBUTE Location OF PWM_L_CW(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF PWM_R_CCW(0) : LABEL IS "iocell3";
-    ATTRIBUTE Location OF PWM_R_CCW(0) : LABEL IS "P12[2]";
+    ATTRIBUTE Location OF PWM_R_CCW(0) : LABEL IS "P15[4]";
     ATTRIBUTE lib_model OF PWM_L_CCW(0) : LABEL IS "iocell4";
-    ATTRIBUTE Location OF PWM_L_CCW(0) : LABEL IS "P0[3]";
-    ATTRIBUTE lib_model OF Encoder_L(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF Encoder_L(0) : LABEL IS "P15[0]";
-    ATTRIBUTE lib_model OF Encoder_R(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF Encoder_R(0) : LABEL IS "P12[7]";
+    ATTRIBUTE Location OF PWM_L_CCW(0) : LABEL IS "P2[0]";
+    ATTRIBUTE lib_model OF Encoder_L0(0) : LABEL IS "iocell5";
+    ATTRIBUTE Location OF Encoder_L0(0) : LABEL IS "P3[7]";
+    ATTRIBUTE lib_model OF Encoder_R0(0) : LABEL IS "iocell6";
+    ATTRIBUTE Location OF Encoder_R0(0) : LABEL IS "P12[1]";
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P12[6]";
     ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P12[7]";
     ATTRIBUTE lib_model OF DIP_0(0) : LABEL IS "iocell9";
     ATTRIBUTE Location OF DIP_0(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF DIP_1(0) : LABEL IS "iocell10";
@@ -260,10 +286,18 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     ATTRIBUTE Location OF DIP_2(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF DIP_3(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF DIP_3(0) : LABEL IS "P3[3]";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:status_tc\ : LABEL IS "macrocell1";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:trig_reg\ : LABEL IS "macrocell2";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:status_tc\ : LABEL IS "macrocell3";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:trig_reg\ : LABEL IS "macrocell4";
+    ATTRIBUTE lib_model OF Encoder_R1(0) : LABEL IS "iocell13";
+    ATTRIBUTE Location OF Encoder_R1(0) : LABEL IS "P2[6]";
+    ATTRIBUTE lib_model OF Encoder_L1(0) : LABEL IS "iocell14";
+    ATTRIBUTE Location OF Encoder_L1(0) : LABEL IS "P0[0]";
+    ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell15";
+    ATTRIBUTE Location OF \USBUART:Dm(0)\ : LABEL IS "P15[7]";
+    ATTRIBUTE lib_model OF \USBUART:Dp(0)\ : LABEL IS "iocell16";
+    ATTRIBUTE Location OF \USBUART:Dp(0)\ : LABEL IS "P15[6]";
+    ATTRIBUTE lib_model OF \Encoder_L0_Timer:TimerUDB:capt_fifo_load\ : LABEL IS "macrocell1";
+    ATTRIBUTE lib_model OF \Encoder_L0_Timer:TimerUDB:status_tc\ : LABEL IS "macrocell2";
+    ATTRIBUTE lib_model OF \Encoder_R0_Timer:TimerUDB:capt_fifo_load\ : LABEL IS "macrocell3";
+    ATTRIBUTE lib_model OF \Encoder_R0_Timer:TimerUDB:status_tc\ : LABEL IS "macrocell4";
     ATTRIBUTE lib_model OF Net_1466 : LABEL IS "macrocell5";
     ATTRIBUTE lib_model OF \UART:BUART:counter_load_not\ : LABEL IS "macrocell6";
     ATTRIBUTE lib_model OF \UART:BUART:tx_status_0\ : LABEL IS "macrocell7";
@@ -277,61 +311,54 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     ATTRIBUTE lib_model OF \PWM_L:PWMUDB:sP8:pwmdp:u0\ : LABEL IS "datapathcell1";
     ATTRIBUTE lib_model OF \PWM_R:PWMUDB:genblk1:ctrlreg\ : LABEL IS "controlcell3";
     ATTRIBUTE lib_model OF \PWM_R:PWMUDB:sP8:pwmdp:u0\ : LABEL IS "datapathcell2";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "controlcell4";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell1";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0\ : LABEL IS "datapathcell3";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1\ : LABEL IS "datapathcell4";
+    ATTRIBUTE lib_model OF \Encoder_L0_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "controlcell4";
+    ATTRIBUTE lib_model OF \Encoder_L0_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell1";
+    ATTRIBUTE lib_model OF \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0\ : LABEL IS "datapathcell3";
+    ATTRIBUTE lib_model OF \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1\ : LABEL IS "datapathcell4";
     ATTRIBUTE lib_model OF \ENCODER_TMR_RESET:Sync:ctrl_reg\ : LABEL IS "controlcell5";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "controlcell6";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell2";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0\ : LABEL IS "datapathcell5";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1\ : LABEL IS "datapathcell6";
+    ATTRIBUTE lib_model OF \Encoder_R0_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "controlcell6";
+    ATTRIBUTE lib_model OF \Encoder_R0_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell2";
+    ATTRIBUTE lib_model OF \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0\ : LABEL IS "datapathcell5";
+    ATTRIBUTE lib_model OF \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1\ : LABEL IS "datapathcell6";
     ATTRIBUTE lib_model OF \UART:BUART:sTX:TxShifter:u0\ : LABEL IS "datapathcell7";
     ATTRIBUTE lib_model OF \UART:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "datapathcell8";
     ATTRIBUTE lib_model OF \UART:BUART:sTX:TxSts\ : LABEL IS "statusicell3";
     ATTRIBUTE lib_model OF \UART:BUART:sRX:RxShifter:u0\ : LABEL IS "datapathcell9";
     ATTRIBUTE lib_model OF \UART:BUART:sRX:RxSts\ : LABEL IS "statusicell4";
     ATTRIBUTE lib_model OF \ROBOT_ID_REG:sts:sts_reg\ : LABEL IS "statuscell1";
+    ATTRIBUTE Location OF \USBUART:USB\ : LABEL IS "F(USB,0)";
     ATTRIBUTE lib_model OF \PWM_L:PWMUDB:runmode_enable\ : LABEL IS "macrocell13";
-    ATTRIBUTE lib_model OF Net_1361 : LABEL IS "macrocell14";
-    ATTRIBUTE lib_model OF Net_1373 : LABEL IS "macrocell15";
+    ATTRIBUTE lib_model OF Net_1542 : LABEL IS "macrocell14";
+    ATTRIBUTE lib_model OF Net_1541 : LABEL IS "macrocell15";
     ATTRIBUTE lib_model OF \PWM_R:PWMUDB:runmode_enable\ : LABEL IS "macrocell16";
-    ATTRIBUTE lib_model OF Net_975 : LABEL IS "macrocell17";
+    ATTRIBUTE lib_model OF Net_1543 : LABEL IS "macrocell17";
     ATTRIBUTE lib_model OF Net_976 : LABEL IS "macrocell18";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:run_mode\ : LABEL IS "macrocell19";
+    ATTRIBUTE lib_model OF \Encoder_L0_Timer:TimerUDB:capture_last\ : LABEL IS "macrocell19";
     ATTRIBUTE lib_model OF Net_1481 : LABEL IS "macrocell20";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:timer_enable\ : LABEL IS "macrocell21";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:trig_disable\ : LABEL IS "macrocell22";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:trig_last\ : LABEL IS "macrocell23";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:trig_rise_detected\ : LABEL IS "macrocell24";
-    ATTRIBUTE lib_model OF \Encoder_L_Timer:TimerUDB:trig_fall_detected\ : LABEL IS "macrocell25";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:run_mode\ : LABEL IS "macrocell26";
-    ATTRIBUTE lib_model OF Net_1428 : LABEL IS "macrocell27";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:timer_enable\ : LABEL IS "macrocell28";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:trig_disable\ : LABEL IS "macrocell29";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:trig_last\ : LABEL IS "macrocell30";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:trig_rise_detected\ : LABEL IS "macrocell31";
-    ATTRIBUTE lib_model OF \Encoder_R_Timer:TimerUDB:trig_fall_detected\ : LABEL IS "macrocell32";
-    ATTRIBUTE lib_model OF \UART:BUART:txn\ : LABEL IS "macrocell33";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_state_1\ : LABEL IS "macrocell34";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_state_0\ : LABEL IS "macrocell35";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_state_2\ : LABEL IS "macrocell36";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_bitclk\ : LABEL IS "macrocell37";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell38";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_parity_bit\ : LABEL IS "macrocell39";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_0\ : LABEL IS "macrocell40";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_load_fifo\ : LABEL IS "macrocell41";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_3\ : LABEL IS "macrocell42";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_2\ : LABEL IS "macrocell43";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_bitclk_enable\ : LABEL IS "macrocell44";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell45";
-    ATTRIBUTE lib_model OF \UART:BUART:pollcount_1\ : LABEL IS "macrocell46";
-    ATTRIBUTE lib_model OF \UART:BUART:pollcount_0\ : LABEL IS "macrocell47";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_status_2\ : LABEL IS "macrocell48";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_status_3\ : LABEL IS "macrocell49";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_parity_error_pre\ : LABEL IS "macrocell50";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_last\ : LABEL IS "macrocell51";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_parity_bit\ : LABEL IS "macrocell52";
+    ATTRIBUTE lib_model OF Net_1398 : LABEL IS "macrocell21";
+    ATTRIBUTE lib_model OF \Encoder_R0_Timer:TimerUDB:capture_last\ : LABEL IS "macrocell22";
+    ATTRIBUTE lib_model OF Net_1428 : LABEL IS "macrocell23";
+    ATTRIBUTE lib_model OF Net_1427 : LABEL IS "macrocell24";
+    ATTRIBUTE lib_model OF \UART:BUART:txn\ : LABEL IS "macrocell25";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_state_1\ : LABEL IS "macrocell26";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_state_0\ : LABEL IS "macrocell27";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_state_2\ : LABEL IS "macrocell28";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_bitclk\ : LABEL IS "macrocell29";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell30";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_parity_bit\ : LABEL IS "macrocell31";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_0\ : LABEL IS "macrocell32";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_load_fifo\ : LABEL IS "macrocell33";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_3\ : LABEL IS "macrocell34";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_2\ : LABEL IS "macrocell35";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_bitclk_enable\ : LABEL IS "macrocell36";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell37";
+    ATTRIBUTE lib_model OF \UART:BUART:pollcount_1\ : LABEL IS "macrocell38";
+    ATTRIBUTE lib_model OF \UART:BUART:pollcount_0\ : LABEL IS "macrocell39";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_status_2\ : LABEL IS "macrocell40";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_status_3\ : LABEL IS "macrocell41";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_parity_error_pre\ : LABEL IS "macrocell42";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_last\ : LABEL IS "macrocell43";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_parity_bit\ : LABEL IS "macrocell44";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -673,6 +700,31 @@ ARCHITECTURE __DEFAULT__ OF Robot_PSoC_test IS
     ATTRIBUTE udb_clk OF statusicell : COMPONENT IS "clock";
     ATTRIBUTE udb_clken OF statusicell : COMPONENT IS "clk_en";
     ATTRIBUTE udb_reset OF statusicell : COMPONENT IS "reset";
+    COMPONENT usbcell
+        PORT (
+            sof_int : OUT std_ulogic;
+            arb_int : OUT std_ulogic;
+            usb_int : OUT std_ulogic;
+            ord_int : OUT std_ulogic;
+            ept_int_0 : OUT std_ulogic;
+            ept_int_1 : OUT std_ulogic;
+            ept_int_2 : OUT std_ulogic;
+            ept_int_3 : OUT std_ulogic;
+            ept_int_4 : OUT std_ulogic;
+            ept_int_5 : OUT std_ulogic;
+            ept_int_6 : OUT std_ulogic;
+            ept_int_7 : OUT std_ulogic;
+            ept_int_8 : OUT std_ulogic;
+            dma_req_0 : OUT std_ulogic;
+            dma_req_1 : OUT std_ulogic;
+            dma_req_2 : OUT std_ulogic;
+            dma_req_3 : OUT std_ulogic;
+            dma_req_4 : OUT std_ulogic;
+            dma_req_5 : OUT std_ulogic;
+            dma_req_6 : OUT std_ulogic;
+            dma_req_7 : OUT std_ulogic;
+            dma_termin : OUT std_ulogic);
+    END COMPONENT;
 BEGIN
 
     ClockBlock:clockblockcell
@@ -692,10 +744,12 @@ BEGIN
             dsi_glb_div => open,
             dclk_glb_0 => Net_1510,
             dclk_0 => Net_1510_local,
-            dclk_glb_1 => Net_745,
-            dclk_1 => Net_745_local,
-            dclk_glb_2 => \UART:Net_9\,
-            dclk_2 => \UART:Net_9_local\);
+            dclk_glb_1 => \UART:Net_9\,
+            dclk_1 => \UART:Net_9_local\,
+            dclk_glb_2 => Net_4058,
+            dclk_2 => Net_4058_local,
+            dclk_glb_3 => Net_2860,
+            dclk_3 => Net_2860_local);
 
     PWM_R_CW:logicalport
         GENERIC MAP(
@@ -779,7 +833,7 @@ BEGIN
         PORT MAP(
             pa_out => PWM_R_CW(0)__PA,
             oe => open,
-            pin_input => Net_975,
+            pin_input => Net_1543,
             pad_out => PWM_R_CW(0)_PAD,
             pad_in => PWM_R_CW(0)_PAD,
             in_clock => open,
@@ -871,7 +925,7 @@ BEGIN
         PORT MAP(
             pa_out => PWM_L_CW(0)__PA,
             oe => open,
-            pin_input => Net_1361,
+            pin_input => Net_1542,
             pad_out => PWM_L_CW(0)_PAD,
             pad_in => PWM_L_CW(0)_PAD,
             in_clock => open,
@@ -1055,7 +1109,7 @@ BEGIN
         PORT MAP(
             pa_out => PWM_L_CCW(0)__PA,
             oe => open,
-            pin_input => Net_1373,
+            pin_input => Net_1541,
             pad_out => PWM_L_CCW(0)_PAD,
             pad_in => PWM_L_CCW(0)_PAD,
             in_clock => open,
@@ -1065,7 +1119,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Encoder_L:logicalport
+    Encoder_L0:logicalport
         GENERIC MAP(
             drive_mode => "001",
             ibuf_enabled => "1",
@@ -1075,7 +1129,7 @@ BEGIN
             input_clk_en => 0,
             input_sync => "0",
             input_sync_mode => "0",
-            intr_mode => "01",
+            intr_mode => "00",
             invert_in_clock => 0,
             invert_in_clock_en => 0,
             invert_in_reset => 0,
@@ -1134,22 +1188,21 @@ BEGIN
             in_clock_en => open,
             in_reset => open,
             out_clock_en => open,
-            out_reset => open,
-            interrupt => Net_1485);
+            out_reset => open);
 
-    Encoder_L(0):iocell
+    Encoder_L0(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Encoder_L",
+            logicalport => "Encoder_L0",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000001000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
         PORT MAP(
-            pa_out => Encoder_L(0)__PA,
+            pa_out => Encoder_L0(0)__PA,
             oe => open,
-            fb => Net_1396,
-            pad_in => Encoder_L(0)_PAD,
+            fb => Net_4035,
+            pad_in => Encoder_L0(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -1157,7 +1210,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Encoder_R:logicalport
+    Encoder_R0:logicalport
         GENERIC MAP(
             drive_mode => "001",
             ibuf_enabled => "1",
@@ -1167,7 +1220,7 @@ BEGIN
             input_clk_en => 0,
             input_sync => "0",
             input_sync_mode => "0",
-            intr_mode => "01",
+            intr_mode => "00",
             invert_in_clock => 0,
             invert_in_clock_en => 0,
             invert_in_reset => 0,
@@ -1226,22 +1279,21 @@ BEGIN
             in_clock_en => open,
             in_reset => open,
             out_clock_en => open,
-            out_reset => open,
-            interrupt => Net_1478);
+            out_reset => open);
 
-    Encoder_R(0):iocell
+    Encoder_R0(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Encoder_R",
+            logicalport => "Encoder_R0",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000001000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
         PORT MAP(
-            pa_out => Encoder_R(0)__PA,
+            pa_out => Encoder_R0(0)__PA,
             oe => open,
-            fb => Net_1425,
-            pad_in => Encoder_R(0)_PAD,
+            fb => Net_4023,
+            pad_in => Encoder_R0(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -1797,63 +1849,409 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    \Encoder_L_Timer:TimerUDB:status_tc\:macrocell
+    Encoder_R1:logicalport
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_3 * main_4 * main_6) + (main_0 * main_2 * main_3 * main_4 * main_5)",
-            regmode => 0,
-            clken_mode => 1)
+            drive_mode => "001",
+            ibuf_enabled => "1",
+            id => "76812379-d8ca-47a6-9308-8c7c37f4712b",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "0",
+            input_sync_mode => "0",
+            intr_mode => "01",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
         PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:status_tc\,
-            main_0 => \Encoder_L_Timer:TimerUDB:control_4\,
-            main_1 => \Encoder_L_Timer:TimerUDB:control_3\,
-            main_2 => \Encoder_L_Timer:TimerUDB:control_2\,
-            main_3 => \Encoder_L_Timer:TimerUDB:run_mode\,
-            main_4 => \Encoder_L_Timer:TimerUDB:per_zero\,
-            main_5 => \Encoder_L_Timer:TimerUDB:trig_rise_detected\,
-            main_6 => \Encoder_L_Timer:TimerUDB:trig_fall_detected\);
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            interrupt => Net_3646);
 
-    \Encoder_L_Timer:TimerUDB:trig_reg\:macrocell
+    Encoder_R1(0):iocell
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_3 * main_5) + (main_0 * main_2 * main_3 * main_4)",
-            regmode => 0,
-            clken_mode => 1)
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Encoder_R1",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000001000000000000000000000000000000000001")
         PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:trig_reg\,
-            main_0 => \Encoder_L_Timer:TimerUDB:control_4\,
-            main_1 => \Encoder_L_Timer:TimerUDB:control_3\,
-            main_2 => \Encoder_L_Timer:TimerUDB:control_2\,
-            main_3 => \Encoder_L_Timer:TimerUDB:timer_enable\,
-            main_4 => \Encoder_L_Timer:TimerUDB:trig_rise_detected\,
-            main_5 => \Encoder_L_Timer:TimerUDB:trig_fall_detected\);
+            pa_out => Encoder_R1(0)__PA,
+            oe => open,
+            pad_in => Encoder_R1(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
 
-    \Encoder_R_Timer:TimerUDB:status_tc\:macrocell
+    Encoder_L1:logicalport
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_3 * main_4 * main_6) + (main_0 * main_2 * main_3 * main_4 * main_5)",
-            regmode => 0,
-            clken_mode => 1)
+            drive_mode => "001",
+            ibuf_enabled => "1",
+            id => "94835a1a-8332-4c18-89d0-e8eae8cff89b",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "0",
+            input_sync_mode => "0",
+            intr_mode => "01",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
         PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:status_tc\,
-            main_0 => \Encoder_R_Timer:TimerUDB:control_4\,
-            main_1 => \Encoder_R_Timer:TimerUDB:control_3\,
-            main_2 => \Encoder_R_Timer:TimerUDB:control_2\,
-            main_3 => \Encoder_R_Timer:TimerUDB:run_mode\,
-            main_4 => \Encoder_R_Timer:TimerUDB:per_zero\,
-            main_5 => \Encoder_R_Timer:TimerUDB:trig_rise_detected\,
-            main_6 => \Encoder_R_Timer:TimerUDB:trig_fall_detected\);
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            interrupt => Net_3645);
 
-    \Encoder_R_Timer:TimerUDB:trig_reg\:macrocell
+    Encoder_L1(0):iocell
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_3 * main_5) + (main_0 * main_2 * main_3 * main_4)",
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Encoder_L1",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000001000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Encoder_L1(0)__PA,
+            oe => open,
+            pad_in => Encoder_L1(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \USBUART:Dm\:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "beca5e2d-f70f-4900-a4db-7eca1ed3126e/8b77a6c4-10a0-4390-971c-672353e2a49c",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "A",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    \USBUART:Dm(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\USBUART:Dm\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000100000000000000000000000")
+        PORT MAP(
+            pa_out => \\\USBUART:Dm(0)\\__PA\,
+            oe => open,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \USBUART:Dp\:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42",
+            init_dr_st => "1",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "10",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            interrupt => \USBUART:Net_1010\,
+            in_clock => open);
+
+    \USBUART:Dp(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\USBUART:Dp\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000010000000000000000000000")
+        PORT MAP(
+            pa_out => \\\USBUART:Dp(0)\\__PA\,
+            oe => open,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \Encoder_L0_Timer:TimerUDB:capt_fifo_load\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_1 * !main_2)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:trig_reg\,
-            main_0 => \Encoder_R_Timer:TimerUDB:control_4\,
-            main_1 => \Encoder_R_Timer:TimerUDB:control_3\,
-            main_2 => \Encoder_R_Timer:TimerUDB:control_2\,
-            main_3 => \Encoder_R_Timer:TimerUDB:timer_enable\,
-            main_4 => \Encoder_R_Timer:TimerUDB:trig_rise_detected\,
-            main_5 => \Encoder_R_Timer:TimerUDB:trig_fall_detected\);
+            q => \Encoder_L0_Timer:TimerUDB:capt_fifo_load\,
+            main_0 => Net_4035,
+            main_1 => \Encoder_L0_Timer:TimerUDB:control_7\,
+            main_2 => \Encoder_L0_Timer:TimerUDB:capture_last\);
+
+    \Encoder_L0_Timer:TimerUDB:status_tc\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \Encoder_L0_Timer:TimerUDB:status_tc\,
+            main_0 => \Encoder_L0_Timer:TimerUDB:control_7\,
+            main_1 => \Encoder_L0_Timer:TimerUDB:per_zero\);
+
+    \Encoder_R0_Timer:TimerUDB:capt_fifo_load\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_1 * !main_2)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \Encoder_R0_Timer:TimerUDB:capt_fifo_load\,
+            main_0 => Net_4023,
+            main_1 => \Encoder_R0_Timer:TimerUDB:control_7\,
+            main_2 => \Encoder_R0_Timer:TimerUDB:capture_last\);
+
+    \Encoder_R0_Timer:TimerUDB:status_tc\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \Encoder_R0_Timer:TimerUDB:status_tc\,
+            main_0 => \Encoder_R0_Timer:TimerUDB:control_7\,
+            main_1 => \Encoder_R0_Timer:TimerUDB:per_zero\);
 
     Net_1466:macrocell
         GENERIC MAP(
@@ -1971,7 +2369,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
+            clock => Net_2860,
             control_7 => \PWM_L:PWMUDB:control_7\,
             control_6 => \PWM_L:PWMUDB:control_6\,
             control_5 => \PWM_L:PWMUDB:control_5\,
@@ -2010,7 +2408,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
+            clock => Net_2860,
             cs_addr_2 => \PWM_L:PWMUDB:tc_i\,
             cs_addr_1 => \PWM_L:PWMUDB:runmode_enable\,
             cs_addr_0 => Net_1139,
@@ -2029,7 +2427,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
+            clock => Net_2860,
             control_7 => \PWM_R:PWMUDB:control_7\,
             control_6 => \PWM_R:PWMUDB:control_6\,
             control_5 => \PWM_R:PWMUDB:control_5\,
@@ -2068,16 +2466,18 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
+            clock => Net_2860,
             cs_addr_2 => \PWM_R:PWMUDB:tc_i\,
             cs_addr_1 => \PWM_R:PWMUDB:runmode_enable\,
             cs_addr_0 => Net_973,
+            ce0_comb => \PWM_R:PWMUDB:cmp1_eq\,
             cl0_comb => \PWM_R:PWMUDB:cmp1_less\,
             z0_comb => \PWM_R:PWMUDB:tc_i\,
+            ce1_comb => \PWM_R:PWMUDB:cmp2_eq\,
             cl1_comb => \PWM_R:PWMUDB:cmp2_less\,
             busclk => ClockBlock_BUS_CLK);
 
-    \Encoder_L_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:controlcell
+    \Encoder_L0_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:controlcell
         GENERIC MAP(
             cy_ctrl_mode_0 => "11111111",
             cy_ctrl_mode_1 => "00000000",
@@ -2087,18 +2487,18 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
-            control_7 => \Encoder_L_Timer:TimerUDB:control_7\,
-            control_6 => \Encoder_L_Timer:TimerUDB:control_6\,
-            control_5 => \Encoder_L_Timer:TimerUDB:control_5\,
-            control_4 => \Encoder_L_Timer:TimerUDB:control_4\,
-            control_3 => \Encoder_L_Timer:TimerUDB:control_3\,
-            control_2 => \Encoder_L_Timer:TimerUDB:control_2\,
-            control_1 => \Encoder_L_Timer:TimerUDB:control_1\,
-            control_0 => \Encoder_L_Timer:TimerUDB:control_0\,
+            clock => Net_4058,
+            control_7 => \Encoder_L0_Timer:TimerUDB:control_7\,
+            control_6 => \Encoder_L0_Timer:TimerUDB:control_6\,
+            control_5 => \Encoder_L0_Timer:TimerUDB:control_5\,
+            control_4 => \Encoder_L0_Timer:TimerUDB:control_4\,
+            control_3 => \Encoder_L0_Timer:TimerUDB:control_3\,
+            control_2 => \Encoder_L0_Timer:TimerUDB:control_2\,
+            control_1 => \Encoder_L0_Timer:TimerUDB:control_1\,
+            control_0 => \Encoder_L0_Timer:TimerUDB:control_0\,
             busclk => ClockBlock_BUS_CLK);
 
-    \Encoder_L_Timer:TimerUDB:rstSts:stsreg\:statusicell
+    \Encoder_L0_Timer:TimerUDB:rstSts:stsreg\:statusicell
         GENERIC MAP(
             cy_force_order => 1,
             cy_int_mask => "1111111",
@@ -2107,18 +2507,17 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            reset => Net_12,
-            clock => Net_745,
+            reset => Net_4059,
+            clock => Net_4058,
             status_6 => open,
             status_5 => open,
             status_4 => open,
-            status_3 => \Encoder_L_Timer:TimerUDB:status_3\,
-            status_2 => \Encoder_L_Timer:TimerUDB:status_2\,
-            status_1 => open,
-            status_0 => \Encoder_L_Timer:TimerUDB:status_tc\,
-            interrupt => \Encoder_L_Timer:Net_55\);
+            status_3 => \Encoder_L0_Timer:TimerUDB:status_3\,
+            status_2 => \Encoder_L0_Timer:TimerUDB:status_2\,
+            status_1 => \Encoder_L0_Timer:TimerUDB:capt_fifo_load\,
+            status_0 => \Encoder_L0_Timer:TimerUDB:status_tc\);
 
-    \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0\:datapathcell
+    \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -2146,27 +2545,27 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
-            cs_addr_2 => Net_12,
-            cs_addr_1 => \Encoder_L_Timer:TimerUDB:trig_reg\,
-            cs_addr_0 => \Encoder_L_Timer:TimerUDB:per_zero\,
-            f0_load => open,
+            clock => Net_4058,
+            cs_addr_2 => Net_4059,
+            cs_addr_1 => \Encoder_L0_Timer:TimerUDB:control_7\,
+            cs_addr_0 => \Encoder_L0_Timer:TimerUDB:per_zero\,
+            f0_load => \Encoder_L0_Timer:TimerUDB:capt_fifo_load\,
             busclk => ClockBlock_BUS_CLK,
-            ce0 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
-            cl0 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
-            z0 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
-            ff0 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
-            ce1 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
-            cl1 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
-            z1 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
-            ff1 => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
-            co_msb => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
-            sol_msb => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
-            cfbo => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
-            sil => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
-            cmsbi => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
+            ce0 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
+            cl0 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
+            z0 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
+            ff0 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
+            ce1 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
+            cl1 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
+            z1 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
+            ff1 => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
+            co_msb => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
+            sol_msb => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
+            cfbo => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
+            sil => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
+            cmsbi => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
 
-    \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1\:datapathcell
+    \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -2194,30 +2593,30 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
-            cs_addr_2 => Net_12,
-            cs_addr_1 => \Encoder_L_Timer:TimerUDB:trig_reg\,
-            cs_addr_0 => \Encoder_L_Timer:TimerUDB:per_zero\,
-            f0_load => open,
-            z0_comb => \Encoder_L_Timer:TimerUDB:per_zero\,
-            f0_bus_stat_comb => \Encoder_L_Timer:TimerUDB:status_3\,
-            f0_blk_stat_comb => \Encoder_L_Timer:TimerUDB:status_2\,
+            clock => Net_4058,
+            cs_addr_2 => Net_4059,
+            cs_addr_1 => \Encoder_L0_Timer:TimerUDB:control_7\,
+            cs_addr_0 => \Encoder_L0_Timer:TimerUDB:per_zero\,
+            f0_load => \Encoder_L0_Timer:TimerUDB:capt_fifo_load\,
+            z0_comb => \Encoder_L0_Timer:TimerUDB:per_zero\,
+            f0_bus_stat_comb => \Encoder_L0_Timer:TimerUDB:status_3\,
+            f0_blk_stat_comb => \Encoder_L0_Timer:TimerUDB:status_2\,
             busclk => ClockBlock_BUS_CLK,
-            ce0i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
-            cl0i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
-            z0i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
-            ff0i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
-            ce1i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
-            cl1i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
-            z1i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
-            ff1i => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
-            ci => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
-            sir => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
-            cfbi => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
-            sor => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
-            cmsbo => \Encoder_L_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
+            ce0i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
+            cl0i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
+            z0i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
+            ff0i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
+            ce1i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
+            cl1i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
+            z1i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
+            ff1i => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
+            ci => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
+            sir => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
+            cfbi => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
+            sor => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
+            cmsbo => \Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
 
-    ENCODER_R_OVF_ISR:interrupt
+    ENCODER_R0_OVF_ISR:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)
@@ -2240,11 +2639,11 @@ BEGIN
             control_4 => \ENCODER_TMR_RESET:control_4\,
             control_3 => \ENCODER_TMR_RESET:control_3\,
             control_2 => \ENCODER_TMR_RESET:control_2\,
-            control_1 => Net_12,
-            control_0 => Net_1403,
+            control_1 => Net_4059,
+            control_0 => Net_4060,
             busclk => ClockBlock_BUS_CLK);
 
-    \Encoder_R_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:controlcell
+    \Encoder_R0_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:controlcell
         GENERIC MAP(
             cy_ctrl_mode_0 => "11111111",
             cy_ctrl_mode_1 => "00000000",
@@ -2254,18 +2653,18 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
-            control_7 => \Encoder_R_Timer:TimerUDB:control_7\,
-            control_6 => \Encoder_R_Timer:TimerUDB:control_6\,
-            control_5 => \Encoder_R_Timer:TimerUDB:control_5\,
-            control_4 => \Encoder_R_Timer:TimerUDB:control_4\,
-            control_3 => \Encoder_R_Timer:TimerUDB:control_3\,
-            control_2 => \Encoder_R_Timer:TimerUDB:control_2\,
-            control_1 => \Encoder_R_Timer:TimerUDB:control_1\,
-            control_0 => \Encoder_R_Timer:TimerUDB:control_0\,
+            clock => Net_4058,
+            control_7 => \Encoder_R0_Timer:TimerUDB:control_7\,
+            control_6 => \Encoder_R0_Timer:TimerUDB:control_6\,
+            control_5 => \Encoder_R0_Timer:TimerUDB:control_5\,
+            control_4 => \Encoder_R0_Timer:TimerUDB:control_4\,
+            control_3 => \Encoder_R0_Timer:TimerUDB:control_3\,
+            control_2 => \Encoder_R0_Timer:TimerUDB:control_2\,
+            control_1 => \Encoder_R0_Timer:TimerUDB:control_1\,
+            control_0 => \Encoder_R0_Timer:TimerUDB:control_0\,
             busclk => ClockBlock_BUS_CLK);
 
-    \Encoder_R_Timer:TimerUDB:rstSts:stsreg\:statusicell
+    \Encoder_R0_Timer:TimerUDB:rstSts:stsreg\:statusicell
         GENERIC MAP(
             cy_force_order => 1,
             cy_int_mask => "1111111",
@@ -2274,17 +2673,17 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            reset => Net_1403,
-            clock => Net_745,
+            reset => Net_4060,
+            clock => Net_4058,
             status_6 => open,
             status_5 => open,
             status_4 => open,
-            status_3 => \Encoder_R_Timer:TimerUDB:status_3\,
-            status_2 => \Encoder_R_Timer:TimerUDB:status_2\,
-            status_1 => open,
-            status_0 => \Encoder_R_Timer:TimerUDB:status_tc\);
+            status_3 => \Encoder_R0_Timer:TimerUDB:status_3\,
+            status_2 => \Encoder_R0_Timer:TimerUDB:status_2\,
+            status_1 => \Encoder_R0_Timer:TimerUDB:capt_fifo_load\,
+            status_0 => \Encoder_R0_Timer:TimerUDB:status_tc\);
 
-    \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0\:datapathcell
+    \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -2312,27 +2711,27 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
-            cs_addr_2 => Net_1403,
-            cs_addr_1 => \Encoder_R_Timer:TimerUDB:trig_reg\,
-            cs_addr_0 => \Encoder_R_Timer:TimerUDB:per_zero\,
-            f0_load => open,
+            clock => Net_4058,
+            cs_addr_2 => Net_4060,
+            cs_addr_1 => \Encoder_R0_Timer:TimerUDB:control_7\,
+            cs_addr_0 => \Encoder_R0_Timer:TimerUDB:per_zero\,
+            f0_load => \Encoder_R0_Timer:TimerUDB:capt_fifo_load\,
             busclk => ClockBlock_BUS_CLK,
-            ce0 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
-            cl0 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
-            z0 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
-            ff0 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
-            ce1 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
-            cl1 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
-            z1 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
-            ff1 => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
-            co_msb => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
-            sol_msb => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
-            cfbo => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
-            sil => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
-            cmsbi => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
+            ce0 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
+            cl0 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
+            z0 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
+            ff0 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
+            ce1 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
+            cl1 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
+            z1 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
+            ff1 => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
+            co_msb => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
+            sol_msb => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
+            cfbo => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
+            sil => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
+            cmsbi => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
 
-    \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1\:datapathcell
+    \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -2360,30 +2759,30 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_745,
-            cs_addr_2 => Net_1403,
-            cs_addr_1 => \Encoder_R_Timer:TimerUDB:trig_reg\,
-            cs_addr_0 => \Encoder_R_Timer:TimerUDB:per_zero\,
-            f0_load => open,
-            z0_comb => \Encoder_R_Timer:TimerUDB:per_zero\,
-            f0_bus_stat_comb => \Encoder_R_Timer:TimerUDB:status_3\,
-            f0_blk_stat_comb => \Encoder_R_Timer:TimerUDB:status_2\,
+            clock => Net_4058,
+            cs_addr_2 => Net_4060,
+            cs_addr_1 => \Encoder_R0_Timer:TimerUDB:control_7\,
+            cs_addr_0 => \Encoder_R0_Timer:TimerUDB:per_zero\,
+            f0_load => \Encoder_R0_Timer:TimerUDB:capt_fifo_load\,
+            z0_comb => \Encoder_R0_Timer:TimerUDB:per_zero\,
+            f0_bus_stat_comb => \Encoder_R0_Timer:TimerUDB:status_3\,
+            f0_blk_stat_comb => \Encoder_R0_Timer:TimerUDB:status_2\,
             busclk => ClockBlock_BUS_CLK,
-            ce0i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
-            cl0i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
-            z0i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
-            ff0i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
-            ce1i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
-            cl1i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
-            z1i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
-            ff1i => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
-            ci => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
-            sir => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
-            cfbi => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
-            sor => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
-            cmsbo => \Encoder_R_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
+            ce0i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
+            cl0i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
+            z0i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
+            ff0i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
+            ce1i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
+            cl1i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
+            z1i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
+            ff1i => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
+            ci => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
+            sir => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
+            cfbi => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
+            sor => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
+            cmsbo => \Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
 
-    ENCODER_L_OVF_ISR:interrupt
+    ENCODER_L0_OVF_ISR:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)
@@ -2596,20 +2995,20 @@ BEGIN
             interrupt => Net_1473,
             clock => ClockBlock_BUS_CLK);
 
-    ENC_L_ISR:interrupt
+    ENC_R0_ISR:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_1485,
+            interrupt => Net_1427,
             clock => ClockBlock_BUS_CLK);
 
-    ENC_R_ISR:interrupt
+    ENC_L0_ISR:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_1478,
+            interrupt => Net_1398,
             clock => ClockBlock_BUS_CLK);
 
     \ROBOT_ID_REG:sts:sts_reg\:statuscell
@@ -2628,6 +3027,113 @@ BEGIN
             status_1 => Net_1507,
             status_0 => Net_1506);
 
+    ENC_L1_ISR:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_3645,
+            clock => ClockBlock_BUS_CLK);
+
+    ENC_R1_ISR:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_3646,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:dp_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:Net_1010\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:USB\:usbcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            sof_int => Net_3930,
+            arb_int => \USBUART:Net_1889\,
+            usb_int => \USBUART:Net_1876\,
+            ept_int_8 => \USBUART:ep_int_8\,
+            ept_int_7 => \USBUART:ep_int_7\,
+            ept_int_6 => \USBUART:ep_int_6\,
+            ept_int_5 => \USBUART:ep_int_5\,
+            ept_int_4 => \USBUART:ep_int_4\,
+            ept_int_3 => \USBUART:ep_int_3\,
+            ept_int_2 => \USBUART:ep_int_2\,
+            ept_int_1 => \USBUART:ep_int_1\,
+            ept_int_0 => \USBUART:ep_int_0\,
+            ord_int => \USBUART:Net_95\,
+            dma_req_7 => \USBUART:dma_request_7\,
+            dma_req_6 => \USBUART:dma_request_6\,
+            dma_req_5 => \USBUART:dma_request_5\,
+            dma_req_4 => \USBUART:dma_request_4\,
+            dma_req_3 => \USBUART:dma_request_3\,
+            dma_req_2 => \USBUART:dma_request_2\,
+            dma_req_1 => \USBUART:dma_request_1\,
+            dma_req_0 => \USBUART:dma_request_0\,
+            dma_termin => \USBUART:dma_terminate\);
+
+    \USBUART:ep_3\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_3\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:ep_2\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_2\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:ep_1\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_1\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:ep_0\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_0\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:bus_reset\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:Net_1876\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:arb_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:Net_1889\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:sof_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_3930,
+            clock => ClockBlock_BUS_CLK);
+
     \PWM_L:PWMUDB:runmode_enable\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
@@ -2637,31 +3143,31 @@ BEGIN
             reset_inv => '0')
         PORT MAP(
             q => \PWM_L:PWMUDB:runmode_enable\,
-            clock_0 => Net_745,
+            clock_0 => Net_2860,
             ar_0 => Net_1139,
             main_0 => \PWM_L:PWMUDB:control_7\);
 
-    Net_1361:macrocell
+    Net_1542:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => Net_1361,
-            clock_0 => Net_745,
+            q => Net_1542,
+            clock_0 => Net_2860,
             main_0 => \PWM_L:PWMUDB:runmode_enable\,
             main_1 => \PWM_L:PWMUDB:cmp1_less\);
 
-    Net_1373:macrocell
+    Net_1541:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => Net_1373,
-            clock_0 => Net_745,
+            q => Net_1541,
+            clock_0 => Net_2860,
             main_0 => \PWM_L:PWMUDB:runmode_enable\,
             main_1 => \PWM_L:PWMUDB:cmp2_less\);
 
@@ -2674,259 +3180,107 @@ BEGIN
             reset_inv => '0')
         PORT MAP(
             q => \PWM_R:PWMUDB:runmode_enable\,
-            clock_0 => Net_745,
+            clock_0 => Net_2860,
             ar_0 => Net_973,
             main_0 => \PWM_R:PWMUDB:control_7\);
 
-    Net_975:macrocell
+    Net_1543:macrocell
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
+            eqn_main => "(main_0 * main_1) + (main_0 * main_2)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => Net_975,
-            clock_0 => Net_745,
+            q => Net_1543,
+            clock_0 => Net_2860,
             main_0 => \PWM_R:PWMUDB:runmode_enable\,
-            main_1 => \PWM_R:PWMUDB:cmp1_less\);
+            main_1 => \PWM_R:PWMUDB:cmp1_eq\,
+            main_2 => \PWM_R:PWMUDB:cmp1_less\);
 
     Net_976:macrocell
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
+            eqn_main => "(main_0 * main_1) + (main_0 * main_2)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
             q => Net_976,
-            clock_0 => Net_745,
+            clock_0 => Net_2860,
             main_0 => \PWM_R:PWMUDB:runmode_enable\,
-            main_1 => \PWM_R:PWMUDB:cmp2_less\);
+            main_1 => \PWM_R:PWMUDB:cmp2_eq\,
+            main_2 => \PWM_R:PWMUDB:cmp2_less\);
 
-    \Encoder_L_Timer:TimerUDB:run_mode\:macrocell
+    \Encoder_L0_Timer:TimerUDB:capture_last\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:run_mode\,
-            clock_0 => Net_745,
-            main_0 => \Encoder_L_Timer:TimerUDB:control_7\);
+            q => \Encoder_L0_Timer:TimerUDB:capture_last\,
+            clock_0 => Net_4058,
+            main_0 => Net_4035);
 
     Net_1481:macrocell
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_3 * main_4 * main_6) + (main_0 * main_2 * main_3 * main_4 * main_5)",
+            eqn_main => "(main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
             q => Net_1481,
-            clock_0 => Net_745,
-            main_0 => \Encoder_L_Timer:TimerUDB:control_4\,
-            main_1 => \Encoder_L_Timer:TimerUDB:control_3\,
-            main_2 => \Encoder_L_Timer:TimerUDB:control_2\,
-            main_3 => \Encoder_L_Timer:TimerUDB:run_mode\,
-            main_4 => \Encoder_L_Timer:TimerUDB:per_zero\,
-            main_5 => \Encoder_L_Timer:TimerUDB:trig_rise_detected\,
-            main_6 => \Encoder_L_Timer:TimerUDB:trig_fall_detected\);
+            clock_0 => Net_4058,
+            main_0 => \Encoder_L0_Timer:TimerUDB:control_7\,
+            main_1 => \Encoder_L0_Timer:TimerUDB:per_zero\);
 
-    \Encoder_L_Timer:TimerUDB:timer_enable\:macrocell
+    Net_1398:macrocell
         GENERIC MAP(
-            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * !main_6 * !main_8 * !main_9 * main_11) + (!main_0 * main_1 * main_2 * main_3 * !main_7 * !main_8 * !main_9 * main_11) + (!main_0 * main_1 * main_2 * main_4 * !main_6 * !main_8 * !main_9 * main_10) + (!main_0 * main_1 * main_2 * main_4 * !main_7 * !main_8 * !main_9 * main_10) + (main_1 * main_2 * main_3 * !main_5 * !main_8 * !main_9 * main_11) + (main_1 * main_2 * main_4 * !main_5 * !main_8 * !main_9 * main_10)",
+            eqn_main => "(main_0 * main_1 * !main_2)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:timer_enable\,
-            clock_0 => Net_745,
-            main_0 => \Encoder_L_Timer:Net_55\,
-            main_1 => \Encoder_L_Timer:TimerUDB:control_7\,
-            main_2 => \Encoder_L_Timer:TimerUDB:control_4\,
-            main_3 => \Encoder_L_Timer:TimerUDB:control_3\,
-            main_4 => \Encoder_L_Timer:TimerUDB:control_2\,
-            main_5 => \Encoder_L_Timer:TimerUDB:timer_enable\,
-            main_6 => \Encoder_L_Timer:TimerUDB:run_mode\,
-            main_7 => \Encoder_L_Timer:TimerUDB:per_zero\,
-            main_8 => Net_12,
-            main_9 => \Encoder_L_Timer:TimerUDB:trig_disable\,
-            main_10 => \Encoder_L_Timer:TimerUDB:trig_rise_detected\,
-            main_11 => \Encoder_L_Timer:TimerUDB:trig_fall_detected\);
+            q => Net_1398,
+            clock_0 => Net_4058,
+            main_0 => Net_4035,
+            main_1 => \Encoder_L0_Timer:TimerUDB:control_7\,
+            main_2 => \Encoder_L0_Timer:TimerUDB:capture_last\);
 
-    \Encoder_L_Timer:TimerUDB:trig_disable\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_2 * main_4 * !main_7 * main_10) + (main_0 * main_1 * main_3 * main_4 * !main_7 * main_9) + (main_1 * main_2 * main_4 * main_5 * main_6 * !main_7 * main_10) + (main_1 * main_3 * main_4 * main_5 * main_6 * !main_7 * main_9) + (!main_7 * main_8)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:trig_disable\,
-            clock_0 => Net_745,
-            main_0 => \Encoder_L_Timer:Net_55\,
-            main_1 => \Encoder_L_Timer:TimerUDB:control_4\,
-            main_2 => \Encoder_L_Timer:TimerUDB:control_3\,
-            main_3 => \Encoder_L_Timer:TimerUDB:control_2\,
-            main_4 => \Encoder_L_Timer:TimerUDB:timer_enable\,
-            main_5 => \Encoder_L_Timer:TimerUDB:run_mode\,
-            main_6 => \Encoder_L_Timer:TimerUDB:per_zero\,
-            main_7 => Net_12,
-            main_8 => \Encoder_L_Timer:TimerUDB:trig_disable\,
-            main_9 => \Encoder_L_Timer:TimerUDB:trig_rise_detected\,
-            main_10 => \Encoder_L_Timer:TimerUDB:trig_fall_detected\);
-
-    \Encoder_L_Timer:TimerUDB:trig_last\:macrocell
+    \Encoder_R0_Timer:TimerUDB:capture_last\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:trig_last\,
-            clock_0 => Net_745,
-            main_0 => Net_1396);
-
-    \Encoder_L_Timer:TimerUDB:trig_rise_detected\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_2 * !main_3 * !main_4) + (main_1 * main_2 * !main_3 * main_5)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:trig_rise_detected\,
-            clock_0 => Net_745,
-            main_0 => Net_1396,
-            main_1 => \Encoder_L_Timer:TimerUDB:control_7\,
-            main_2 => \Encoder_L_Timer:TimerUDB:control_4\,
-            main_3 => Net_12,
-            main_4 => \Encoder_L_Timer:TimerUDB:trig_last\,
-            main_5 => \Encoder_L_Timer:TimerUDB:trig_rise_detected\);
-
-    \Encoder_L_Timer:TimerUDB:trig_fall_detected\:macrocell
-        GENERIC MAP(
-            eqn_main => "(!main_0 * main_1 * main_2 * !main_3 * main_4) + (main_1 * main_2 * !main_3 * main_5)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_L_Timer:TimerUDB:trig_fall_detected\,
-            clock_0 => Net_745,
-            main_0 => Net_1396,
-            main_1 => \Encoder_L_Timer:TimerUDB:control_7\,
-            main_2 => \Encoder_L_Timer:TimerUDB:control_4\,
-            main_3 => Net_12,
-            main_4 => \Encoder_L_Timer:TimerUDB:trig_last\,
-            main_5 => \Encoder_L_Timer:TimerUDB:trig_fall_detected\);
-
-    \Encoder_R_Timer:TimerUDB:run_mode\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:run_mode\,
-            clock_0 => Net_745,
-            main_0 => \Encoder_R_Timer:TimerUDB:control_7\);
+            q => \Encoder_R0_Timer:TimerUDB:capture_last\,
+            clock_0 => Net_4058,
+            main_0 => Net_4023);
 
     Net_1428:macrocell
         GENERIC MAP(
-            eqn_main => "(main_0 * main_1 * main_3 * main_4 * main_6) + (main_0 * main_2 * main_3 * main_4 * main_5)",
+            eqn_main => "(main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
             q => Net_1428,
-            clock_0 => Net_745,
-            main_0 => \Encoder_R_Timer:TimerUDB:control_4\,
-            main_1 => \Encoder_R_Timer:TimerUDB:control_3\,
-            main_2 => \Encoder_R_Timer:TimerUDB:control_2\,
-            main_3 => \Encoder_R_Timer:TimerUDB:run_mode\,
-            main_4 => \Encoder_R_Timer:TimerUDB:per_zero\,
-            main_5 => \Encoder_R_Timer:TimerUDB:trig_rise_detected\,
-            main_6 => \Encoder_R_Timer:TimerUDB:trig_fall_detected\);
+            clock_0 => Net_4058,
+            main_0 => \Encoder_R0_Timer:TimerUDB:control_7\,
+            main_1 => \Encoder_R0_Timer:TimerUDB:per_zero\);
 
-    \Encoder_R_Timer:TimerUDB:timer_enable\:macrocell
+    Net_1427:macrocell
         GENERIC MAP(
-            eqn_main => "(!main_0 * main_1 * main_2 * main_3 * !main_5 * !main_8 * main_10) + (!main_0 * main_1 * main_2 * main_3 * !main_6 * !main_8 * main_10) + (!main_0 * main_1 * main_2 * main_3 * !main_7 * !main_8 * main_10) + (!main_0 * main_1 * main_2 * main_4 * !main_5 * !main_8 * main_9) + (!main_0 * main_1 * main_2 * main_4 * !main_6 * !main_8 * main_9) + (!main_0 * main_1 * main_2 * main_4 * !main_7 * !main_8 * main_9)",
+            eqn_main => "(main_0 * main_1 * !main_2)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:timer_enable\,
-            clock_0 => Net_745,
-            main_0 => Net_1403,
-            main_1 => \Encoder_R_Timer:TimerUDB:control_7\,
-            main_2 => \Encoder_R_Timer:TimerUDB:control_4\,
-            main_3 => \Encoder_R_Timer:TimerUDB:control_3\,
-            main_4 => \Encoder_R_Timer:TimerUDB:control_2\,
-            main_5 => \Encoder_R_Timer:TimerUDB:timer_enable\,
-            main_6 => \Encoder_R_Timer:TimerUDB:run_mode\,
-            main_7 => \Encoder_R_Timer:TimerUDB:per_zero\,
-            main_8 => \Encoder_R_Timer:TimerUDB:trig_disable\,
-            main_9 => \Encoder_R_Timer:TimerUDB:trig_rise_detected\,
-            main_10 => \Encoder_R_Timer:TimerUDB:trig_fall_detected\);
-
-    \Encoder_R_Timer:TimerUDB:trig_disable\:macrocell
-        GENERIC MAP(
-            eqn_main => "(!main_0 * main_1 * main_2 * main_4 * main_5 * main_6 * main_9) + (!main_0 * main_1 * main_3 * main_4 * main_5 * main_6 * main_8) + (!main_0 * main_7)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:trig_disable\,
-            clock_0 => Net_745,
-            main_0 => Net_1403,
-            main_1 => \Encoder_R_Timer:TimerUDB:control_4\,
-            main_2 => \Encoder_R_Timer:TimerUDB:control_3\,
-            main_3 => \Encoder_R_Timer:TimerUDB:control_2\,
-            main_4 => \Encoder_R_Timer:TimerUDB:timer_enable\,
-            main_5 => \Encoder_R_Timer:TimerUDB:run_mode\,
-            main_6 => \Encoder_R_Timer:TimerUDB:per_zero\,
-            main_7 => \Encoder_R_Timer:TimerUDB:trig_disable\,
-            main_8 => \Encoder_R_Timer:TimerUDB:trig_rise_detected\,
-            main_9 => \Encoder_R_Timer:TimerUDB:trig_fall_detected\);
-
-    \Encoder_R_Timer:TimerUDB:trig_last\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:trig_last\,
-            clock_0 => Net_745,
-            main_0 => Net_1425);
-
-    \Encoder_R_Timer:TimerUDB:trig_rise_detected\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * !main_1 * main_2 * main_3 * !main_4) + (!main_1 * main_2 * main_3 * main_5)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:trig_rise_detected\,
-            clock_0 => Net_745,
-            main_0 => Net_1425,
-            main_1 => Net_1403,
-            main_2 => \Encoder_R_Timer:TimerUDB:control_7\,
-            main_3 => \Encoder_R_Timer:TimerUDB:control_4\,
-            main_4 => \Encoder_R_Timer:TimerUDB:trig_last\,
-            main_5 => \Encoder_R_Timer:TimerUDB:trig_rise_detected\);
-
-    \Encoder_R_Timer:TimerUDB:trig_fall_detected\:macrocell
-        GENERIC MAP(
-            eqn_main => "(!main_0 * !main_1 * main_2 * main_3 * main_4) + (!main_1 * main_2 * main_3 * main_5)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \Encoder_R_Timer:TimerUDB:trig_fall_detected\,
-            clock_0 => Net_745,
-            main_0 => Net_1425,
-            main_1 => Net_1403,
-            main_2 => \Encoder_R_Timer:TimerUDB:control_7\,
-            main_3 => \Encoder_R_Timer:TimerUDB:control_4\,
-            main_4 => \Encoder_R_Timer:TimerUDB:trig_last\,
-            main_5 => \Encoder_R_Timer:TimerUDB:trig_fall_detected\);
+            q => Net_1427,
+            clock_0 => Net_4058,
+            main_0 => Net_4023,
+            main_1 => \Encoder_R0_Timer:TimerUDB:control_7\,
+            main_2 => \Encoder_R0_Timer:TimerUDB:capture_last\);
 
     \UART:BUART:txn\:macrocell
         GENERIC MAP(

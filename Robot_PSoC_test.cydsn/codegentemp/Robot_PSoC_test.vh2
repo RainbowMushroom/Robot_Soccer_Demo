@@ -2,7 +2,7 @@
 --	Conversion of Robot_PSoC_test.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Jan 29 15:23:20 2021
+--	Fri Feb 26 21:42:08 2021
 --
 
 USE cypress.cypress.all;
@@ -12,24 +12,24 @@ ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
 END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
-SIGNAL Net_745 : bit;
+SIGNAL Net_2860 : bit;
 SIGNAL \PWM_RESET:clk\ : bit;
 SIGNAL \PWM_RESET:rst\ : bit;
 SIGNAL Net_973 : bit;
 SIGNAL \PWM_RESET:control_out_0\ : bit;
 SIGNAL Net_1139 : bit;
 SIGNAL \PWM_RESET:control_out_1\ : bit;
-SIGNAL Net_1104 : bit;
+SIGNAL Net_1544 : bit;
 SIGNAL \PWM_RESET:control_out_2\ : bit;
-SIGNAL Net_1105 : bit;
+SIGNAL Net_1545 : bit;
 SIGNAL \PWM_RESET:control_out_3\ : bit;
-SIGNAL Net_1107 : bit;
+SIGNAL Net_1546 : bit;
 SIGNAL \PWM_RESET:control_out_4\ : bit;
-SIGNAL Net_1108 : bit;
+SIGNAL Net_1547 : bit;
 SIGNAL \PWM_RESET:control_out_5\ : bit;
-SIGNAL Net_1109 : bit;
+SIGNAL Net_1548 : bit;
 SIGNAL \PWM_RESET:control_out_6\ : bit;
-SIGNAL Net_1110 : bit;
+SIGNAL Net_1549 : bit;
 SIGNAL \PWM_RESET:control_out_7\ : bit;
 SIGNAL \PWM_RESET:control_7\ : bit;
 SIGNAL \PWM_RESET:control_6\ : bit;
@@ -40,7 +40,7 @@ SIGNAL \PWM_RESET:control_2\ : bit;
 SIGNAL \PWM_RESET:control_1\ : bit;
 SIGNAL \PWM_RESET:control_0\ : bit;
 SIGNAL tmpOE__PWM_R_CW_net_0 : bit;
-SIGNAL Net_975 : bit;
+SIGNAL Net_1543 : bit;
 SIGNAL tmpFB_0__PWM_R_CW_net_0 : bit;
 SIGNAL tmpIO_0__PWM_R_CW_net_0 : bit;
 TERMINAL tmpSIOVREF__PWM_R_CW_net_0 : bit;
@@ -48,7 +48,7 @@ SIGNAL zero : bit;
 SIGNAL one : bit;
 SIGNAL tmpINTERRUPT_0__PWM_R_CW_net_0 : bit;
 SIGNAL tmpOE__PWM_L_CW_net_0 : bit;
-SIGNAL Net_1361 : bit;
+SIGNAL Net_1542 : bit;
 SIGNAL tmpFB_0__PWM_L_CW_net_0 : bit;
 SIGNAL tmpIO_0__PWM_L_CW_net_0 : bit;
 TERMINAL tmpSIOVREF__PWM_L_CW_net_0 : bit;
@@ -60,7 +60,7 @@ SIGNAL tmpIO_0__PWM_R_CCW_net_0 : bit;
 TERMINAL tmpSIOVREF__PWM_R_CCW_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__PWM_R_CCW_net_0 : bit;
 SIGNAL tmpOE__PWM_L_CCW_net_0 : bit;
-SIGNAL Net_1373 : bit;
+SIGNAL Net_1541 : bit;
 SIGNAL tmpFB_0__PWM_L_CCW_net_0 : bit;
 SIGNAL tmpIO_0__PWM_L_CCW_net_0 : bit;
 TERMINAL tmpSIOVREF__PWM_L_CCW_net_0 : bit;
@@ -387,8 +387,8 @@ SIGNAL \PWM_L:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \PWM_L:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \PWM_L:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \PWM_L:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
-SIGNAL Net_1390 : bit;
-SIGNAL Net_1384 : bit;
+SIGNAL Net_3903 : bit;
+SIGNAL Net_3897 : bit;
 SIGNAL \PWM_L:Net_55\ : bit;
 SIGNAL Net_1383 : bit;
 SIGNAL \PWM_L:Net_113\ : bit;
@@ -716,236 +716,232 @@ SIGNAL \PWM_R:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \PWM_R:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \PWM_R:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \PWM_R:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
-SIGNAL Net_983 : bit;
-SIGNAL Net_977 : bit;
+SIGNAL Net_3912 : bit;
+SIGNAL Net_3906 : bit;
 SIGNAL \PWM_R:Net_55\ : bit;
 SIGNAL Net_974 : bit;
 SIGNAL \PWM_R:Net_113\ : bit;
 SIGNAL \PWM_R:Net_107\ : bit;
 SIGNAL \PWM_R:Net_114\ : bit;
-SIGNAL tmpOE__Encoder_L_net_0 : bit;
-SIGNAL Net_1396 : bit;
-SIGNAL tmpIO_0__Encoder_L_net_0 : bit;
-TERMINAL tmpSIOVREF__Encoder_L_net_0 : bit;
-SIGNAL Net_1485 : bit;
-SIGNAL tmpOE__Encoder_R_net_0 : bit;
-SIGNAL Net_1425 : bit;
-SIGNAL tmpIO_0__Encoder_R_net_0 : bit;
-TERMINAL tmpSIOVREF__Encoder_R_net_0 : bit;
-SIGNAL Net_1478 : bit;
-SIGNAL \Encoder_L_Timer:Net_260\ : bit;
+SIGNAL tmpOE__Encoder_L0_net_0 : bit;
+SIGNAL Net_4035 : bit;
+SIGNAL tmpIO_0__Encoder_L0_net_0 : bit;
+TERMINAL tmpSIOVREF__Encoder_L0_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Encoder_L0_net_0 : bit;
+SIGNAL tmpOE__Encoder_R0_net_0 : bit;
+SIGNAL Net_4023 : bit;
+SIGNAL tmpIO_0__Encoder_R0_net_0 : bit;
+TERMINAL tmpSIOVREF__Encoder_R0_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Encoder_R0_net_0 : bit;
+SIGNAL \Encoder_L0_Timer:Net_260\ : bit;
 SIGNAL Net_1394 : bit;
-SIGNAL \Encoder_L_Timer:Net_55\ : bit;
+SIGNAL \Encoder_L0_Timer:Net_55\ : bit;
 SIGNAL Net_1481 : bit;
-SIGNAL \Encoder_L_Timer:Net_53\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:Clk_Ctl_i\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_7\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_6\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_5\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_4\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_3\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_2\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:control_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_enable\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_ten\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_cmode_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_cmode_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_tmode_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_tmode_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_ic_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:ctrl_ic_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:fifo_load_polarized\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:capture_last\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:capt_fifo_load\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:timer_enable\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:run_mode\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:hwEnable_reg\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_tc\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trigger_enable\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:per_zero\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:tc_i\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:tc_reg_i\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:hwEnable\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:capture_out_reg_i\ : bit;
+SIGNAL \Encoder_L0_Timer:Net_53\ : bit;
+SIGNAL Net_4058 : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:Clk_Ctl_i\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_7\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_6\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_5\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_4\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_3\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_2\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:control_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_enable\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_ten\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_cmode_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_cmode_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_tmode_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_tmode_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_ic_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:ctrl_ic_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:fifo_load_polarized\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:capture_last\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:capt_fifo_load\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:timer_enable\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:run_mode\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:hwEnable\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_tc\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:trigger_enable\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:per_zero\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:tc_i\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:tc_reg_i\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:hwEnable_reg\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:capture_out_reg_i\ : bit;
 SIGNAL Net_1398 : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:capt_fifo_load_int\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:runmode_enable\ : bit;
-SIGNAL Net_12 : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_disable\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_last\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_rise_detected\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_fall_detected\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trigger_polarized\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_reg\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_6\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_5\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_4\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_2\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:fifo_full\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:status_3\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:fifo_nempty\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:cs_addr_2\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:cs_addr_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:cs_addr_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:zeros_3\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:zeros_2\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:nc0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:nc3\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:nc4\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:z0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:z0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:carry\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:sh_right\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:sh_left\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:msb\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cap_1\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cap_0\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cfb\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:z0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:z0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:z1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:so_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_L_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_L_Timer:Net_102\ : bit;
-SIGNAL \Encoder_L_Timer:Net_266\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:capt_fifo_load_int\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:runmode_enable\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:trig_reg\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_6\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_5\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_4\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_2\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:fifo_full\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:status_3\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:fifo_nempty\ : bit;
+SIGNAL Net_4059 : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:cs_addr_2\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:cs_addr_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:cs_addr_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:zeros_3\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:zeros_2\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:nc0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:nc3\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:nc4\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:carry\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:sh_right\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:sh_left\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:msb\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cap_1\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cap_0\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cfb\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_L0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_L0_Timer:Net_102\ : bit;
+SIGNAL \Encoder_L0_Timer:Net_266\ : bit;
 SIGNAL Net_1428 : bit;
 SIGNAL \ENCODER_TMR_RESET:clk\ : bit;
 SIGNAL \ENCODER_TMR_RESET:rst\ : bit;
-SIGNAL Net_1403 : bit;
+SIGNAL Net_4060 : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_0\ : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_1\ : bit;
-SIGNAL Net_1430 : bit;
+SIGNAL Net_3510 : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_2\ : bit;
-SIGNAL Net_1431 : bit;
+SIGNAL Net_3511 : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_3\ : bit;
-SIGNAL Net_1433 : bit;
+SIGNAL Net_2146 : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_4\ : bit;
-SIGNAL Net_1434 : bit;
+SIGNAL Net_2147 : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_5\ : bit;
-SIGNAL Net_1435 : bit;
+SIGNAL Net_2148 : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_6\ : bit;
-SIGNAL Net_1436 : bit;
+SIGNAL Net_2149 : bit;
 SIGNAL \ENCODER_TMR_RESET:control_out_7\ : bit;
 SIGNAL \ENCODER_TMR_RESET:control_7\ : bit;
 SIGNAL \ENCODER_TMR_RESET:control_6\ : bit;
@@ -955,200 +951,195 @@ SIGNAL \ENCODER_TMR_RESET:control_3\ : bit;
 SIGNAL \ENCODER_TMR_RESET:control_2\ : bit;
 SIGNAL \ENCODER_TMR_RESET:control_1\ : bit;
 SIGNAL \ENCODER_TMR_RESET:control_0\ : bit;
-SIGNAL \Encoder_R_Timer:Net_260\ : bit;
-SIGNAL Net_1423 : bit;
-SIGNAL \Encoder_R_Timer:Net_55\ : bit;
-SIGNAL \Encoder_R_Timer:Net_53\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:Clk_Ctl_i\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_7\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_6\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_5\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_4\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_3\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_2\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:control_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_enable\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_ten\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_cmode_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_cmode_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_tmode_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_tmode_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_ic_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:ctrl_ic_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:fifo_load_polarized\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:capture_last\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:capt_fifo_load\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:timer_enable\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:run_mode\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:hwEnable_reg\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_tc\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trigger_enable\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:per_zero\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:tc_i\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:tc_reg_i\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:hwEnable\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:capture_out_reg_i\ : bit;
+SIGNAL \Encoder_R0_Timer:Net_260\ : bit;
+SIGNAL Net_4061 : bit;
+SIGNAL \Encoder_R0_Timer:Net_55\ : bit;
+SIGNAL \Encoder_R0_Timer:Net_53\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:Clk_Ctl_i\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_7\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_6\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_5\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_4\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_3\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_2\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:control_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_enable\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_ten\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_cmode_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_cmode_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_tmode_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_tmode_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_ic_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:ctrl_ic_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:fifo_load_polarized\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:capture_last\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:capt_fifo_load\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:timer_enable\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:run_mode\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:hwEnable\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_tc\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:trigger_enable\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:per_zero\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:tc_i\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:tc_reg_i\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:hwEnable_reg\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:capture_out_reg_i\ : bit;
 SIGNAL Net_1427 : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:capt_fifo_load_int\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:runmode_enable\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_disable\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_last\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_rise_detected\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_fall_detected\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trigger_polarized\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_reg\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_6\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_5\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_4\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_2\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:fifo_full\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:status_3\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:fifo_nempty\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:cs_addr_2\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:cs_addr_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:cs_addr_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:zeros_3\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:zeros_2\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:nc0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:nc3\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:nc4\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:z0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:z0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:carry\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:sh_right\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:sh_left\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:msb\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cap_1\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cap_0\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cfb\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:z0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:z0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:z1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:so_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\ : bit;
-ATTRIBUTE port_state_att of \Encoder_R_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
-SIGNAL \Encoder_R_Timer:Net_102\ : bit;
-SIGNAL \Encoder_R_Timer:Net_266\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:capt_fifo_load_int\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:runmode_enable\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:trig_reg\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_6\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_5\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_4\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_2\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:fifo_full\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:status_3\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:fifo_nempty\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:cs_addr_2\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:cs_addr_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:cs_addr_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:zeros_3\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:zeros_2\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:nc0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:nc3\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:nc4\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:carry\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:sh_right\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:sh_left\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:msb\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cap_1\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cap_0\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cfb\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \Encoder_R0_Timer:TimerUDB:sT16:timerdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \Encoder_R0_Timer:Net_102\ : bit;
+SIGNAL \Encoder_R0_Timer:Net_266\ : bit;
 SIGNAL Net_1472 : bit;
 SIGNAL \UART:Net_9\ : bit;
 SIGNAL Net_1473 : bit;
@@ -1527,6 +1518,66 @@ SIGNAL tmpOE__DIP_3_net_0 : bit;
 SIGNAL tmpIO_0__DIP_3_net_0 : bit;
 TERMINAL tmpSIOVREF__DIP_3_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__DIP_3_net_0 : bit;
+SIGNAL tmpOE__Encoder_R1_net_0 : bit;
+SIGNAL tmpFB_0__Encoder_R1_net_0 : bit;
+SIGNAL tmpIO_0__Encoder_R1_net_0 : bit;
+TERMINAL tmpSIOVREF__Encoder_R1_net_0 : bit;
+SIGNAL Net_3646 : bit;
+SIGNAL tmpOE__Encoder_L1_net_0 : bit;
+SIGNAL tmpFB_0__Encoder_L1_net_0 : bit;
+SIGNAL tmpIO_0__Encoder_L1_net_0 : bit;
+TERMINAL tmpSIOVREF__Encoder_L1_net_0 : bit;
+SIGNAL Net_3645 : bit;
+SIGNAL \USBUART:Net_1010\ : bit;
+SIGNAL \USBUART:tmpOE__Dm_net_0\ : bit;
+SIGNAL \USBUART:tmpFB_0__Dm_net_0\ : bit;
+TERMINAL \USBUART:Net_597\ : bit;
+SIGNAL \USBUART:tmpIO_0__Dm_net_0\ : bit;
+TERMINAL \USBUART:tmpSIOVREF__Dm_net_0\ : bit;
+SIGNAL \USBUART:tmpINTERRUPT_0__Dm_net_0\ : bit;
+SIGNAL \USBUART:tmpOE__Dp_net_0\ : bit;
+SIGNAL \USBUART:tmpFB_0__Dp_net_0\ : bit;
+TERMINAL \USBUART:Net_1000\ : bit;
+SIGNAL \USBUART:tmpIO_0__Dp_net_0\ : bit;
+TERMINAL \USBUART:tmpSIOVREF__Dp_net_0\ : bit;
+SIGNAL Net_3930 : bit;
+SIGNAL \USBUART:Net_1889\ : bit;
+SIGNAL \USBUART:Net_1876\ : bit;
+SIGNAL \USBUART:ep_int_8\ : bit;
+SIGNAL \USBUART:ep_int_7\ : bit;
+SIGNAL \USBUART:ep_int_6\ : bit;
+SIGNAL \USBUART:ep_int_5\ : bit;
+SIGNAL \USBUART:ep_int_4\ : bit;
+SIGNAL \USBUART:ep_int_3\ : bit;
+SIGNAL \USBUART:ep_int_2\ : bit;
+SIGNAL \USBUART:ep_int_1\ : bit;
+SIGNAL \USBUART:ep_int_0\ : bit;
+SIGNAL \USBUART:Net_95\ : bit;
+SIGNAL \USBUART:dma_request_7\ : bit;
+SIGNAL \USBUART:dma_request_6\ : bit;
+SIGNAL \USBUART:dma_request_5\ : bit;
+SIGNAL \USBUART:dma_request_4\ : bit;
+SIGNAL \USBUART:dma_request_3\ : bit;
+SIGNAL \USBUART:dma_request_2\ : bit;
+SIGNAL \USBUART:dma_request_1\ : bit;
+SIGNAL \USBUART:dma_request_0\ : bit;
+SIGNAL \USBUART:dma_terminate\ : bit;
+SIGNAL \USBUART:dma_complete_0\ : bit;
+SIGNAL \USBUART:Net_1922\ : bit;
+SIGNAL \USBUART:dma_complete_1\ : bit;
+SIGNAL \USBUART:Net_1921\ : bit;
+SIGNAL \USBUART:dma_complete_2\ : bit;
+SIGNAL \USBUART:Net_1920\ : bit;
+SIGNAL \USBUART:dma_complete_3\ : bit;
+SIGNAL \USBUART:Net_1919\ : bit;
+SIGNAL \USBUART:dma_complete_4\ : bit;
+SIGNAL \USBUART:Net_1918\ : bit;
+SIGNAL \USBUART:dma_complete_5\ : bit;
+SIGNAL \USBUART:Net_1917\ : bit;
+SIGNAL \USBUART:dma_complete_6\ : bit;
+SIGNAL \USBUART:Net_1916\ : bit;
+SIGNAL \USBUART:dma_complete_7\ : bit;
+SIGNAL \USBUART:Net_1915\ : bit;
 SIGNAL \PWM_L:PWMUDB:min_kill_reg\\D\ : bit;
 SIGNAL \PWM_L:PWMUDB:prevCapture\\D\ : bit;
 SIGNAL \PWM_L:PWMUDB:trig_last\\D\ : bit;
@@ -1551,24 +1602,14 @@ SIGNAL \PWM_R:PWMUDB:pwm_i_reg\\D\ : bit;
 SIGNAL \PWM_R:PWMUDB:pwm1_i_reg\\D\ : bit;
 SIGNAL \PWM_R:PWMUDB:pwm2_i_reg\\D\ : bit;
 SIGNAL \PWM_R:PWMUDB:tc_i_reg\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:capture_last\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:hwEnable_reg\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:tc_reg_i\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:capture_out_reg_i\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:runmode_enable\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_disable\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_last\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_rise_detected\\D\ : bit;
-SIGNAL \Encoder_L_Timer:TimerUDB:trig_fall_detected\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:capture_last\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:hwEnable_reg\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:tc_reg_i\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:capture_out_reg_i\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:runmode_enable\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_disable\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_last\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_rise_detected\\D\ : bit;
-SIGNAL \Encoder_R_Timer:TimerUDB:trig_fall_detected\\D\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:capture_last\\D\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:tc_reg_i\\D\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:hwEnable_reg\\D\ : bit;
+SIGNAL \Encoder_L0_Timer:TimerUDB:capture_out_reg_i\\D\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:capture_last\\D\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:tc_reg_i\\D\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:hwEnable_reg\\D\ : bit;
+SIGNAL \Encoder_R0_Timer:TimerUDB:capture_out_reg_i\\D\ : bit;
 SIGNAL \UART:BUART:reset_reg\\D\ : bit;
 SIGNAL \UART:BUART:txn\\D\ : bit;
 SIGNAL \UART:BUART:tx_state_1\\D\ : bit;
@@ -1630,61 +1671,19 @@ tmpOE__PWM_R_CW_net_0 <=  ('1') ;
 
 \PWM_R:PWMUDB:tc_i_reg\\D\ <= ((\PWM_R:PWMUDB:runmode_enable\ and \PWM_R:PWMUDB:tc_i\));
 
-\PWM_R:PWMUDB:pwm1_i\ <= ((\PWM_R:PWMUDB:runmode_enable\ and \PWM_R:PWMUDB:cmp1_less\));
+\PWM_R:PWMUDB:pwm1_i\ <= ((\PWM_R:PWMUDB:runmode_enable\ and \PWM_R:PWMUDB:cmp1_less\)
+	OR (\PWM_R:PWMUDB:runmode_enable\ and \PWM_R:PWMUDB:cmp1_eq\));
 
-\PWM_R:PWMUDB:pwm2_i\ <= ((\PWM_R:PWMUDB:runmode_enable\ and \PWM_R:PWMUDB:cmp2_less\));
+\PWM_R:PWMUDB:pwm2_i\ <= ((\PWM_R:PWMUDB:runmode_enable\ and \PWM_R:PWMUDB:cmp2_less\)
+	OR (\PWM_R:PWMUDB:runmode_enable\ and \PWM_R:PWMUDB:cmp2_eq\));
 
-\Encoder_L_Timer:TimerUDB:capt_fifo_load\ <= ((\Encoder_L_Timer:TimerUDB:control_6\ and \Encoder_L_Timer:TimerUDB:capture_last\ and \Encoder_L_Timer:TimerUDB:timer_enable\));
+\Encoder_L0_Timer:TimerUDB:capt_fifo_load\ <= ((not \Encoder_L0_Timer:TimerUDB:capture_last\ and Net_4035 and \Encoder_L0_Timer:TimerUDB:control_7\));
 
-\Encoder_L_Timer:TimerUDB:status_tc\ <= ((\Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_3\ and \Encoder_L_Timer:TimerUDB:run_mode\ and \Encoder_L_Timer:TimerUDB:per_zero\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\)
-	OR (\Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_2\ and \Encoder_L_Timer:TimerUDB:run_mode\ and \Encoder_L_Timer:TimerUDB:per_zero\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\));
+\Encoder_L0_Timer:TimerUDB:status_tc\ <= ((\Encoder_L0_Timer:TimerUDB:control_7\ and \Encoder_L0_Timer:TimerUDB:per_zero\));
 
-\Encoder_L_Timer:TimerUDB:runmode_enable\\D\ <= ((not \Encoder_L_Timer:Net_55\ and not \Encoder_L_Timer:TimerUDB:per_zero\ and not Net_12 and not \Encoder_L_Timer:TimerUDB:trig_disable\ and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_3\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\)
-	OR (not \Encoder_L_Timer:Net_55\ and not \Encoder_L_Timer:TimerUDB:run_mode\ and not Net_12 and not \Encoder_L_Timer:TimerUDB:trig_disable\ and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_3\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\)
-	OR (not \Encoder_L_Timer:Net_55\ and not \Encoder_L_Timer:TimerUDB:per_zero\ and not Net_12 and not \Encoder_L_Timer:TimerUDB:trig_disable\ and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_2\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\)
-	OR (not \Encoder_L_Timer:Net_55\ and not \Encoder_L_Timer:TimerUDB:run_mode\ and not Net_12 and not \Encoder_L_Timer:TimerUDB:trig_disable\ and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_2\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\)
-	OR (not \Encoder_L_Timer:TimerUDB:timer_enable\ and not Net_12 and not \Encoder_L_Timer:TimerUDB:trig_disable\ and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_3\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\)
-	OR (not \Encoder_L_Timer:TimerUDB:timer_enable\ and not Net_12 and not \Encoder_L_Timer:TimerUDB:trig_disable\ and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_2\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\));
+\Encoder_R0_Timer:TimerUDB:capt_fifo_load\ <= ((not \Encoder_R0_Timer:TimerUDB:capture_last\ and Net_4023 and \Encoder_R0_Timer:TimerUDB:control_7\));
 
-\Encoder_L_Timer:TimerUDB:trig_disable\\D\ <= ((not Net_12 and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_3\ and \Encoder_L_Timer:TimerUDB:timer_enable\ and \Encoder_L_Timer:TimerUDB:run_mode\ and \Encoder_L_Timer:TimerUDB:per_zero\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\)
-	OR (not Net_12 and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_2\ and \Encoder_L_Timer:TimerUDB:timer_enable\ and \Encoder_L_Timer:TimerUDB:run_mode\ and \Encoder_L_Timer:TimerUDB:per_zero\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\)
-	OR (not Net_12 and \Encoder_L_Timer:Net_55\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_3\ and \Encoder_L_Timer:TimerUDB:timer_enable\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\)
-	OR (not Net_12 and \Encoder_L_Timer:Net_55\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_2\ and \Encoder_L_Timer:TimerUDB:timer_enable\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\)
-	OR (not Net_12 and \Encoder_L_Timer:TimerUDB:trig_disable\));
-
-\Encoder_L_Timer:TimerUDB:trig_rise_detected\\D\ <= ((not Net_12 and not \Encoder_L_Timer:TimerUDB:trig_last\ and Net_1396 and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\)
-	OR (not Net_12 and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\));
-
-\Encoder_L_Timer:TimerUDB:trig_fall_detected\\D\ <= ((not Net_1396 and not Net_12 and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:trig_last\)
-	OR (not Net_12 and \Encoder_L_Timer:TimerUDB:control_7\ and \Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\));
-
-\Encoder_L_Timer:TimerUDB:trig_reg\ <= ((\Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_3\ and \Encoder_L_Timer:TimerUDB:timer_enable\ and \Encoder_L_Timer:TimerUDB:trig_fall_detected\)
-	OR (\Encoder_L_Timer:TimerUDB:control_4\ and \Encoder_L_Timer:TimerUDB:control_2\ and \Encoder_L_Timer:TimerUDB:timer_enable\ and \Encoder_L_Timer:TimerUDB:trig_rise_detected\));
-
-\Encoder_R_Timer:TimerUDB:capt_fifo_load\ <= ((\Encoder_R_Timer:TimerUDB:control_6\ and \Encoder_R_Timer:TimerUDB:capture_last\ and \Encoder_R_Timer:TimerUDB:timer_enable\));
-
-\Encoder_R_Timer:TimerUDB:status_tc\ <= ((\Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_3\ and \Encoder_R_Timer:TimerUDB:run_mode\ and \Encoder_R_Timer:TimerUDB:per_zero\ and \Encoder_R_Timer:TimerUDB:trig_fall_detected\)
-	OR (\Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_2\ and \Encoder_R_Timer:TimerUDB:run_mode\ and \Encoder_R_Timer:TimerUDB:per_zero\ and \Encoder_R_Timer:TimerUDB:trig_rise_detected\));
-
-\Encoder_R_Timer:TimerUDB:runmode_enable\\D\ <= ((not Net_1403 and not \Encoder_R_Timer:TimerUDB:per_zero\ and not \Encoder_R_Timer:TimerUDB:trig_disable\ and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_3\ and \Encoder_R_Timer:TimerUDB:trig_fall_detected\)
-	OR (not Net_1403 and not \Encoder_R_Timer:TimerUDB:run_mode\ and not \Encoder_R_Timer:TimerUDB:trig_disable\ and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_3\ and \Encoder_R_Timer:TimerUDB:trig_fall_detected\)
-	OR (not Net_1403 and not \Encoder_R_Timer:TimerUDB:timer_enable\ and not \Encoder_R_Timer:TimerUDB:trig_disable\ and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_3\ and \Encoder_R_Timer:TimerUDB:trig_fall_detected\)
-	OR (not Net_1403 and not \Encoder_R_Timer:TimerUDB:per_zero\ and not \Encoder_R_Timer:TimerUDB:trig_disable\ and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_2\ and \Encoder_R_Timer:TimerUDB:trig_rise_detected\)
-	OR (not Net_1403 and not \Encoder_R_Timer:TimerUDB:run_mode\ and not \Encoder_R_Timer:TimerUDB:trig_disable\ and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_2\ and \Encoder_R_Timer:TimerUDB:trig_rise_detected\)
-	OR (not Net_1403 and not \Encoder_R_Timer:TimerUDB:timer_enable\ and not \Encoder_R_Timer:TimerUDB:trig_disable\ and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_2\ and \Encoder_R_Timer:TimerUDB:trig_rise_detected\));
-
-\Encoder_R_Timer:TimerUDB:trig_disable\\D\ <= ((not Net_1403 and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_3\ and \Encoder_R_Timer:TimerUDB:timer_enable\ and \Encoder_R_Timer:TimerUDB:run_mode\ and \Encoder_R_Timer:TimerUDB:per_zero\ and \Encoder_R_Timer:TimerUDB:trig_fall_detected\)
-	OR (not Net_1403 and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_2\ and \Encoder_R_Timer:TimerUDB:timer_enable\ and \Encoder_R_Timer:TimerUDB:run_mode\ and \Encoder_R_Timer:TimerUDB:per_zero\ and \Encoder_R_Timer:TimerUDB:trig_rise_detected\)
-	OR (not Net_1403 and \Encoder_R_Timer:TimerUDB:trig_disable\));
-
-\Encoder_R_Timer:TimerUDB:trig_rise_detected\\D\ <= ((not Net_1403 and not \Encoder_R_Timer:TimerUDB:trig_last\ and Net_1425 and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\)
-	OR (not Net_1403 and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:trig_rise_detected\));
-
-\Encoder_R_Timer:TimerUDB:trig_fall_detected\\D\ <= ((not Net_1425 and not Net_1403 and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:trig_last\)
-	OR (not Net_1403 and \Encoder_R_Timer:TimerUDB:control_7\ and \Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:trig_fall_detected\));
-
-\Encoder_R_Timer:TimerUDB:trig_reg\ <= ((\Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_3\ and \Encoder_R_Timer:TimerUDB:timer_enable\ and \Encoder_R_Timer:TimerUDB:trig_fall_detected\)
-	OR (\Encoder_R_Timer:TimerUDB:control_4\ and \Encoder_R_Timer:TimerUDB:control_2\ and \Encoder_R_Timer:TimerUDB:timer_enable\ and \Encoder_R_Timer:TimerUDB:trig_rise_detected\));
+\Encoder_R0_Timer:TimerUDB:status_tc\ <= ((\Encoder_R0_Timer:TimerUDB:control_7\ and \Encoder_R0_Timer:TimerUDB:per_zero\));
 
 Net_1466 <= (not \UART:BUART:txn\);
 
@@ -1819,10 +1818,10 @@ Clock_1:cy_clock_v1_0
 		id=>"abbf6f17-082c-4e3b-986c-8366944292ee",
 		source_clock_id=>"39D5E4C2-EBFC-44ab-AE3D-19F9BBFD674D",
 		divisor=>0,
-		period=>"250000000",
+		period=>"39215686274.5098",
 		is_direct=>'0',
 		is_digital=>'1')
-	PORT MAP(clock_out=>Net_745,
+	PORT MAP(clock_out=>Net_2860,
 		dig_domain_out=>open);
 \PWM_RESET:Sync:ctrl_reg\:cy_psoc3_control
 	GENERIC MAP(cy_init_value=>"00000000",
@@ -1891,7 +1890,7 @@ PWM_R_CW:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
-		y=>Net_975,
+		y=>Net_1543,
 		fb=>(tmpFB_0__PWM_R_CW_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__PWM_R_CW_net_0),
@@ -1961,7 +1960,7 @@ PWM_L_CW:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
-		y=>Net_1361,
+		y=>Net_1542,
 		fb=>(tmpFB_0__PWM_L_CW_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__PWM_L_CW_net_0),
@@ -2101,7 +2100,7 @@ PWM_L_CCW:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
-		y=>Net_1373,
+		y=>Net_1541,
 		fb=>(tmpFB_0__PWM_L_CCW_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__PWM_L_CCW_net_0),
@@ -2116,7 +2115,7 @@ PWM_L_CCW:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__PWM_L_CCW_net_0);
 \PWM_L:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_745,
+	PORT MAP(clock_in=>Net_2860,
 		enable=>tmpOE__PWM_R_CW_net_0,
 		clock_out=>\PWM_L:PWMUDB:ClockOutFromEnBlock\);
 \PWM_L:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
@@ -2226,7 +2225,7 @@ PWM_L_CCW:cy_psoc3_pins_v1_10
 		y=>\PWM_L:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\);
 \PWM_R:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_745,
+	PORT MAP(clock_in=>Net_2860,
 		enable=>tmpOE__PWM_R_CW_net_0,
 		clock_out=>\PWM_R:PWMUDB:ClockOutFromEnBlock\);
 \PWM_R:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
@@ -2334,7 +2333,7 @@ PWM_L_CCW:cy_psoc3_pins_v1_10
 \PWM_R:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
 	PORT MAP(x=>zero,
 		y=>\PWM_R:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_8\);
-Encoder_L:cy_psoc3_pins_v1_10
+Encoder_L0:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
 		drive_mode=>"001",
 		ibuf_enabled=>"1",
@@ -2342,7 +2341,7 @@ Encoder_L:cy_psoc3_pins_v1_10
 		input_sync=>"0",
 		input_clk_en=>'0',
 		input_sync_mode=>"0",
-		intr_mode=>"01",
+		intr_mode=>"00",
 		invert_in_clock=>'0',
 		invert_in_clock_en=>'0',
 		invert_in_reset=>'0',
@@ -2392,10 +2391,10 @@ Encoder_L:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
 		y=>(zero),
-		fb=>Net_1396,
+		fb=>Net_4035,
 		analog=>(open),
-		io=>(tmpIO_0__Encoder_L_net_0),
-		siovref=>(tmpSIOVREF__Encoder_L_net_0),
+		io=>(tmpIO_0__Encoder_L0_net_0),
+		siovref=>(tmpSIOVREF__Encoder_L0_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>tmpOE__PWM_R_CW_net_0,
@@ -2403,8 +2402,8 @@ Encoder_L:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>tmpOE__PWM_R_CW_net_0,
 		out_reset=>zero,
-		interrupt=>Net_1485);
-Encoder_R:cy_psoc3_pins_v1_10
+		interrupt=>tmpINTERRUPT_0__Encoder_L0_net_0);
+Encoder_R0:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"c3c559fe-ff6a-4b02-b7de-5f670662eb1a",
 		drive_mode=>"001",
 		ibuf_enabled=>"1",
@@ -2412,7 +2411,7 @@ Encoder_R:cy_psoc3_pins_v1_10
 		input_sync=>"0",
 		input_clk_en=>'0',
 		input_sync_mode=>"0",
-		intr_mode=>"01",
+		intr_mode=>"00",
 		invert_in_clock=>'0',
 		invert_in_clock_en=>'0',
 		invert_in_reset=>'0',
@@ -2462,10 +2461,10 @@ Encoder_R:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
 		y=>(zero),
-		fb=>Net_1425,
+		fb=>Net_4023,
 		analog=>(open),
-		io=>(tmpIO_0__Encoder_R_net_0),
-		siovref=>(tmpSIOVREF__Encoder_R_net_0),
+		io=>(tmpIO_0__Encoder_R0_net_0),
+		siovref=>(tmpSIOVREF__Encoder_R0_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>tmpOE__PWM_R_CW_net_0,
@@ -2473,37 +2472,37 @@ Encoder_R:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>tmpOE__PWM_R_CW_net_0,
 		out_reset=>zero,
-		interrupt=>Net_1478);
-\Encoder_L_Timer:TimerUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+		interrupt=>tmpINTERRUPT_0__Encoder_R0_net_0);
+\Encoder_L0_Timer:TimerUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_745,
+	PORT MAP(clock_in=>Net_4058,
 		enable=>tmpOE__PWM_R_CW_net_0,
-		clock_out=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\);
-\Encoder_L_Timer:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
+		clock_out=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\);
+\Encoder_L0_Timer:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_745,
+	PORT MAP(clock_in=>Net_4058,
 		enable=>tmpOE__PWM_R_CW_net_0,
-		clock_out=>\Encoder_L_Timer:TimerUDB:Clk_Ctl_i\);
-\Encoder_L_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:cy_psoc3_control
+		clock_out=>\Encoder_L0_Timer:TimerUDB:Clk_Ctl_i\);
+\Encoder_L0_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:cy_psoc3_control
 	GENERIC MAP(cy_init_value=>"00000000",
 		cy_force_order=>'1',
 		cy_ctrl_mode_1=>"00000000",
 		cy_ctrl_mode_0=>"11111111",
 		cy_ext_reset=>'0')
 	PORT MAP(reset=>zero,
-		clock=>\Encoder_L_Timer:TimerUDB:Clk_Ctl_i\,
-		control=>(\Encoder_L_Timer:TimerUDB:control_7\, \Encoder_L_Timer:TimerUDB:control_6\, \Encoder_L_Timer:TimerUDB:control_5\, \Encoder_L_Timer:TimerUDB:control_4\,
-			\Encoder_L_Timer:TimerUDB:control_3\, \Encoder_L_Timer:TimerUDB:control_2\, \Encoder_L_Timer:TimerUDB:control_1\, \Encoder_L_Timer:TimerUDB:control_0\));
-\Encoder_L_Timer:TimerUDB:rstSts:stsreg\:cy_psoc3_statusi
+		clock=>\Encoder_L0_Timer:TimerUDB:Clk_Ctl_i\,
+		control=>(\Encoder_L0_Timer:TimerUDB:control_7\, \Encoder_L0_Timer:TimerUDB:control_6\, \Encoder_L0_Timer:TimerUDB:control_5\, \Encoder_L0_Timer:TimerUDB:control_4\,
+			\Encoder_L0_Timer:TimerUDB:control_3\, \Encoder_L0_Timer:TimerUDB:control_2\, \Encoder_L0_Timer:TimerUDB:control_1\, \Encoder_L0_Timer:TimerUDB:control_0\));
+\Encoder_L0_Timer:TimerUDB:rstSts:stsreg\:cy_psoc3_statusi
 	GENERIC MAP(cy_force_order=>'1',
 		cy_md_select=>"0000011",
 		cy_int_mask=>"1111111")
-	PORT MAP(reset=>Net_12,
-		clock=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		status=>(zero, zero, zero, \Encoder_L_Timer:TimerUDB:status_3\,
-			\Encoder_L_Timer:TimerUDB:status_2\, \Encoder_L_Timer:TimerUDB:capt_fifo_load\, \Encoder_L_Timer:TimerUDB:status_tc\),
-		interrupt=>\Encoder_L_Timer:Net_55\);
-\Encoder_L_Timer:TimerUDB:sT16:timerdp:u0\:cy_psoc3_dp
+	PORT MAP(reset=>Net_4059,
+		clock=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		status=>(zero, zero, zero, \Encoder_L0_Timer:TimerUDB:status_3\,
+			\Encoder_L0_Timer:TimerUDB:status_2\, \Encoder_L0_Timer:TimerUDB:capt_fifo_load\, \Encoder_L0_Timer:TimerUDB:status_tc\),
+		interrupt=>\Encoder_L0_Timer:Net_55\);
+\Encoder_L0_Timer:TimerUDB:sT16:timerdp:u0\:cy_psoc3_dp
 	GENERIC MAP(cy_dpconfig=>"0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111000000000000000000000001000000000000000000011000",
 		d0_init=>"00000000",
 		d1_init=>"00000000",
@@ -2526,17 +2525,17 @@ Encoder_R:cy_psoc3_pins_v1_10
 		f1_bus_sync=>'1',
 		f1_blk_sync=>'1')
 	PORT MAP(reset=>zero,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		cs_addr=>(Net_12, \Encoder_L_Timer:TimerUDB:trig_reg\, \Encoder_L_Timer:TimerUDB:per_zero\),
+		clk=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		cs_addr=>(Net_4059, \Encoder_L0_Timer:TimerUDB:control_7\, \Encoder_L0_Timer:TimerUDB:per_zero\),
 		route_si=>zero,
 		route_ci=>zero,
-		f0_load=>\Encoder_L_Timer:TimerUDB:capt_fifo_load\,
+		f0_load=>\Encoder_L0_Timer:TimerUDB:capt_fifo_load\,
 		f1_load=>zero,
 		d0_load=>zero,
 		d1_load=>zero,
 		ce0=>open,
 		cl0=>open,
-		z0=>\Encoder_L_Timer:TimerUDB:nc0\,
+		z0=>\Encoder_L0_Timer:TimerUDB:nc0\,
 		ff0=>open,
 		ce1=>open,
 		cl1=>open,
@@ -2546,8 +2545,8 @@ Encoder_R:cy_psoc3_pins_v1_10
 		co_msb=>open,
 		cmsb=>open,
 		so=>open,
-		f0_bus_stat=>\Encoder_L_Timer:TimerUDB:nc3\,
-		f0_blk_stat=>\Encoder_L_Timer:TimerUDB:nc4\,
+		f0_bus_stat=>\Encoder_L0_Timer:TimerUDB:nc3\,
+		f0_blk_stat=>\Encoder_L0_Timer:TimerUDB:nc4\,
 		f1_bus_stat=>open,
 		f1_blk_stat=>open,
 		ce0_reg=>open,
@@ -2567,29 +2566,29 @@ Encoder_R:cy_psoc3_pins_v1_10
 		f1_bus_stat_reg=>open,
 		f1_blk_stat_reg=>open,
 		ci=>zero,
-		co=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:carry\,
+		co=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:carry\,
 		sir=>zero,
 		sor=>open,
-		sil=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:sh_right\,
-		sol=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:sh_left\,
-		msbi=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:msb\,
+		sil=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:sh_right\,
+		sol=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:sh_left\,
+		msbi=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:msb\,
 		msbo=>open,
 		cei=>(zero, zero),
-		ceo=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
+		ceo=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
 		cli=>(zero, zero),
-		clo=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
+		clo=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
 		zi=>(zero, zero),
-		zo=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
+		zo=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
 		fi=>(zero, zero),
-		fo=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
+		fo=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
 		capi=>(zero, zero),
-		capo=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cap_0\),
+		capo=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cap_0\),
 		cfbi=>zero,
-		cfbo=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:cfb\,
+		cfbo=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cfb\,
 		pi=>(zero, zero, zero, zero,
 			zero, zero, zero, zero),
 		po=>open);
-\Encoder_L_Timer:TimerUDB:sT16:timerdp:u1\:cy_psoc3_dp
+\Encoder_L0_Timer:TimerUDB:sT16:timerdp:u1\:cy_psoc3_dp
 	GENERIC MAP(cy_dpconfig=>"0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000",
 		d0_init=>"00000000",
 		d1_init=>"00000000",
@@ -2612,17 +2611,17 @@ Encoder_R:cy_psoc3_pins_v1_10
 		f1_bus_sync=>'1',
 		f1_blk_sync=>'1')
 	PORT MAP(reset=>zero,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		cs_addr=>(Net_12, \Encoder_L_Timer:TimerUDB:trig_reg\, \Encoder_L_Timer:TimerUDB:per_zero\),
+		clk=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		cs_addr=>(Net_4059, \Encoder_L0_Timer:TimerUDB:control_7\, \Encoder_L0_Timer:TimerUDB:per_zero\),
 		route_si=>zero,
 		route_ci=>zero,
-		f0_load=>\Encoder_L_Timer:TimerUDB:capt_fifo_load\,
+		f0_load=>\Encoder_L0_Timer:TimerUDB:capt_fifo_load\,
 		f1_load=>zero,
 		d0_load=>zero,
 		d1_load=>zero,
 		ce0=>open,
 		cl0=>open,
-		z0=>\Encoder_L_Timer:TimerUDB:per_zero\,
+		z0=>\Encoder_L0_Timer:TimerUDB:per_zero\,
 		ff0=>open,
 		ce1=>open,
 		cl1=>open,
@@ -2632,8 +2631,8 @@ Encoder_R:cy_psoc3_pins_v1_10
 		co_msb=>open,
 		cmsb=>open,
 		so=>open,
-		f0_bus_stat=>\Encoder_L_Timer:TimerUDB:status_3\,
-		f0_blk_stat=>\Encoder_L_Timer:TimerUDB:status_2\,
+		f0_bus_stat=>\Encoder_L0_Timer:TimerUDB:status_3\,
+		f0_blk_stat=>\Encoder_L0_Timer:TimerUDB:status_2\,
 		f1_bus_stat=>open,
 		f1_blk_stat=>open,
 		ce0_reg=>open,
@@ -2652,30 +2651,30 @@ Encoder_R:cy_psoc3_pins_v1_10
 		f0_blk_stat_reg=>open,
 		f1_bus_stat_reg=>open,
 		f1_blk_stat_reg=>open,
-		ci=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:carry\,
+		ci=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:carry\,
 		co=>open,
-		sir=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:sh_left\,
-		sor=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:sh_right\,
+		sir=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:sh_left\,
+		sor=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:sh_right\,
 		sil=>zero,
 		sol=>open,
 		msbi=>zero,
-		msbo=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:msb\,
-		cei=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
+		msbo=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:msb\,
+		cei=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
 		ceo=>open,
-		cli=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
+		cli=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
 		clo=>open,
-		zi=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
+		zi=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
 		zo=>open,
-		fi=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
+		fi=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
 		fo=>open,
-		capi=>(\Encoder_L_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_L_Timer:TimerUDB:sT16:timerdp:cap_0\),
+		capi=>(\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_L0_Timer:TimerUDB:sT16:timerdp:cap_0\),
 		capo=>open,
-		cfbi=>\Encoder_L_Timer:TimerUDB:sT16:timerdp:cfb\,
+		cfbi=>\Encoder_L0_Timer:TimerUDB:sT16:timerdp:cfb\,
 		cfbo=>open,
 		pi=>(zero, zero, zero, zero,
 			zero, zero, zero, zero),
 		po=>open);
-ENCODER_R_OVF_ISR:cy_isr_v1_0
+ENCODER_R0_OVF_ISR:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_1428);
@@ -2688,37 +2687,37 @@ ENCODER_R_OVF_ISR:cy_isr_v1_0
 	PORT MAP(reset=>zero,
 		clock=>zero,
 		control=>(\ENCODER_TMR_RESET:control_7\, \ENCODER_TMR_RESET:control_6\, \ENCODER_TMR_RESET:control_5\, \ENCODER_TMR_RESET:control_4\,
-			\ENCODER_TMR_RESET:control_3\, \ENCODER_TMR_RESET:control_2\, Net_12, Net_1403));
-\Encoder_R_Timer:TimerUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+			\ENCODER_TMR_RESET:control_3\, \ENCODER_TMR_RESET:control_2\, Net_4059, Net_4060));
+\Encoder_R0_Timer:TimerUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_745,
+	PORT MAP(clock_in=>Net_4058,
 		enable=>tmpOE__PWM_R_CW_net_0,
-		clock_out=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\);
-\Encoder_R_Timer:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
+		clock_out=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\);
+\Encoder_R0_Timer:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_745,
+	PORT MAP(clock_in=>Net_4058,
 		enable=>tmpOE__PWM_R_CW_net_0,
-		clock_out=>\Encoder_R_Timer:TimerUDB:Clk_Ctl_i\);
-\Encoder_R_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:cy_psoc3_control
+		clock_out=>\Encoder_R0_Timer:TimerUDB:Clk_Ctl_i\);
+\Encoder_R0_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:cy_psoc3_control
 	GENERIC MAP(cy_init_value=>"00000000",
 		cy_force_order=>'1',
 		cy_ctrl_mode_1=>"00000000",
 		cy_ctrl_mode_0=>"11111111",
 		cy_ext_reset=>'0')
 	PORT MAP(reset=>zero,
-		clock=>\Encoder_R_Timer:TimerUDB:Clk_Ctl_i\,
-		control=>(\Encoder_R_Timer:TimerUDB:control_7\, \Encoder_R_Timer:TimerUDB:control_6\, \Encoder_R_Timer:TimerUDB:control_5\, \Encoder_R_Timer:TimerUDB:control_4\,
-			\Encoder_R_Timer:TimerUDB:control_3\, \Encoder_R_Timer:TimerUDB:control_2\, \Encoder_R_Timer:TimerUDB:control_1\, \Encoder_R_Timer:TimerUDB:control_0\));
-\Encoder_R_Timer:TimerUDB:rstSts:stsreg\:cy_psoc3_statusi
+		clock=>\Encoder_R0_Timer:TimerUDB:Clk_Ctl_i\,
+		control=>(\Encoder_R0_Timer:TimerUDB:control_7\, \Encoder_R0_Timer:TimerUDB:control_6\, \Encoder_R0_Timer:TimerUDB:control_5\, \Encoder_R0_Timer:TimerUDB:control_4\,
+			\Encoder_R0_Timer:TimerUDB:control_3\, \Encoder_R0_Timer:TimerUDB:control_2\, \Encoder_R0_Timer:TimerUDB:control_1\, \Encoder_R0_Timer:TimerUDB:control_0\));
+\Encoder_R0_Timer:TimerUDB:rstSts:stsreg\:cy_psoc3_statusi
 	GENERIC MAP(cy_force_order=>'1',
 		cy_md_select=>"0000011",
 		cy_int_mask=>"1111111")
-	PORT MAP(reset=>Net_1403,
-		clock=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		status=>(zero, zero, zero, \Encoder_R_Timer:TimerUDB:status_3\,
-			\Encoder_R_Timer:TimerUDB:status_2\, \Encoder_R_Timer:TimerUDB:capt_fifo_load\, \Encoder_R_Timer:TimerUDB:status_tc\),
-		interrupt=>\Encoder_R_Timer:Net_55\);
-\Encoder_R_Timer:TimerUDB:sT16:timerdp:u0\:cy_psoc3_dp
+	PORT MAP(reset=>Net_4060,
+		clock=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		status=>(zero, zero, zero, \Encoder_R0_Timer:TimerUDB:status_3\,
+			\Encoder_R0_Timer:TimerUDB:status_2\, \Encoder_R0_Timer:TimerUDB:capt_fifo_load\, \Encoder_R0_Timer:TimerUDB:status_tc\),
+		interrupt=>\Encoder_R0_Timer:Net_55\);
+\Encoder_R0_Timer:TimerUDB:sT16:timerdp:u0\:cy_psoc3_dp
 	GENERIC MAP(cy_dpconfig=>"0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111000000000000000000000001000000000000000000011000",
 		d0_init=>"00000000",
 		d1_init=>"00000000",
@@ -2741,17 +2740,17 @@ ENCODER_R_OVF_ISR:cy_isr_v1_0
 		f1_bus_sync=>'1',
 		f1_blk_sync=>'1')
 	PORT MAP(reset=>zero,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		cs_addr=>(Net_1403, \Encoder_R_Timer:TimerUDB:trig_reg\, \Encoder_R_Timer:TimerUDB:per_zero\),
+		clk=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		cs_addr=>(Net_4060, \Encoder_R0_Timer:TimerUDB:control_7\, \Encoder_R0_Timer:TimerUDB:per_zero\),
 		route_si=>zero,
 		route_ci=>zero,
-		f0_load=>\Encoder_R_Timer:TimerUDB:capt_fifo_load\,
+		f0_load=>\Encoder_R0_Timer:TimerUDB:capt_fifo_load\,
 		f1_load=>zero,
 		d0_load=>zero,
 		d1_load=>zero,
 		ce0=>open,
 		cl0=>open,
-		z0=>\Encoder_R_Timer:TimerUDB:nc0\,
+		z0=>\Encoder_R0_Timer:TimerUDB:nc0\,
 		ff0=>open,
 		ce1=>open,
 		cl1=>open,
@@ -2761,8 +2760,8 @@ ENCODER_R_OVF_ISR:cy_isr_v1_0
 		co_msb=>open,
 		cmsb=>open,
 		so=>open,
-		f0_bus_stat=>\Encoder_R_Timer:TimerUDB:nc3\,
-		f0_blk_stat=>\Encoder_R_Timer:TimerUDB:nc4\,
+		f0_bus_stat=>\Encoder_R0_Timer:TimerUDB:nc3\,
+		f0_blk_stat=>\Encoder_R0_Timer:TimerUDB:nc4\,
 		f1_bus_stat=>open,
 		f1_blk_stat=>open,
 		ce0_reg=>open,
@@ -2782,29 +2781,29 @@ ENCODER_R_OVF_ISR:cy_isr_v1_0
 		f1_bus_stat_reg=>open,
 		f1_blk_stat_reg=>open,
 		ci=>zero,
-		co=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:carry\,
+		co=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:carry\,
 		sir=>zero,
 		sor=>open,
-		sil=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:sh_right\,
-		sol=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:sh_left\,
-		msbi=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:msb\,
+		sil=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:sh_right\,
+		sol=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:sh_left\,
+		msbi=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:msb\,
 		msbo=>open,
 		cei=>(zero, zero),
-		ceo=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
+		ceo=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
 		cli=>(zero, zero),
-		clo=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
+		clo=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
 		zi=>(zero, zero),
-		zo=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
+		zo=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
 		fi=>(zero, zero),
-		fo=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
+		fo=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
 		capi=>(zero, zero),
-		capo=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cap_0\),
+		capo=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cap_0\),
 		cfbi=>zero,
-		cfbo=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:cfb\,
+		cfbo=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cfb\,
 		pi=>(zero, zero, zero, zero,
 			zero, zero, zero, zero),
 		po=>open);
-\Encoder_R_Timer:TimerUDB:sT16:timerdp:u1\:cy_psoc3_dp
+\Encoder_R0_Timer:TimerUDB:sT16:timerdp:u1\:cy_psoc3_dp
 	GENERIC MAP(cy_dpconfig=>"0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000",
 		d0_init=>"00000000",
 		d1_init=>"00000000",
@@ -2827,17 +2826,17 @@ ENCODER_R_OVF_ISR:cy_isr_v1_0
 		f1_bus_sync=>'1',
 		f1_blk_sync=>'1')
 	PORT MAP(reset=>zero,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		cs_addr=>(Net_1403, \Encoder_R_Timer:TimerUDB:trig_reg\, \Encoder_R_Timer:TimerUDB:per_zero\),
+		clk=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		cs_addr=>(Net_4060, \Encoder_R0_Timer:TimerUDB:control_7\, \Encoder_R0_Timer:TimerUDB:per_zero\),
 		route_si=>zero,
 		route_ci=>zero,
-		f0_load=>\Encoder_R_Timer:TimerUDB:capt_fifo_load\,
+		f0_load=>\Encoder_R0_Timer:TimerUDB:capt_fifo_load\,
 		f1_load=>zero,
 		d0_load=>zero,
 		d1_load=>zero,
 		ce0=>open,
 		cl0=>open,
-		z0=>\Encoder_R_Timer:TimerUDB:per_zero\,
+		z0=>\Encoder_R0_Timer:TimerUDB:per_zero\,
 		ff0=>open,
 		ce1=>open,
 		cl1=>open,
@@ -2847,8 +2846,8 @@ ENCODER_R_OVF_ISR:cy_isr_v1_0
 		co_msb=>open,
 		cmsb=>open,
 		so=>open,
-		f0_bus_stat=>\Encoder_R_Timer:TimerUDB:status_3\,
-		f0_blk_stat=>\Encoder_R_Timer:TimerUDB:status_2\,
+		f0_bus_stat=>\Encoder_R0_Timer:TimerUDB:status_3\,
+		f0_blk_stat=>\Encoder_R0_Timer:TimerUDB:status_2\,
 		f1_bus_stat=>open,
 		f1_blk_stat=>open,
 		ce0_reg=>open,
@@ -2867,30 +2866,30 @@ ENCODER_R_OVF_ISR:cy_isr_v1_0
 		f0_blk_stat_reg=>open,
 		f1_bus_stat_reg=>open,
 		f1_blk_stat_reg=>open,
-		ci=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:carry\,
+		ci=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:carry\,
 		co=>open,
-		sir=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:sh_left\,
-		sor=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:sh_right\,
+		sir=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:sh_left\,
+		sor=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:sh_right\,
 		sil=>zero,
 		sol=>open,
 		msbi=>zero,
-		msbo=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:msb\,
-		cei=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
+		msbo=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:msb\,
+		cei=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_eq_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_eq_0\),
 		ceo=>open,
-		cli=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
+		cli=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_lt_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_lt_0\),
 		clo=>open,
-		zi=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
+		zi=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_zero_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_zero_0\),
 		zo=>open,
-		fi=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
+		fi=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_ff_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cmp_ff_0\),
 		fo=>open,
-		capi=>(\Encoder_R_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_R_Timer:TimerUDB:sT16:timerdp:cap_0\),
+		capi=>(\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cap_1\, \Encoder_R0_Timer:TimerUDB:sT16:timerdp:cap_0\),
 		capo=>open,
-		cfbi=>\Encoder_R_Timer:TimerUDB:sT16:timerdp:cfb\,
+		cfbi=>\Encoder_R0_Timer:TimerUDB:sT16:timerdp:cfb\,
 		cfbo=>open,
 		pi=>(zero, zero, zero, zero,
 			zero, zero, zero, zero),
 		po=>open);
-ENCODER_L_OVF_ISR:cy_isr_v1_0
+ENCODER_L0_OVF_ISR:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_1481);
@@ -3355,14 +3354,14 @@ rx_isr:cy_isr_v1_0
 	GENERIC MAP(int_type=>"00",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_1473);
-ENC_L_ISR:cy_isr_v1_0
+ENC_R0_ISR:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_1485);
-ENC_R_ISR:cy_isr_v1_0
-	GENERIC MAP(int_type=>"00",
+	PORT MAP(int_signal=>Net_1427);
+ENC_L0_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_1478);
+	PORT MAP(int_signal=>Net_1398);
 \ROBOT_ID_REG:sts:sts_reg\:cy_psoc3_status
 	GENERIC MAP(cy_force_order=>'1',
 		cy_md_select=>"00000000")
@@ -3660,6 +3659,350 @@ DIP_3:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__PWM_R_CW_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__DIP_3_net_0);
+Encoder_R1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"76812379-d8ca-47a6-9308-8c7c37f4712b",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"01",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__Encoder_R1_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Encoder_R1_net_0),
+		siovref=>(tmpSIOVREF__Encoder_R1_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__PWM_R_CW_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__PWM_R_CW_net_0,
+		out_reset=>zero,
+		interrupt=>Net_3646);
+Encoder_L1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"94835a1a-8332-4c18-89d0-e8eae8cff89b",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"01",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__Encoder_L1_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Encoder_L1_net_0),
+		siovref=>(tmpSIOVREF__Encoder_L1_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__PWM_R_CW_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__PWM_R_CW_net_0,
+		out_reset=>zero,
+		interrupt=>Net_3645);
+ENC_L1_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_3645);
+ENC_R1_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_3646);
+\USBUART:dp_int\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBUART:Net_1010\);
+\USBUART:Dm\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"beca5e2d-f70f-4900-a4db-7eca1ed3126e/8b77a6c4-10a0-4390-971c-672353e2a49c",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
+		y=>(zero),
+		fb=>(\USBUART:tmpFB_0__Dm_net_0\),
+		analog=>\USBUART:Net_597\,
+		io=>(\USBUART:tmpIO_0__Dm_net_0\),
+		siovref=>(\USBUART:tmpSIOVREF__Dm_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__PWM_R_CW_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__PWM_R_CW_net_0,
+		out_reset=>zero,
+		interrupt=>\USBUART:tmpINTERRUPT_0__Dm_net_0\);
+\USBUART:Dp\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"10",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__PWM_R_CW_net_0),
+		y=>(zero),
+		fb=>(\USBUART:tmpFB_0__Dp_net_0\),
+		analog=>\USBUART:Net_1000\,
+		io=>(\USBUART:tmpIO_0__Dp_net_0\),
+		siovref=>(\USBUART:tmpSIOVREF__Dp_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__PWM_R_CW_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__PWM_R_CW_net_0,
+		out_reset=>zero,
+		interrupt=>\USBUART:Net_1010\);
+\USBUART:USB\:cy_psoc3_usb_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(dp=>\USBUART:Net_1000\,
+		dm=>\USBUART:Net_597\,
+		sof_int=>Net_3930,
+		arb_int=>\USBUART:Net_1889\,
+		usb_int=>\USBUART:Net_1876\,
+		ept_int=>(\USBUART:ep_int_8\, \USBUART:ep_int_7\, \USBUART:ep_int_6\, \USBUART:ep_int_5\,
+			\USBUART:ep_int_4\, \USBUART:ep_int_3\, \USBUART:ep_int_2\, \USBUART:ep_int_1\,
+			\USBUART:ep_int_0\),
+		ord_int=>\USBUART:Net_95\,
+		dma_req=>(\USBUART:dma_request_7\, \USBUART:dma_request_6\, \USBUART:dma_request_5\, \USBUART:dma_request_4\,
+			\USBUART:dma_request_3\, \USBUART:dma_request_2\, \USBUART:dma_request_1\, \USBUART:dma_request_0\),
+		dma_termin=>\USBUART:dma_terminate\);
+\USBUART:ep_3\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBUART:ep_int_3\);
+\USBUART:ep_2\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBUART:ep_int_2\);
+\USBUART:ep_1\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBUART:ep_int_1\);
+\USBUART:ep_0\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBUART:ep_int_0\);
+\USBUART:bus_reset\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBUART:Net_1876\);
+\USBUART:arb_int\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\USBUART:Net_1889\);
+\USBUART:sof_int\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_3930);
+Clock_3:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"1a47d182-ac84-4e80-832a-7113bf80100e",
+		source_clock_id=>"CEF43CFB-0213-49b9-B980-2FFAB81C5B47",
+		divisor=>0,
+		period=>"8000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_4058,
+		dig_domain_out=>open);
 \PWM_L:PWMUDB:min_kill_reg\:cy_dsrff
 	PORT MAP(d=>tmpOE__PWM_R_CW_net_0,
 		s=>zero,
@@ -3709,11 +4052,11 @@ DIP_3:cy_psoc3_pins_v1_10
 \PWM_L:PWMUDB:pwm1_i_reg\:cy_dff
 	PORT MAP(d=>\PWM_L:PWMUDB:pwm1_i\,
 		clk=>\PWM_L:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_1361);
+		q=>Net_1542);
 \PWM_L:PWMUDB:pwm2_i_reg\:cy_dff
 	PORT MAP(d=>\PWM_L:PWMUDB:pwm2_i\,
 		clk=>\PWM_L:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_1373);
+		q=>Net_1541);
 \PWM_L:PWMUDB:tc_i_reg\:cy_dff
 	PORT MAP(d=>\PWM_L:PWMUDB:tc_i_reg\\D\,
 		clk=>\PWM_L:PWMUDB:ClockOutFromEnBlock\,
@@ -3767,7 +4110,7 @@ DIP_3:cy_psoc3_pins_v1_10
 \PWM_R:PWMUDB:pwm1_i_reg\:cy_dff
 	PORT MAP(d=>\PWM_R:PWMUDB:pwm1_i\,
 		clk=>\PWM_R:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_975);
+		q=>Net_1543);
 \PWM_R:PWMUDB:pwm2_i_reg\:cy_dff
 	PORT MAP(d=>\PWM_R:PWMUDB:pwm2_i\,
 		clk=>\PWM_R:PWMUDB:ClockOutFromEnBlock\,
@@ -3776,78 +4119,38 @@ DIP_3:cy_psoc3_pins_v1_10
 	PORT MAP(d=>\PWM_R:PWMUDB:tc_i_reg\\D\,
 		clk=>\PWM_R:PWMUDB:ClockOutFromEnBlock\,
 		q=>\PWM_R:PWMUDB:tc_i_reg\);
-\Encoder_L_Timer:TimerUDB:capture_last\:cy_dff
-	PORT MAP(d=>zero,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:capture_last\);
-\Encoder_L_Timer:TimerUDB:hwEnable_reg\:cy_dff
-	PORT MAP(d=>\Encoder_L_Timer:TimerUDB:control_7\,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:run_mode\);
-\Encoder_L_Timer:TimerUDB:tc_reg_i\:cy_dff
-	PORT MAP(d=>\Encoder_L_Timer:TimerUDB:status_tc\,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
+\Encoder_L0_Timer:TimerUDB:capture_last\:cy_dff
+	PORT MAP(d=>Net_4035,
+		clk=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		q=>\Encoder_L0_Timer:TimerUDB:capture_last\);
+\Encoder_L0_Timer:TimerUDB:tc_reg_i\:cy_dff
+	PORT MAP(d=>\Encoder_L0_Timer:TimerUDB:status_tc\,
+		clk=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\,
 		q=>Net_1481);
-\Encoder_L_Timer:TimerUDB:capture_out_reg_i\:cy_dff
-	PORT MAP(d=>\Encoder_L_Timer:TimerUDB:capt_fifo_load\,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:capture_out_reg_i\);
-\Encoder_L_Timer:TimerUDB:runmode_enable\:cy_dff
-	PORT MAP(d=>\Encoder_L_Timer:TimerUDB:runmode_enable\\D\,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:timer_enable\);
-\Encoder_L_Timer:TimerUDB:trig_disable\:cy_dff
-	PORT MAP(d=>\Encoder_L_Timer:TimerUDB:trig_disable\\D\,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:trig_disable\);
-\Encoder_L_Timer:TimerUDB:trig_last\:cy_dff
-	PORT MAP(d=>Net_1396,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:trig_last\);
-\Encoder_L_Timer:TimerUDB:trig_rise_detected\:cy_dff
-	PORT MAP(d=>\Encoder_L_Timer:TimerUDB:trig_rise_detected\\D\,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:trig_rise_detected\);
-\Encoder_L_Timer:TimerUDB:trig_fall_detected\:cy_dff
-	PORT MAP(d=>\Encoder_L_Timer:TimerUDB:trig_fall_detected\\D\,
-		clk=>\Encoder_L_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_L_Timer:TimerUDB:trig_fall_detected\);
-\Encoder_R_Timer:TimerUDB:capture_last\:cy_dff
-	PORT MAP(d=>zero,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:capture_last\);
-\Encoder_R_Timer:TimerUDB:hwEnable_reg\:cy_dff
-	PORT MAP(d=>\Encoder_R_Timer:TimerUDB:control_7\,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:run_mode\);
-\Encoder_R_Timer:TimerUDB:tc_reg_i\:cy_dff
-	PORT MAP(d=>\Encoder_R_Timer:TimerUDB:status_tc\,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
+\Encoder_L0_Timer:TimerUDB:hwEnable_reg\:cy_dff
+	PORT MAP(d=>\Encoder_L0_Timer:TimerUDB:control_7\,
+		clk=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		q=>\Encoder_L0_Timer:TimerUDB:hwEnable_reg\);
+\Encoder_L0_Timer:TimerUDB:capture_out_reg_i\:cy_dff
+	PORT MAP(d=>\Encoder_L0_Timer:TimerUDB:capt_fifo_load\,
+		clk=>\Encoder_L0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		q=>Net_1398);
+\Encoder_R0_Timer:TimerUDB:capture_last\:cy_dff
+	PORT MAP(d=>Net_4023,
+		clk=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		q=>\Encoder_R0_Timer:TimerUDB:capture_last\);
+\Encoder_R0_Timer:TimerUDB:tc_reg_i\:cy_dff
+	PORT MAP(d=>\Encoder_R0_Timer:TimerUDB:status_tc\,
+		clk=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\,
 		q=>Net_1428);
-\Encoder_R_Timer:TimerUDB:capture_out_reg_i\:cy_dff
-	PORT MAP(d=>\Encoder_R_Timer:TimerUDB:capt_fifo_load\,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:capture_out_reg_i\);
-\Encoder_R_Timer:TimerUDB:runmode_enable\:cy_dff
-	PORT MAP(d=>\Encoder_R_Timer:TimerUDB:runmode_enable\\D\,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:timer_enable\);
-\Encoder_R_Timer:TimerUDB:trig_disable\:cy_dff
-	PORT MAP(d=>\Encoder_R_Timer:TimerUDB:trig_disable\\D\,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:trig_disable\);
-\Encoder_R_Timer:TimerUDB:trig_last\:cy_dff
-	PORT MAP(d=>Net_1425,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:trig_last\);
-\Encoder_R_Timer:TimerUDB:trig_rise_detected\:cy_dff
-	PORT MAP(d=>\Encoder_R_Timer:TimerUDB:trig_rise_detected\\D\,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:trig_rise_detected\);
-\Encoder_R_Timer:TimerUDB:trig_fall_detected\:cy_dff
-	PORT MAP(d=>\Encoder_R_Timer:TimerUDB:trig_fall_detected\\D\,
-		clk=>\Encoder_R_Timer:TimerUDB:ClockOutFromEnBlock\,
-		q=>\Encoder_R_Timer:TimerUDB:trig_fall_detected\);
+\Encoder_R0_Timer:TimerUDB:hwEnable_reg\:cy_dff
+	PORT MAP(d=>\Encoder_R0_Timer:TimerUDB:control_7\,
+		clk=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		q=>\Encoder_R0_Timer:TimerUDB:hwEnable_reg\);
+\Encoder_R0_Timer:TimerUDB:capture_out_reg_i\:cy_dff
+	PORT MAP(d=>\Encoder_R0_Timer:TimerUDB:capt_fifo_load\,
+		clk=>\Encoder_R0_Timer:TimerUDB:ClockOutFromEnBlock\,
+		q=>Net_1427);
 \UART:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\UART:BUART:clock_op\,

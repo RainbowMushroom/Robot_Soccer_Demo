@@ -13,15 +13,30 @@
 /* Function: count_to_angv
  * Purpose: Converts a count from the encoder timers into the angular velocity of the encoder shaft
  * Inputs: uint16_t count - the timer count value
- *         encoder_counts - the total number of counts on the encoder in a full 360 degree turn
+ *         uint8_t encoder_counts - the total number of counts on the encoder in a full 360 degree turn
+ *         bool overflow - true (timer overflowed), false (timer did not overflow)
+ *         bool direction - true (clockwise), false (anticlockwise)
  * Outputs: double - The MAGNITUDE of the angular velocity
  */
-double count_to_angv(uint16_t count, uint8_t encoder_counts){
-    //The timer clock frequency is 4MHz, giving each count a period of 250ns
-    double time_s = count * 250E-9;
-    double encoder_angle = 2 * 3.14159 / encoder_counts; //Angle encoder rotates between each pulse [rad]
-    
-    return encoder_angle/time_s;
+double count_to_angv(uint16_t count, uint8_t encoder_counts, bool overflow, bool direction){
+    //Convert the timer period from ms to seconds.  The encoder timers use a clock with a period of 8us.
+    if(!overflow){
+        double time_s = 0;
+        if(direction == true){
+            //Clockwise - positive
+            time_s = count * 8E-6;
+        } else {
+            //Anticlockwise - negative
+            time_s = -count * 8E-6;  
+        }
+        double encoder_angle = 2 * 3.14159 / encoder_counts; //Angle encoder rotates between each pulse [rad]
+        
+        return encoder_angle/time_s;
+    } else {
+        //Timer overflowed when recording the count measurement
+        //Interpret this as 0 rad/s
+        return 0;    
+    }
 }
 /* Function: motor_angv_to_wheel_angv
  * Purpose: Converts the angular velocity of the motor shaft into the angular velocity of the 

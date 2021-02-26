@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
   28:Generated_Source\PSoC5/ENC_L_ISR.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/ENC_L_ISR.c **** /* `#START ENC_L_ISR_intc` */
   30:Generated_Source\PSoC5/ENC_L_ISR.c **** 
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 2
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 2
 
 
   31:Generated_Source\PSoC5/ENC_L_ISR.c **** /* `#END` */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
   85:Generated_Source\PSoC5/ENC_L_ISR.c **** *  the interrupt to the interrupt controller.
   86:Generated_Source\PSoC5/ENC_L_ISR.c **** *  
   87:Generated_Source\PSoC5/ENC_L_ISR.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 3
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 3
 
 
   88:Generated_Source\PSoC5/ENC_L_ISR.c **** *  used to provide consistent definition across compilers:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  142:Generated_Source\PSoC5/ENC_L_ISR.c **** 
  143:Generated_Source\PSoC5/ENC_L_ISR.c **** 
  144:Generated_Source\PSoC5/ENC_L_ISR.c **** /*******************************************************************************
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 4
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 4
 
 
  145:Generated_Source\PSoC5/ENC_L_ISR.c **** * Function Name: ENC_L_ISR_Interrupt
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  182:Generated_Source\PSoC5/ENC_L_ISR.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  183:Generated_Source\PSoC5/ENC_L_ISR.c **** *   used to provide consistent definition across compilers:
  184:Generated_Source\PSoC5/ENC_L_ISR.c **** *
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 5
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 5
 
 
  185:Generated_Source\PSoC5/ENC_L_ISR.c **** *   Function definition example:
@@ -274,7 +274,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  205:Generated_Source\PSoC5/ENC_L_ISR.c **** 
  206:Generated_Source\PSoC5/ENC_L_ISR.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)ENC_L_ISR__INTC_NUMBER] = address;
   55              		.loc 1 206 0
-  56 0004 1867     		str	r0, [r3, #112]
+  56 0004 D865     		str	r0, [r3, #92]
   57 0006 7047     		bx	lr
   58              	.L4:
   59              		.align	2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  211:Generated_Source\PSoC5/ENC_L_ISR.c **** * Function Name: ENC_L_ISR_GetVector
  212:Generated_Source\PSoC5/ENC_L_ISR.c **** ********************************************************************************
  213:Generated_Source\PSoC5/ENC_L_ISR.c **** *
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 6
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 6
 
 
  214:Generated_Source\PSoC5/ENC_L_ISR.c **** * Summary:
@@ -329,7 +329,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  230:Generated_Source\PSoC5/ENC_L_ISR.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)ENC_L_ISR__INTC_NUMBER];
  231:Generated_Source\PSoC5/ENC_L_ISR.c **** }
   82              		.loc 1 231 0
-  83 0004 186F     		ldr	r0, [r3, #112]
+  83 0004 D86D     		ldr	r0, [r3, #92]
   84 0006 7047     		bx	lr
   85              	.L7:
   86              		.align	2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  241:Generated_Source\PSoC5/ENC_L_ISR.c **** *   Note calling ENC_L_ISR_Start or ENC_L_ISR_StartEx will 
  242:Generated_Source\PSoC5/ENC_L_ISR.c **** *   override any effect this API would have had. This API should only be called
  243:Generated_Source\PSoC5/ENC_L_ISR.c **** *   after ENC_L_ISR_Start or ENC_L_ISR_StartEx has been called. 
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 7
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 7
 
 
  244:Generated_Source\PSoC5/ENC_L_ISR.c **** *   To set the initial priority for the component, use the Design-Wide Resources
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  113              	.L10:
  114 000a 00BF     		.align	2
  115              	.L9:
- 116 000c 0CE400E0 		.word	-536812532
+ 116 000c 07E400E0 		.word	-536812537
  117              		.cfi_endproc
  118              	.LFE6:
  119              		.size	ENC_L_ISR_SetPriority, .-ENC_L_ISR_SetPriority
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  270:Generated_Source\PSoC5/ENC_L_ISR.c **** *
  271:Generated_Source\PSoC5/ENC_L_ISR.c **** * Parameters:
  272:Generated_Source\PSoC5/ENC_L_ISR.c **** *   None
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 8
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 8
 
 
  273:Generated_Source\PSoC5/ENC_L_ISR.c **** *
@@ -453,7 +453,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  141              	.L13:
  142              		.align	2
  143              	.L12:
- 144 0008 0CE400E0 		.word	-536812532
+ 144 0008 07E400E0 		.word	-536812537
  145              		.cfi_endproc
  146              	.LFE7:
  147              		.size	ENC_L_ISR_GetPriority, .-ENC_L_ISR_GetPriority
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  299:Generated_Source\PSoC5/ENC_L_ISR.c **** *
  300:Generated_Source\PSoC5/ENC_L_ISR.c **** * Parameters:
  301:Generated_Source\PSoC5/ENC_L_ISR.c **** *   None
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 9
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 9
 
 
  302:Generated_Source\PSoC5/ENC_L_ISR.c **** *
@@ -496,14 +496,14 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  309:Generated_Source\PSoC5/ENC_L_ISR.c ****     /* Enable the general interrupt. */
  310:Generated_Source\PSoC5/ENC_L_ISR.c ****     *ENC_L_ISR_INTC_SET_EN = ENC_L_ISR__INTC_MASK;
  161              		.loc 1 310 0
- 162 0000 4FF48052 		mov	r2, #4096
- 163 0004 014B     		ldr	r3, .L15
- 164 0006 1A60     		str	r2, [r3]
- 165 0008 7047     		bx	lr
+ 162 0000 8022     		movs	r2, #128
+ 163 0002 014B     		ldr	r3, .L15
+ 164 0004 1A60     		str	r2, [r3]
+ 165 0006 7047     		bx	lr
  166              	.L16:
- 167 000a 00BF     		.align	2
+ 167              		.align	2
  168              	.L15:
- 169 000c 00E100E0 		.word	-536813312
+ 169 0008 00E100E0 		.word	-536813312
  170              		.cfi_endproc
  171              	.LFE8:
  172              		.size	ENC_L_ISR_Enable, .-ENC_L_ISR_Enable
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  182              		.cfi_startproc
  183              		@ args = 0, pretend = 0, frame = 0
  184              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 10
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 10
 
 
  185              		@ link register save eliminated.
@@ -547,7 +547,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  186              		.loc 1 331 0
  187 0000 044B     		ldr	r3, .L20
  188 0002 1B68     		ldr	r3, [r3]
- 189 0004 13F4805F 		tst	r3, #4096
+ 189 0004 13F0800F 		tst	r3, #128
  190 0008 01D0     		beq	.L19
  191 000a 0120     		movs	r0, #1
  192 000c 7047     		bx	lr
@@ -597,17 +597,17 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  351:Generated_Source\PSoC5/ENC_L_ISR.c ****     /* Disable the general interrupt. */
  352:Generated_Source\PSoC5/ENC_L_ISR.c ****     *ENC_L_ISR_INTC_CLR_EN = ENC_L_ISR__INTC_MASK;
  217              		.loc 1 352 0
- 218 0000 4FF48052 		mov	r2, #4096
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 11
+ 218 0000 8022     		movs	r2, #128
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 11
 
 
- 219 0004 014B     		ldr	r3, .L23
- 220 0006 1A60     		str	r2, [r3]
- 221 0008 7047     		bx	lr
+ 219 0002 014B     		ldr	r3, .L23
+ 220 0004 1A60     		str	r2, [r3]
+ 221 0006 7047     		bx	lr
  222              	.L24:
- 223 000a 00BF     		.align	2
+ 223              		.align	2
  224              	.L23:
- 225 000c 80E100E0 		.word	-536813184
+ 225 0008 80E100E0 		.word	-536813184
  226              		.cfi_endproc
  227              	.LFE10:
  228              		.size	ENC_L_ISR_Disable, .-ENC_L_ISR_Disable
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  268              		.align	2
  269              		.global	ENC_L_ISR_StartEx
  270              		.thumb
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 12
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 12
 
 
  271              		.thumb_func
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  137:Generated_Source\PSoC5/ENC_L_ISR.c **** 
  319              		.loc 1 137 0
  320 0002 FFF7FEFF 		bl	ENC_L_ISR_Disable
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 13
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 13
 
 
  321              	.LVL16:
@@ -775,17 +775,17 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  346              		@ link register save eliminated.
  378:Generated_Source\PSoC5/ENC_L_ISR.c ****     *ENC_L_ISR_INTC_SET_PD = ENC_L_ISR__INTC_MASK;
  347              		.loc 1 378 0
- 348 0000 4FF48052 		mov	r2, #4096
- 349 0004 014B     		ldr	r3, .L36
- 350 0006 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 14
+ 348 0000 8022     		movs	r2, #128
+ 349 0002 014B     		ldr	r3, .L36
+ 350 0004 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 14
 
 
- 351 0008 7047     		bx	lr
+ 351 0006 7047     		bx	lr
  352              	.L37:
- 353 000a 00BF     		.align	2
+ 353              		.align	2
  354              	.L36:
- 355 000c 00E200E0 		.word	-536813056
+ 355 0008 00E200E0 		.word	-536813056
  356              		.cfi_endproc
  357              	.LFE11:
  358              		.size	ENC_L_ISR_SetPending, .-ENC_L_ISR_SetPending
@@ -828,17 +828,17 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  371              		@ link register save eliminated.
  403:Generated_Source\PSoC5/ENC_L_ISR.c ****     *ENC_L_ISR_INTC_CLR_PD = ENC_L_ISR__INTC_MASK;
  372              		.loc 1 403 0
- 373 0000 4FF48052 		mov	r2, #4096
- 374 0004 014B     		ldr	r3, .L39
- 375 0006 1A60     		str	r2, [r3]
- 376 0008 7047     		bx	lr
+ 373 0000 8022     		movs	r2, #128
+ 374 0002 014B     		ldr	r3, .L39
+ 375 0004 1A60     		str	r2, [r3]
+ 376 0006 7047     		bx	lr
  377              	.L40:
- 378 000a 00BF     		.align	2
+ 378              		.align	2
  379              	.L39:
- 380 000c 80E200E0 		.word	-536812928
+ 380 0008 80E200E0 		.word	-536812928
  381              		.cfi_endproc
  382              	.LFE12:
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 15
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 15
 
 
  383              		.size	ENC_L_ISR_ClearPending, .-ENC_L_ISR_ClearPending
@@ -854,8 +854,8 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  393 000b 01       		.uleb128 0x1
  394 000c A9000000 		.4byte	.LASF34
  395 0010 0C       		.byte	0xc
- 396 0011 F4020000 		.4byte	.LASF35
- 397 0015 25020000 		.4byte	.LASF36
+ 396 0011 DF020000 		.4byte	.LASF35
+ 397 0015 8F010000 		.4byte	.LASF36
  398 0019 00000000 		.4byte	.Ldebug_ranges0+0
  399 001d 00000000 		.4byte	0
  400 0021 00000000 		.4byte	.Ldebug_line0
@@ -866,19 +866,19 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  405 002c 03       		.uleb128 0x3
  406 002d 04       		.byte	0x4
  407 002e 07       		.byte	0x7
- 408 002f C1010000 		.4byte	.LASF0
+ 408 002f 51020000 		.4byte	.LASF0
  409 0033 03       		.uleb128 0x3
  410 0034 08       		.byte	0x8
  411 0035 05       		.byte	0x5
- 412 0036 17020000 		.4byte	.LASF1
+ 412 0036 A7020000 		.4byte	.LASF1
  413 003a 03       		.uleb128 0x3
  414 003b 08       		.byte	0x8
  415 003c 04       		.byte	0x4
- 416 003d 17030000 		.4byte	.LASF2
+ 416 003d 02030000 		.4byte	.LASF2
  417 0041 03       		.uleb128 0x3
  418 0042 01       		.byte	0x1
  419 0043 06       		.byte	0x6
- 420 0044 23030000 		.4byte	.LASF3
+ 420 0044 0E030000 		.4byte	.LASF3
  421 0048 03       		.uleb128 0x3
  422 0049 01       		.byte	0x1
  423 004a 08       		.byte	0x8
@@ -898,22 +898,22 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  437 0064 03       		.uleb128 0x3
  438 0065 04       		.byte	0x4
  439 0066 07       		.byte	0x7
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 16
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 16
 
 
  440 0067 3C010000 		.4byte	.LASF8
  441 006b 03       		.uleb128 0x3
  442 006c 08       		.byte	0x8
  443 006d 07       		.byte	0x7
- 444 006e D6010000 		.4byte	.LASF9
+ 444 006e 66020000 		.4byte	.LASF9
  445 0072 03       		.uleb128 0x3
  446 0073 04       		.byte	0x4
  447 0074 07       		.byte	0x7
- 448 0075 0E020000 		.4byte	.LASF10
+ 448 0075 9E020000 		.4byte	.LASF10
  449 0079 03       		.uleb128 0x3
  450 007a 01       		.byte	0x1
  451 007b 08       		.byte	0x8
- 452 007c CA020000 		.4byte	.LASF11
+ 452 007c B5020000 		.4byte	.LASF11
  453 0080 04       		.uleb128 0x4
  454 0081 04       		.byte	0x4
  455 0082 86000000 		.4byte	0x86
@@ -924,7 +924,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  460 008d E401     		.2byte	0x1e4
  461 008f 48000000 		.4byte	0x48
  462 0093 06       		.uleb128 0x6
- 463 0094 BA010000 		.4byte	.LASF13
+ 463 0094 4A020000 		.4byte	.LASF13
  464 0098 02       		.byte	0x2
  465 0099 E601     		.2byte	0x1e6
  466 009b 64000000 		.4byte	0x64
@@ -951,14 +951,14 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  487 00ca 07       		.uleb128 0x7
  488 00cb 93000000 		.4byte	0x93
  489 00cf 06       		.uleb128 0x6
- 490 00d0 01020000 		.4byte	.LASF18
+ 490 00d0 91020000 		.4byte	.LASF18
  491 00d4 02       		.byte	0x2
  492 00d5 A002     		.2byte	0x2a0
  493 00d7 80000000 		.4byte	0x80
  494 00db 08       		.uleb128 0x8
  495 00dc 6D000000 		.4byte	.LASF26
  496 00e0 01       		.byte	0x1
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 17
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 17
 
 
  497 00e1 A0       		.byte	0xa0
@@ -976,14 +976,14 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  509 00fc 9C       		.byte	0x9c
  510 00fd 1C010000 		.4byte	0x11c
  511 0101 0A       		.uleb128 0xa
- 512 0102 CE010000 		.4byte	.LASF22
+ 512 0102 5E020000 		.4byte	.LASF22
  513 0106 01       		.byte	0x1
  514 0107 C8       		.byte	0xc8
  515 0108 CF000000 		.4byte	0xcf
  516 010c 01       		.uleb128 0x1
  517 010d 50       		.byte	0x50
  518 010e 0B       		.uleb128 0xb
- 519 010f CF020000 		.4byte	.LASF19
+ 519 010f BA020000 		.4byte	.LASF19
  520 0113 01       		.byte	0x1
  521 0114 CA       		.byte	0xca
  522 0115 1C010000 		.4byte	0x11c
@@ -994,7 +994,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  527 011d 04       		.byte	0x4
  528 011e CF000000 		.4byte	0xcf
  529 0122 0C       		.uleb128 0xc
- 530 0123 ED010000 		.4byte	.LASF24
+ 530 0123 7D020000 		.4byte	.LASF24
  531 0127 01       		.byte	0x1
  532 0128 E0       		.byte	0xe0
  533 0129 CF000000 		.4byte	0xcf
@@ -1004,7 +1004,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  537 0136 9C       		.byte	0x9c
  538 0137 49010000 		.4byte	0x149
  539 013b 0B       		.uleb128 0xb
- 540 013c CF020000 		.4byte	.LASF19
+ 540 013c BA020000 		.4byte	.LASF19
  541 0140 01       		.byte	0x1
  542 0141 E2       		.byte	0xe2
  543 0142 1C010000 		.4byte	0x11c
@@ -1012,13 +1012,13 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  545 0147 53       		.byte	0x53
  546 0148 00       		.byte	0
  547 0149 0D       		.uleb128 0xd
- 548 014a DE020000 		.4byte	.LASF21
+ 548 014a C9020000 		.4byte	.LASF21
  549 014e 01       		.byte	0x1
  550 014f 0201     		.2byte	0x102
  551 0151 00000000 		.4byte	.LFB6
  552 0155 10000000 		.4byte	.LFE6-.LFB6
  553 0159 01       		.uleb128 0x1
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 18
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 18
 
 
  554 015a 9C       		.byte	0x9c
@@ -1031,7 +1031,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  561 016b 00000000 		.4byte	.LLST0
  562 016f 00       		.byte	0
  563 0170 0F       		.uleb128 0xf
- 564 0171 8F010000 		.4byte	.LASF25
+ 564 0171 1F020000 		.4byte	.LASF25
  565 0175 01       		.byte	0x1
  566 0176 1801     		.2byte	0x118
  567 0178 87000000 		.4byte	0x87
@@ -1052,7 +1052,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  582 01a0 01       		.byte	0x1
  583 01a1 3301     		.2byte	0x133
  584 01a3 00000000 		.4byte	.LFB8
- 585 01a7 10000000 		.4byte	.LFE8-.LFB8
+ 585 01a7 0C000000 		.4byte	.LFE8-.LFB8
  586 01ab 01       		.uleb128 0x1
  587 01ac 9C       		.byte	0x9c
  588 01ad 12       		.uleb128 0x12
@@ -1069,7 +1069,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  599 01c8 01       		.byte	0x1
  600 01c9 5D01     		.2byte	0x15d
  601 01cb 00000000 		.4byte	.LFB10
- 602 01cf 10000000 		.4byte	.LFE10-.LFB10
+ 602 01cf 0C000000 		.4byte	.LFE10-.LFB10
  603 01d3 01       		.uleb128 0x1
  604 01d4 9C       		.byte	0x9c
  605 01d5 09       		.uleb128 0x9
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  608 01db 3D       		.byte	0x3d
  609 01dc 00000000 		.4byte	.LFB0
  610 01e0 1C000000 		.4byte	.LFE0-.LFB0
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 19
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 19
 
 
  611 01e4 01       		.uleb128 0x1
@@ -1113,7 +1113,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  640 0222 9B010000 		.4byte	0x19b
  641 0226 00       		.byte	0
  642 0227 09       		.uleb128 0x9
- 643 0228 2F030000 		.4byte	.LASF30
+ 643 0228 1A030000 		.4byte	.LASF30
  644 022c 01       		.byte	0x1
  645 022d 68       		.byte	0x68
  646 022e 00000000 		.4byte	.LFB1
@@ -1122,7 +1122,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  649 0237 9C       		.byte	0x9c
  650 0238 85020000 		.4byte	0x285
  651 023c 16       		.uleb128 0x16
- 652 023d CE010000 		.4byte	.LASF22
+ 652 023d 5E020000 		.4byte	.LASF22
  653 0241 01       		.byte	0x1
  654 0242 68       		.byte	0x68
  655 0243 CF000000 		.4byte	0xcf
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  665 0262 01       		.uleb128 0x1
  666 0263 50       		.byte	0x50
  667 0264 02       		.uleb128 0x2
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 20
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 20
 
 
  668 0265 74       		.byte	0x74
@@ -1175,11 +1175,11 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  699 02a8 EC000000 		.4byte	0xec
  700 02ac 00       		.byte	0
  701 02ad 11       		.uleb128 0x11
- 702 02ae A5010000 		.4byte	.LASF32
+ 702 02ae 35020000 		.4byte	.LASF32
  703 02b2 01       		.byte	0x1
  704 02b3 7801     		.2byte	0x178
  705 02b5 00000000 		.4byte	.LFB11
- 706 02b9 10000000 		.4byte	.LFE11-.LFB11
+ 706 02b9 0C000000 		.4byte	.LFE11-.LFB11
  707 02bd 01       		.uleb128 0x1
  708 02be 9C       		.byte	0x9c
  709 02bf 11       		.uleb128 0x11
@@ -1187,7 +1187,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  711 02c4 01       		.byte	0x1
  712 02c5 9101     		.2byte	0x191
  713 02c7 00000000 		.4byte	.LFB12
- 714 02cb 10000000 		.4byte	.LFE12-.LFB12
+ 714 02cb 0C000000 		.4byte	.LFE12-.LFB12
  715 02cf 01       		.uleb128 0x1
  716 02d0 9C       		.byte	0x9c
  717 02d1 00       		.byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  722 0002 01       		.byte	0x1
  723 0003 25       		.uleb128 0x25
  724 0004 0E       		.uleb128 0xe
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 21
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 21
 
 
  725 0005 13       		.uleb128 0x13
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  779 003b 00       		.byte	0
  780 003c 03       		.uleb128 0x3
  781 003d 0E       		.uleb128 0xe
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 22
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 22
 
 
  782 003e 3A       		.uleb128 0x3a
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  836 0075 06       		.uleb128 0x6
  837 0076 40       		.uleb128 0x40
  838 0077 18       		.uleb128 0x18
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 23
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 23
 
 
  839 0078 9742     		.uleb128 0x2117
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  893 00af 06       		.uleb128 0x6
  894 00b0 40       		.uleb128 0x40
  895 00b1 18       		.uleb128 0x18
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 24
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 24
 
 
  896 00b2 9742     		.uleb128 0x2117
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  950 00ea 0B       		.uleb128 0xb
  951 00eb 3B       		.uleb128 0x3b
  952 00ec 05       		.uleb128 0x5
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 25
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 25
 
 
  953 00ed 27       		.uleb128 0x27
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1007 0125 12       		.uleb128 0x12
  1008 0126 2E       		.uleb128 0x2e
  1009 0127 00       		.byte	0
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 26
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 26
 
 
  1010 0128 3F       		.uleb128 0x3f
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1064 0166 03       		.uleb128 0x3
  1065 0167 0E       		.uleb128 0xe
  1066 0168 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 27
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 27
 
 
  1067 0169 0B       		.uleb128 0xb
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1121 000c 0000     		.2byte	0
  1122 000e 0000     		.2byte	0
  1123 0010 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 28
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 28
 
 
  1124 0014 02000000 		.4byte	.LFE3-.LFB3
@@ -1631,11 +1631,11 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1131 0030 00000000 		.4byte	.LFB7
  1132 0034 0C000000 		.4byte	.LFE7-.LFB7
  1133 0038 00000000 		.4byte	.LFB8
- 1134 003c 10000000 		.4byte	.LFE8-.LFB8
+ 1134 003c 0C000000 		.4byte	.LFE8-.LFB8
  1135 0040 00000000 		.4byte	.LFB9
  1136 0044 18000000 		.4byte	.LFE9-.LFB9
  1137 0048 00000000 		.4byte	.LFB10
- 1138 004c 10000000 		.4byte	.LFE10-.LFB10
+ 1138 004c 0C000000 		.4byte	.LFE10-.LFB10
  1139 0050 00000000 		.4byte	.LFB0
  1140 0054 1C000000 		.4byte	.LFE0-.LFB0
  1141 0058 00000000 		.4byte	.LFB1
@@ -1643,9 +1643,9 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1143 0060 00000000 		.4byte	.LFB2
  1144 0064 14000000 		.4byte	.LFE2-.LFB2
  1145 0068 00000000 		.4byte	.LFB11
- 1146 006c 10000000 		.4byte	.LFE11-.LFB11
+ 1146 006c 0C000000 		.4byte	.LFE11-.LFB11
  1147 0070 00000000 		.4byte	.LFB12
- 1148 0074 10000000 		.4byte	.LFE12-.LFB12
+ 1148 0074 0C000000 		.4byte	.LFE12-.LFB12
  1149 0078 00000000 		.4byte	0
  1150 007c 00000000 		.4byte	0
  1151              		.section	.debug_ranges,"",%progbits
@@ -1661,11 +1661,11 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1161 0020 00000000 		.4byte	.LFB7
  1162 0024 0C000000 		.4byte	.LFE7
  1163 0028 00000000 		.4byte	.LFB8
- 1164 002c 10000000 		.4byte	.LFE8
+ 1164 002c 0C000000 		.4byte	.LFE8
  1165 0030 00000000 		.4byte	.LFB9
  1166 0034 18000000 		.4byte	.LFE9
  1167 0038 00000000 		.4byte	.LFB10
- 1168 003c 10000000 		.4byte	.LFE10
+ 1168 003c 0C000000 		.4byte	.LFE10
  1169 0040 00000000 		.4byte	.LFB0
  1170 0044 1C000000 		.4byte	.LFE0
  1171 0048 00000000 		.4byte	.LFB1
@@ -1673,12 +1673,12 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1173 0050 00000000 		.4byte	.LFB2
  1174 0054 14000000 		.4byte	.LFE2
  1175 0058 00000000 		.4byte	.LFB11
- 1176 005c 10000000 		.4byte	.LFE11
+ 1176 005c 0C000000 		.4byte	.LFE11
  1177 0060 00000000 		.4byte	.LFB12
- 1178 0064 10000000 		.4byte	.LFE12
+ 1178 0064 0C000000 		.4byte	.LFE12
  1179 0068 00000000 		.4byte	0
  1180 006c 00000000 		.4byte	0
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 29
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 29
 
 
  1181              		.section	.debug_line,"",%progbits
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1201      746F7200 
  1202              	.LASF14:
  1203 0095 666C6F61 		.ascii	"float\000"
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 30
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 30
 
 
  1203      7400
@@ -1797,112 +1797,108 @@ ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 1
  1225 0185 73686F72 		.ascii	"short int\000"
  1225      7420696E 
  1225      7400
- 1226              	.LASF25:
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 31
+ 1226              	.LASF36:
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 31
 
 
- 1227 018f 454E435F 		.ascii	"ENC_L_ISR_GetPriority\000"
- 1227      4C5F4953 
- 1227      525F4765 
- 1227      74507269 
- 1227      6F726974 
- 1228              	.LASF32:
- 1229 01a5 454E435F 		.ascii	"ENC_L_ISR_SetPending\000"
- 1229      4C5F4953 
- 1229      525F5365 
- 1229      7450656E 
- 1229      64696E67 
- 1230              	.LASF13:
- 1231 01ba 75696E74 		.ascii	"uint32\000"
- 1231      333200
- 1232              	.LASF0:
- 1233 01c1 756E7369 		.ascii	"unsigned int\000"
- 1233      676E6564 
- 1233      20696E74 
- 1233      00
- 1234              	.LASF22:
- 1235 01ce 61646472 		.ascii	"address\000"
- 1235      65737300 
- 1236              	.LASF9:
- 1237 01d6 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1237      206C6F6E 
- 1237      6720756E 
- 1237      7369676E 
- 1237      65642069 
- 1238              	.LASF24:
- 1239 01ed 454E435F 		.ascii	"ENC_L_ISR_GetVector\000"
- 1239      4C5F4953 
- 1239      525F4765 
- 1239      74566563 
- 1239      746F7200 
- 1240              	.LASF18:
- 1241 0201 63796973 		.ascii	"cyisraddress\000"
- 1241      72616464 
- 1241      72657373 
- 1241      00
- 1242              	.LASF10:
- 1243 020e 73697A65 		.ascii	"sizetype\000"
- 1243      74797065 
- 1243      00
- 1244              	.LASF1:
- 1245 0217 6C6F6E67 		.ascii	"long long int\000"
- 1245      206C6F6E 
- 1245      6720696E 
- 1245      7400
- 1246              	.LASF36:
- 1247 0225 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Documents\\Summer"
- 1247      6C65732E 
- 1247      6175636B 
- 1247      6C616E64 
- 1247      2E61632E 
- 1248 0253 20526573 		.ascii	" Research\\Robot Soccer Code\\EmbeddedCode\\PsOC Pr"
- 1248      65617263 
- 1248      685C526F 
-ARM GAS  C:\Users\chay322\AppData\Local\Temp\cc5hzM43.s 			page 32
+ 1227 018f 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Documents\\Summer"
+ 1227      6C65732E 
+ 1227      6175636B 
+ 1227      6C616E64 
+ 1227      2E61632E 
+ 1228 01bd 20526573 		.ascii	" Research\\Robot Soccer Code\\EmbeddedCode\\PsOC Pr"
+ 1228      65617263 
+ 1228      685C526F 
+ 1228      626F7420 
+ 1228      536F6363 
+ 1229 01ed 6F6A6563 		.ascii	"oject\\Robot_PSoC_test.cydsn\\Robot_PSoC_test.cydsn"
+ 1229      745C526F 
+ 1229      626F745F 
+ 1229      50536F43 
+ 1229      5F746573 
+ 1230 021e 00       		.ascii	"\000"
+ 1231              	.LASF25:
+ 1232 021f 454E435F 		.ascii	"ENC_L_ISR_GetPriority\000"
+ 1232      4C5F4953 
+ 1232      525F4765 
+ 1232      74507269 
+ 1232      6F726974 
+ 1233              	.LASF32:
+ 1234 0235 454E435F 		.ascii	"ENC_L_ISR_SetPending\000"
+ 1234      4C5F4953 
+ 1234      525F5365 
+ 1234      7450656E 
+ 1234      64696E67 
+ 1235              	.LASF13:
+ 1236 024a 75696E74 		.ascii	"uint32\000"
+ 1236      333200
+ 1237              	.LASF0:
+ 1238 0251 756E7369 		.ascii	"unsigned int\000"
+ 1238      676E6564 
+ 1238      20696E74 
+ 1238      00
+ 1239              	.LASF22:
+ 1240 025e 61646472 		.ascii	"address\000"
+ 1240      65737300 
+ 1241              	.LASF9:
+ 1242 0266 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1242      206C6F6E 
+ 1242      6720756E 
+ 1242      7369676E 
+ 1242      65642069 
+ 1243              	.LASF24:
+ 1244 027d 454E435F 		.ascii	"ENC_L_ISR_GetVector\000"
+ 1244      4C5F4953 
+ 1244      525F4765 
+ 1244      74566563 
+ 1244      746F7200 
+ 1245              	.LASF18:
+ 1246 0291 63796973 		.ascii	"cyisraddress\000"
+ 1246      72616464 
+ 1246      72657373 
+ 1246      00
+ 1247              	.LASF10:
+ARM GAS  C:\Users\chay322\AppData\Local\Temp\ccZZHiBh.s 			page 32
 
 
- 1248      626F7420 
- 1248      536F6363 
- 1249 0283 6F6A6563 		.ascii	"oject\\Robot_PSoC_test.cydsn-20210126T222121Z-001\\"
- 1249      745C526F 
- 1249      626F745F 
- 1249      50536F43 
- 1249      5F746573 
- 1250 02b4 526F626F 		.ascii	"Robot_PSoC_test.cydsn\000"
- 1250      745F5053 
- 1250      6F435F74 
- 1250      6573742E 
- 1250      63796473 
+ 1248 029e 73697A65 		.ascii	"sizetype\000"
+ 1248      74797065 
+ 1248      00
+ 1249              	.LASF1:
+ 1250 02a7 6C6F6E67 		.ascii	"long long int\000"
+ 1250      206C6F6E 
+ 1250      6720696E 
+ 1250      7400
  1251              	.LASF11:
- 1252 02ca 63686172 		.ascii	"char\000"
+ 1252 02b5 63686172 		.ascii	"char\000"
  1252      00
  1253              	.LASF19:
- 1254 02cf 72616D56 		.ascii	"ramVectorTable\000"
+ 1254 02ba 72616D56 		.ascii	"ramVectorTable\000"
  1254      6563746F 
  1254      72546162 
  1254      6C6500
  1255              	.LASF21:
- 1256 02de 454E435F 		.ascii	"ENC_L_ISR_SetPriority\000"
+ 1256 02c9 454E435F 		.ascii	"ENC_L_ISR_SetPriority\000"
  1256      4C5F4953 
  1256      525F5365 
  1256      74507269 
  1256      6F726974 
  1257              	.LASF35:
- 1258 02f4 47656E65 		.ascii	"Generated_Source\\PSoC5\\ENC_L_ISR.c\000"
+ 1258 02df 47656E65 		.ascii	"Generated_Source\\PSoC5\\ENC_L_ISR.c\000"
  1258      72617465 
  1258      645F536F 
  1258      75726365 
  1258      5C50536F 
  1259              	.LASF2:
- 1260 0317 6C6F6E67 		.ascii	"long double\000"
+ 1260 0302 6C6F6E67 		.ascii	"long double\000"
  1260      20646F75 
  1260      626C6500 
  1261              	.LASF3:
- 1262 0323 7369676E 		.ascii	"signed char\000"
+ 1262 030e 7369676E 		.ascii	"signed char\000"
  1262      65642063 
  1262      68617200 
  1263              	.LASF30:
- 1264 032f 454E435F 		.ascii	"ENC_L_ISR_StartEx\000"
+ 1264 031a 454E435F 		.ascii	"ENC_L_ISR_StartEx\000"
  1264      4C5F4953 
  1264      525F5374 
  1264      61727445 

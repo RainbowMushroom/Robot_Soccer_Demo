@@ -11,7 +11,7 @@
 #include "robotmove.h"
 #include "encoder.h"
 
-/* Function: move_right_wheel
+/* Function: move_right_motor
  * Purpose: Turns the right wheel of the robot at the specified angular velocity
  * Inputs: double angv - the target angular velocity [rad/s] of the right wheel
  *         uint16_t motor_max_rpm  - the max rpm of the motor powered with a 100% duty cycle
@@ -19,21 +19,21 @@
  * Outputs: none
  *                      
  */
-void move_right_wheel(double angv, uint16_t motor_max_rpm){
+void move_right_motor(double angv, uint16_t motor_max_rpm){
     //Obtain the duty cycle to apply to the pin
     int8_t duty_cycle = radps_to_duty_cycle(angv, motor_max_rpm);
-    uint8_t count_value = (uint8_t)duty_cycle * 255; //8-bit PWM components have a max count of 255
+    int8_t count_value = (int8_t)(duty_cycle/100.0 * 255); //8-bit PWM components have a max count of 255
     //Apply the duty cycle to the output pins depending on the sign of duty_cycle
-    if(duty_cycle > 0){
+    if(duty_cycle > 0){ //Clockwise
         PWM_R_WriteCompare1(count_value);
         PWM_R_WriteCompare2(0);  //Ground the other PWM pin
-    } else {
+    } else { //Anticlockwise
         PWM_R_WriteCompare1(0); //Ground the other PWM pin
-        PWM_R_WriteCompare2(count_value);
+        PWM_R_WriteCompare2(count_value * -1); //Take the magnitude of the count value
     }
 }
 
-/* Function: move_left_wheel
+/* Function: move_left_motor
  * Purpose: Turns the left wheel of the robot at the specified angular velocity
  * Inputs: double angv - the target angular velocity [rad/s] of the left wheel
  *         uint16_t motor_max_rpm  - the max rpm of the motor powered with a 100% duty cycle
@@ -41,17 +41,17 @@ void move_right_wheel(double angv, uint16_t motor_max_rpm){
  * Outputs: none
  *                      
  */
-void move_left_wheel(double angv, uint16_t motor_max_rpm){
+void move_left_motor(double angv, uint16_t motor_max_rpm){
     //Obtain the duty cycle to apply to the pin
     int8_t duty_cycle = radps_to_duty_cycle(angv, motor_max_rpm);
-    uint8_t count_value = (uint8_t)duty_cycle * 255; //8-bit PWM components have a max count of 255
+    int8_t count_value = (int8_t)(duty_cycle/100.0 * 255); //8-bit PWM components have a max count of 255
     //Apply the duty cycle to the output pins depending on the sign of duty_cycle
-    if(duty_cycle > 0){
+    if(duty_cycle > 0){ //Clockwise
         PWM_L_WriteCompare1(count_value);
         PWM_L_WriteCompare2(0);  //Ground the other PWM pin
-    } else {
+    } else { //Anticlockwise
         PWM_L_WriteCompare1(0); //Ground the other PWM pin
-        PWM_L_WriteCompare2(count_value);
+        PWM_L_WriteCompare2(count_value * -1); //Obtain the magnitude of the count value
     }
 }
 
@@ -80,8 +80,8 @@ void move_robot(double linv, double angv, double robot_width, double wheel_diame
     double motor_r_angv = wheel_linv_to_motor_angv(v_right, gear_ratio, wheel_diameter);
     
     //Drive the wheels as required
-    move_left_wheel(motor_l_angv, motor_max_rpm);
-    move_right_wheel(motor_r_angv, motor_max_rpm);
+    move_left_motor(motor_l_angv, motor_max_rpm);
+    move_right_motor(motor_r_angv, motor_max_rpm);
 }
 
 /* Function: RPM_to_radps
@@ -111,8 +111,9 @@ double radps_to_RPM(double radps){
  * Inputs: double radps - the target angular rad/s value
  *         uint16_t motor_max_rpm - the maximum angular velocity in RPM the motor can rotate at 100% duty cycle DC input
  *         
- * Outputs: int8_t - the duty cycle to apply.  The sign indicates which direction the duty cycle should be applied
- *                  to the motors.  Positive -> clockwise, Negative -> anticlockwise/counterclockwise
+ * Outputs: int8_t - the duty cycle to apply, with the magnitude ranging from 0 - 100.
+ *                  The sign indicates which direction the duty cycle should be applied to the motors. 
+ *                  Positive -> clockwise, Negative -> anticlockwise/counterclockwise
  *                      
  */
 int8_t radps_to_duty_cycle(double radps, uint16_t motor_max_rpm){
@@ -123,11 +124,10 @@ int8_t radps_to_duty_cycle(double radps, uint16_t motor_max_rpm){
     //If the magnitiude of the radps is greater than motor_max_radps set the duty cycle to 100
     //Store only the integer part of the solution as greater accuracy is not necessary
     if((radps >= 0 && radps <= motor_max_radps) || (radps < 0 && radps*(-1) <= motor_max_radps)){
-        duty_cycle = radps / motor_max_radps;   
+        duty_cycle = (int8_t)((double)radps / motor_max_radps * 100);   
     } else {
         duty_cycle = 100;   
-    }
-    
+    }  
     return duty_cycle;
 }
 

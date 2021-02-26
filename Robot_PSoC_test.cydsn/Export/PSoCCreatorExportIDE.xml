@@ -7,7 +7,7 @@
       <Tool Name="prebuild" Command="" Options="" />
       <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
       <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
-      <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
+      <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -u_printf_float -g -ffunction-sections -Og -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
     <Toolchain Name="ARM MDK Generic" Selected="False">
@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="Robot_PSoC_test" Path="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" Version="5.70" Type="Normal">
+  <Project Name="Robot_PSoC_test" Path="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" Version="6.10" Type="Normal">
     <CMSIS_SVD_File>Robot_PSoC_test.svd</CMSIS_SVD_File>
     <Datasheet />
     <LinkerFiles>
@@ -34,8 +34,8 @@
       <LinkerFile Toolchain="ARM IAR Generic">.\Generated_Source\PSoC5\Cm3Iar.icf</LinkerFile>
     </LinkerFiles>
     <Folders>
-      <Folder BuildType="STRICT" Path="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">robotmove.c</File>
           <File BuildType="BUILD" Toolchain="">encoder.c</File>
@@ -46,8 +46,8 @@
           <File BuildType="BUILD" Toolchain="">robot_ID.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Generated_Source\PSoC5">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Generated_Source\PSoC5">
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cymetadata.c</File>
@@ -120,33 +120,13 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_R.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_R.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_R_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L_Timer.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L_Timer.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L_Timer_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_R_OVF_ISR.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_R_OVF_ISR.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_TMR_RESET.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_TMR_RESET.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_TMR_RESET_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R_Timer.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R_Timer.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R_Timer_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_L_OVF_ISR.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_L_OVF_ISR.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\tx_isr.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\tx_isr.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rx_isr.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\rx_isr.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_L_ISR.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_L_ISR.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R_ISR.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R_ISR.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ROBOT_ID_REG.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ROBOT_ID_REG.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_2.c</File>
@@ -170,52 +150,112 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_BOOT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_IntClock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_IntClock.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_audio.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_audio.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_boot.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cdc.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cdc.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cls.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_descr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_drv.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_episr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_hid.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_hid.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_pm.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_std.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_vnd.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_midi.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_midi.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_pvt.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cydmac.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_msc.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_msc.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L0_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R0_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L0_Timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L0_Timer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L0_Timer_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_R0_OVF_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_R0_OVF_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R0_Timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R0_Timer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R0_Timer_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_L0_OVF_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENCODER_L0_OVF_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_L0_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_L0_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R0_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R0_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_R1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_L1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_L1_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_L1_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R1_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R1_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_3.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Export\ARM_GCC_Generic">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Export\ARM_GCC_Generic">
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Export\ARM_MDK_Generic">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Export\ARM_MDK_Generic">
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Export\ARM_IAR_Generic">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\Export\ARM_IAR_Generic">
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_441">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_473">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051_Keil_952">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0p">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM3">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM4">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM7">
-        <Files Root="\\files.auckland.ac.nz\myhome\Documents\Summer Research\Robot Soccer Code\EmbeddedCode\PsOC Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
+        <Files Root="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn" />
       </Folder>
     </Folders>
   </Project>

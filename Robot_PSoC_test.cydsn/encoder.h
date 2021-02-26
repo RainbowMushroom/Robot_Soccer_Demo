@@ -11,8 +11,8 @@
 #ifndef ENCODER_H_
 #define ENCODER_H_
 #include "project.h"
-    
-double count_to_angv(uint16_t count, uint8_t encoder_counts);
+#include <stdbool.h>    
+double count_to_angv(uint16_t count, uint8_t encoder_counts, bool overflow, bool direction);    
 double motor_angv_to_wheel_angv(double motor_angv, uint8_t gear_ratio);
 double motor_angv_to_wheel_linv(double motor_angv, uint8_t gear_ratio, double wheel_diameter);
 double wheel_linv_to_motor_angv(double wheel_linv, uint8_t gear_ratio, double wheel_diameter);

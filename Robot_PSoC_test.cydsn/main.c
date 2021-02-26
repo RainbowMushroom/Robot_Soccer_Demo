@@ -10,8 +10,7 @@
  *
  * ========================================
  */
-/* TO FIND MORE ON DOUBLE BUFFERING UART SEE https://www.allaboutcircuits.com/technical-articles/uart-double-buffering-technique-interrupt-friendly/
-   This source is potentially useful as well https://community.cypress.com/t5/PSoC-5-3-1-MCU/UART-Input-String-Parsing/td-p/70565?start=0 */
+
 #include "project.h"
 #include "encoder.h"
 #include "robotmove.h"

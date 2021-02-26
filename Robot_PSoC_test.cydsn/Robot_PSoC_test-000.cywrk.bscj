@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Robot_PSoC_test-000\Robot_PSoC_test\Header Files\encoder.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Robot_PSoC_test-000\Robot_PSoC_test\Source Files\main.c">
 <ExpandedNodeIds>
 <v>Robot_PSoC_test-000</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test</v>
@@ -222,6 +222,23 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\PSoC 5LP Architecture TRM</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CY8C58LP Family Datasheet</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\System Reference Guides</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\System Reference Guides\cy_boot_v6_10</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_clock_v2_20</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_constant_v1_0.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_isr_v1_71</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_pins_v2_20</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CyControlReg_v1_80</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CyStatusReg_v1_90.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\PWM_v3_30</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\PWM_v3_30\PWM_v3_30.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Timer_v2_80</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Timer_v2_80\Timer_v2_80.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\UART_v2_50.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\USBFS_v3_20.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Robot_PSoC_test-000</v>
@@ -229,6 +246,23 @@
 <v>Robot_PSoC_test-000\Robot_PSoC_test\PSoC 5LP Architecture TRM</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\CY8C58LP Family Datasheet</v>
 <v>Robot_PSoC_test-000\Robot_PSoC_test\System Reference Guides</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\System Reference Guides\cy_boot_v6_10</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_clock_v2_20</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_constant_v1_0.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_isr_v1_71</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_pins_v2_20</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CyControlReg_v1_80</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\CyStatusReg_v1_90.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\PWM_v3_30</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\PWM_v3_30\PWM_v3_30.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Timer_v2_80</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\Timer_v2_80\Timer_v2_80.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\UART_v2_50.pdf</v>
+<v>Robot_PSoC_test-000\Robot_PSoC_test\USBFS_v3_20.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -239,9 +273,6 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\main.c" />
-<name v=".\encoder.c" />
-<name v=".\encoder.h" />
-<name v=".\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -249,7 +280,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1317, 535" SelectedTabbedMdiWindow="52207f1c-68b2-4147-8990-29e5e4ce28b7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="be3b8e1a-6e52-4e28-b154-08f2428e0f28" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\main.c" Guid="52207f1c-68b2-4147-8990-29e5e4ce28b7" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\encoder.c" Guid="baf4d50a-db46-4c07-aa75-8bc9fbe1fc2b" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\encoder.h" Guid="4c6593f8-00e4-42f8-870a-ce33db44c5b6" /><DocumentWindow Key="C:\Users\bscj\Documents\Curtis\Robotics Project\Robot_PSoC_test.cydsn\Robot_PSoC_test.cydsn\TopDesign\TopDesign.cysch" Guid="7bf773ab-54ee-450c-b306-380fa981f661" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1317, 535" SelectedTabbedMdiWindow="aaaaa700-f9c5-4ba8-8868-a41134701ad3"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="be3b8e1a-6e52-4e28-b154-08f2428e0f28" /><DocumentWindow Key="C:\Users\bscj\Documents\GitHub\Embedded-Robot-Code\Robot_PSoC_test.cydsn\main.c" Guid="aaaaa700-f9c5-4ba8-8868-a41134701ad3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
